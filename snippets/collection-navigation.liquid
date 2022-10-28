@@ -1,0 +1,91 @@
+<div class="collection-sort-spacer" id='scrolled'></div>
+<div class="collection__sort f aic jcc">
+
+    <div class='sort__select hide-desktop'>
+        <select onchange="navigateAway(this)">
+        <option class="ttu" selected="selected" disabled>Shop By</option>  
+        <option value='shave' >Shave</option>
+        <option value='wax-sugar' >Wax/Sugar</option>
+        <option value='laser-hair-removal'>Laser Hair Removal</option>
+        <option value='trim-au-naturale'>Trim / Au Naturale</option>
+        <option value='ingrown-hairs'>Ingrown Hairs</option>
+        <option value='razor-burn'>Razor Burn </option>
+        <option value='bumps-irritation'>Bumps/ Irritation</option>
+        <option value='dry-skin'>Dry Skin</option>
+        <option value='sensitive-skin'>Sensitive Skin</option>
+        <option value='keratosis-pilaris'>Keratosis Pilaris</option>
+        <option value='hyperpigmentation'>Hyperpigmentation</option>
+        <option value='armpit-discoloration'>Armpit Discoloration</option>
+        <option value='best-sellers'>Best Sellers</option>
+        <option value='top-rated' >Top Rated</option>
+        <option value='kits'>Kits</option>
+        <option value='refills'>Refills</option>
+        <option value='merch'>Merch</option>
+        <option value='all'>Shop All</option>
+        </select>
+        <div class="sort__caret"> {% include 'icon' with 'sort-caret' %} </div>
+    </div>
+
+    <nav>
+        <ul class="collection__menu fdr">
+            <li class="menu__item rel z1">
+                <a href="/collections/all" class="menu__link ttu bold">All Products</a>
+            </li>  
+
+            <li class="menu__item rel z1">
+                <button class="menu__link menu__link-btn ttu bold">Routine</button>
+                <ul class="submenu">
+                    {% for link in linklists.shop-routine.links %}
+                    {% capture child_list_handle %}{{ link.title | handle }}{% endcapture %}
+                        <li class="submenu__item"><a class="submenu__link" href="{{ link.url }}#scrolled">{{ link.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>  
+            
+            <li class="menu__item rel z1">
+                <button class="menu__link menu__link-btn ttu bold" >Concern</button>
+                <ul class="submenu">
+                    {% for link in linklists.shop-concern.links %}
+                    {% capture child_list_handle %}{{ link.title | handle }}{% endcapture %}
+                        <li class="submenu__item"><a class="submenu__link" href="{{ link.url }}#scrolled">{{ link.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+
+            <li class="menu__item rel z1">
+                <a href="/collections/kits#scrolled" class="menu__link ttu bold">Kits</a>
+            </li>  
+            <li class="menu__item rel z1">
+                <a href="/collections/refills#scrolled" class="menu__link ttu bold">Refills</a>
+            </li>  
+            <li class="menu__item rel z1">
+                <a href="/collections/merch#scrolled" class="menu__link ttu bold">Merch</a>
+            </li>  
+
+            <li class="menu__item rel z1">
+                <button class="menu__link-btn ttu bold">Sort By</button>
+                <ul class="submenu">
+                    <li class="submenu__item js-latest-arrivals" data-value="created-descending">Latest Arrivals</li>
+                    <li class="submenu__item js-price-low" data-value="price-ascending">Price: Low to High</li>
+                    <li class="submenu__item js-price-high" data-value="price-descending">Price: High to Low</li>
+                    <li class="submenu__item js-bestsellers" data-value="best-selling">Best Sellers</li>
+                </ul>
+            </li>    
+        </ul>    
+    </nav>
+
+     <div class="sort__select">
+        <label class="sort-label ttu bold" for="sort-by" style="opacity: 0; height: 0;">Sort by Category</label> 
+        <select id="sort-by">
+        <option class="ttu" value="sort-by" selected="selected" disabled>Sort By Category </option>  
+        <option value="price-ascending">Price: Low to High</option>
+        <option value="price-descending">Price: High to Low</option>
+        <option value="best-selling">Best Sellers</option>
+        <option value="manual">Latest Arrivals</option>
+        </select>
+        <div class="sort__caret"> {% include 'icon' with 'sort-caret' %} </div> 
+    </div> 
+</div>
+
+
+

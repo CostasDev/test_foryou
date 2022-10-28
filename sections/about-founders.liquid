@@ -1,0 +1,47 @@
+<div class='container--xl mha pl2 pr2'>
+    <div class='f aic jcb fw about__block pv1'>
+      <div>
+        <div class="about__content line-break">
+          <h3 class='serif underline__break '>{{ section.settings.founders_headline }}</h3>
+          <p class='mb2 container--m'>{{ section.settings.founders_description }}</p>
+          {% if section.settings.founders_signature %}
+          <img class="about__signature" src="{{ section.settings.founders_signature | img_url: '250x' }}" alt="{{ section.settings.founders_signature.alt | escape }}">
+          {% endif %}
+        </div>
+      </div>
+      <div class='ar about__background bottom' style="background-image: url('{{ section.settings.founders_image | img_url: '800x' }}')" alt="{{ section.settings.founders_image.alt | escape }}">
+        <img class='x lazyload' data-src="{{ section.settings.founders_image | img_url: '800x' }}" alt="{{ section.settings.founders_image.alt | escape }}"/>
+      </div>
+    </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "About - Founders",
+    "settings": [
+      {
+        "type": "text",
+        "id": "founders_headline",
+        "label": "Founders Headline",
+        "default": "Welcome to the new era of body care."
+      },
+      {
+        "type": "richtext",
+        "id": "founders_description",
+        "label": "Founders Description"
+      },
+      {
+        "type": "image_picker",
+        "id": "founders_image",
+        "label": "Founders Image"
+      },
+        {
+        "type": "image_picker",
+        "id": "founders_signature",
+        "label": "Founders Signature"
+      }
+    ]
+  }
+{% endschema %}
+

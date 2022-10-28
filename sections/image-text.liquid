@@ -1,0 +1,394 @@
+<div data-section-type="image-text" data-component="imagetext">
+  <div id="image-text--{{section.id}}" class="image-text-container full-width--{{section.settings.full_width}} image-align--{{section.settings.image_align}} image-size--{{section.settings.image_width}} mobile-bottom--{{section.settings.mobile_bottom}} mobile-half--{{section.settings.mobile_half}}">
+    <div class="image-text-item image-text--media">
+        {% if section.settings.video != blank %}
+          <div class="video-wrapper small--hide" data-component="videoPlayer" style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;">
+            <div class="video-container" id="video-container">
+              <video controls id="video" preload="metadata" playsinline controls="false" poster="{{section.settings.image | img_url: '2048x'}}">
+                <source src="{{section.settings.video}}" type="video/mp4">
+              </video>
+          
+              <div class="play-button-wrapper">
+                <div title="Play video" class="play-gif" id="circle-play-b">
+                  <svg width="87" height="96" viewBox="0 0 87 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M87 48L0 95.6314V0.368603L87 48Z" fill="#999999"/>
+                  </svg>  
+                </div>
+              </div>
+            </div>
+          </div>
+          {% if section.settings.mobile_image != blank %}
+            {% assign mobile_image = section.settings.mobile_image %}
+          {% else %}
+            {% assign mobile_image = section.settings.image %}    
+          {% endif %}
+
+          <div class="video-wrapper medium-up--hide" data-component="videoPlayer" style="padding-top:{{ 1 | divided_by: mobile_image.aspect_ratio | times: 100 }}%;">
+            <div class="video-container" id="video-container">
+              <video controls id="video" preload="metadata" playsinline controls="false" poster="{{mobile_image | img_url: '2048x'}}">
+                <source src="{{section.settings.mobile_video}}" type="video/mp4">
+              </video>
+          
+              <div class="play-button-wrapper">
+                <div title="Play video" class="play-gif" id="circle-play-b">
+                  <svg width="87" height="96" viewBox="0 0 87 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M87 48L0 95.6314V0.368603L87 48Z" fill="#999999"/>
+                  </svg>  
+                </div>
+              </div>
+            </div>
+          </div>
+        {% else %}
+          <div class="image-wrapper small--hide" style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;">
+            <img class="lazyload fill" data-src="{{ section.settings.image | img_url: '2048x' | crop: 'center' }}" alt="{{ section.settings.title }}"/>
+          </div>
+          {% if section.settings.mobile_image != blank %}
+            {% assign mobile_image = section.settings.mobile_image %}
+          {% else %}
+            {% assign mobile_image = section.settings.image %}    
+          {% endif %}
+          <div class="image-wrapper medium-up--hide" style="padding-top:{{ 1 | divided_by: mobile_image.aspect_ratio | times: 100 }}%;">
+            <img class="lazyload fill" data-src="{{ mobile_image | img_url: '2048x' | crop: 'center' }}" alt="{{ section.settings.title }}"/>
+          </div>
+        {% endif %}
+    </div>
+    <div class="image-text-item image-text--text">
+      <div class="info style--{{section.settings.content_type}}">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'title' %}
+              <h2 class="uppercase--{{block.settings.upprecase}}">{{block.settings.title}}</h2>
+              <style>
+                #image-text--{{section.id}} .info h2 span {
+                  color: {{block.settings.title_color}};
+                }
+              </style>
+            {% when 'text' %}
+              <div class="rte large-text--{{block.settings.large_text}} {% if section.settings.content_type %}small--hide{% endif %}">
+                {{block.settings.text}}
+              </div>
+              <div class="rte large-text--{{block.settings.large_text}} {% if section.settings.content_type %}medium-up--hide{% endif %}">
+                {% if section.settings.mobile_half %}
+                  <p>ALMOST DONE</p>
+                {% else %}
+                  {{block.settings.text}}
+                {% endif %}
+                
+              </div>
+              {% assign mobile_text = block.settings.mobile_text %}
+
+            {% when 'icons' %}
+              <div class="icons">
+                <div class="icon-item">
+                  {{block.settings.icon_1}}
+                  <span>{{block.settings.title_1}}</span>
+                </div>
+                <div class="icon-item">
+                  {{block.settings.icon_2}}
+                  <span>{{block.settings.title_2}}</span>
+                </div>
+                <div class="icon-item">
+                  {{block.settings.icon_3}}
+                  <span>{{block.settings.title_3}}</span>
+                </div>
+                <div class="icon-item">
+                  {{block.settings.icon_4}}
+                  <span>{{block.settings.title_4}}</span>
+                </div>
+                <div class="icon-item">
+                  {{block.settings.icon_5}}
+                  <span>{{block.settings.title_5}}</span>
+                </div>
+              </div>
+            {% when 'button' %}
+              {% if block.settings.button_title != blank %}
+                {% if block.settings.login_url != blank and customer %}
+                  <a href="{{block.settings.login_url}}" class="btn mt05 bold" role="button" itemprop="url">{{block.settings.button_title}}</a>
+                {% else %}
+                  <a href="{{block.settings.button_link}}" class="btn mt05 bold" role="button" itemprop="url">{{block.settings.button_title}}</a>
+                {% endif %}
+              {% endif %}
+              {% if block.settings.arrow_button %}
+              <a href="{{block.settings.button_link}}" class="arrow" role="button" itemprop="url">
+                <svg width="99" height="93" viewBox="0 0 99 93" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M95 51L49.5 89L4 51" stroke="#231F20" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M50 89V4" stroke="#231F20" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+              {% endif %}
+          {% endcase %}
+        {% endfor %}
+      </div>
+      {% if section.settings.caption != blank %}
+      <img class="lazyload caption" data-src="{{ section.settings.caption | img_url: '2048x' | crop: 'center' }}" alt="{{ section.settings.title }}"/>
+      {% endif %}
+    </div>
+
+    {% if mobile_text != blank %}
+    <div class="bottom_text medium-up--hide">
+      {{mobile_text}}
+    </div>
+    {% endif %}
+    
+  </div>
+</div>
+
+<style>
+  [data-section-type="image-text"] {
+    background: {{section.settings.bg_color}};
+    {% if section.settings.full_width == false %}
+      padding: 0.1px;
+    {% endif %}
+  }
+  @media screen and (max-width: 768px) {
+    [data-section-type="image-text"] {
+      background: {{section.settings.mobile_color}};
+    }
+    
+  }
+</style>
+
+{% schema %}
+{
+  "name": "image text",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile image"
+    },
+    {
+      "type": "url",
+      "id": "video",
+      "label": "Video"
+    },
+    {
+      "type": "url",
+      "id": "mobile_video",
+      "label": "Mobile Video"
+    },
+    {
+      "type": "select",
+      "id": "image_align",
+      "label": "Image position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "image_width",
+      "label": "Image width",
+      "default": "medium",
+      "options": [
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "caption",
+      "label": "Caption image"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_bottom",
+      "label": "Mobile bottom image"
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_half",
+      "label": "Mobile half image"
+    },
+    {
+      "type": "select",
+      "id": "content_type",
+      "label": "Content type",
+      "options": [
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "mobile_color",
+      "label": "MObile color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "title",
+      "name": "title",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "checkbox",
+          "id": "upprecase",
+          "label": "Uppercase"
+        },
+        {
+          "type": "color",
+          "id": "title_color",
+          "label": "Special text color"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "richtext",
+          "id": "mobile_text",
+          "label": "Mobile text"
+        },
+        {
+          "type": "checkbox",
+          "id": "large_text",
+          "label": "Large text"
+        },
+        {
+          "type": "checkbox",
+          "id": "bold",
+          "label": "Bold text"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_title",
+          "label": "Button title"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "arrow_button",
+          "label": "Arrow button"
+        },
+        {
+          "type": "url",
+          "id": "login_url",
+          "label": "Url (After login)"
+        }
+      ]
+    },
+    {
+      "type": "icons",
+      "name": "icons",
+      "settings": [
+        {
+          "type": "html",
+          "id": "icon_1",
+          "label": "Icon 1"
+        },
+        {
+          "type": "text",
+          "id": "title_1",
+          "label": "Title 1"
+        },
+        {
+          "type": "html",
+          "id": "icon_2",
+          "label": "Icon 1"
+        },
+        {
+          "type": "text",
+          "id": "title_2",
+          "label": "Title 1"
+        },
+        {
+          "type": "html",
+          "id": "icon_3",
+          "label": "Icon 1"
+        },
+        {
+          "type": "text",
+          "id": "title_3",
+          "label": "Title 1"
+        },
+        {
+          "type": "html",
+          "id": "icon_4",
+          "label": "Icon 1"
+        },
+        {
+          "type": "text",
+          "id": "title_4",
+          "label": "Title 1"
+        },
+        {
+          "type": "html",
+          "id": "icon_5",
+          "label": "Icon 1"
+        },
+        {
+          "type": "text",
+          "id": "title_5",
+          "label": "Title 1"
+        }
+      ]
+    }
+  ],
+ "presets": [
+  {
+    "name":"Image with text"
+  }
+ ]
+}
+{% endschema %}

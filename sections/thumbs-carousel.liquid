@@ -1,0 +1,70 @@
+<div data-section-type="thumbs-carousel" data-component="thumbsCarousel">
+  <div class="thumbs-carousel-container">
+    <h2>{{section.settings.title}}</h2>
+    <div class="slider">
+      <div class="swiper-container">
+        
+        
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+          <div class="swiper-slide">
+            <div class="container">
+              <img src="{{ block.settings.image_carousel | img_url: '2048x' | crop: 'center' }}" alt="{{ block.settings.title }}"/>
+              <div class="info">
+                <h3>{{block.settings.title}}</h3>
+                {{block.settings.text}}
+              </div>
+            </div>
+            
+          </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-arrows-contianer"> 
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+ "name": "Thumbs caoursel",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Thumbs",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_carousel", 
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        }, 
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name":"thumbs carousel"
+    }
+  ]
+}
+{% endschema %}

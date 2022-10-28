@@ -1,0 +1,21 @@
+
+<div class='product__radio-block {{class}} f jcc aic' for='{{label}}' tabindex="0" role="radio">
+  <input
+    id='{{label}}'
+    type=radio
+    name={{name}}
+    value='{{value}}'
+    class='f jcc aic x y'
+    {{ attributes }}
+    {% if checked %}checked{% endif %}
+  />
+    <label data-{{ name | handleize }}='{{ value | handleize }}' class='product__radio-checkmark product__radio-label f fdr jcc aic' for='{{label}}' tabindex="0" role="radio">{{label}}</label>
+    <div style="opacity: 0; pointer-events: none;">{{label}}</div>
+</div>
+
+{% assign label = blank %}
+{% assign name = blank %}
+{% assign value = blank %}
+{% assign attributes = blank %}
+{% assign checked = false %}
+{% assign selectorClass = blank %}

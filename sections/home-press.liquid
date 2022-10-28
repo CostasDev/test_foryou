@@ -1,0 +1,70 @@
+<div id="press" data-component='press' class="js-home-fade">
+  <div class='bg-lightbeige slider__container pt2'>
+    <div class='container--p mha px2 '>
+      <div class="js-slider slider">
+        {% for block in section.blocks %}
+          {% assign press = block.settings %}
+          <div class="tac fill-h slider__item">
+            <img class='inline-block' src="{{ press.press_image | img_url: 'medium' }}" alt="{{ press.press_image.alt | escape }}"/>
+            <p class="h3 mv1">
+              &#147;{{press.press_snippet}}&#148;
+            </p>
+            {% if press.press_name %}<p class='h6 cb'>{{press.press_name}}</p>{% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class='bg-beige px2'>
+    <div class='tac f jcc fw aic js-thumb-slides'>
+      {% for block in section.blocks %}
+      {% assign press = block.settings %}
+        <div class='active slider__thumbs'>
+          <img class='block' src="{{ press.press_image | img_url: 'medium' }}" alt="{{ press.press_image.alt | escape }}">
+        </div>
+      {% endfor %}
+      <div class='press-see-all'>
+        <a href="/blogs/press" class='f jcs aic bold cb inline-block link__arrow'>
+          See All Press
+          {% include 'icon' with 'arrow-right' %}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Press",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "item",
+        "name": "Press",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "press_image",
+            "label": "Logo"
+          },
+          {
+            "type": "text",
+            "id": "press_snippet",
+            "label": "Press Snippet"
+          },
+          {
+            "type": "text",
+            "id": "press_name",
+            "label": "Quotee"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Press Module",
+        "category": "homepage"
+      }
+    ]
+  }
+{% endschema %}

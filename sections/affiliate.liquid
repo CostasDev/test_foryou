@@ -1,0 +1,106 @@
+
+<div class="affiliate mb1">
+
+    <div class='affiliate__hero tac fw jcb aic rel'>
+        <img class='abs fill x y' src="{{ section.settings.bg_image | img_url: '2000x' }}" alt="{{ section.settings.bg_image.alt | escape }}" />
+        <div class="hero__image-overlay"></div>
+        <h1 class='container--m mha rel z1'>{{ section.settings.about_title }}</h1>
+    </div>
+
+    <h3 class="affiliate__mobile-headline tac mt2">{{ section.settings.mobile_title }}</h3>
+
+    <div class="affiliate-section center outer container--m mha ac pl1 pr1 mt2 line-break">
+        <p>{{ section.settings.intro_text }}</p>
+        <a class='btn mt15 btn_chartreuse' role='button' href="{{ section.settings.apply }}" itemprop="url" aria-label="Apply now">Apply Now!</a>
+
+        <div class="mt4">
+        <p>{{ section.settings.pros_text }}</p>
+         <a class='btn mt15 btn_chartreuse' role='button' href="{{ section.settings.pros_apply }}" itemprop="url" aria-label="Apply now">Learn More</a>
+        </div>
+    </div>
+
+    <div class='f fw jcc rel'>
+        <div class='content outer container--m mha ac line-break'>
+            <div class="mt2">
+            {% for block in section.blocks %}
+                {% assign info = block.settings %}
+                {% assign id = info.title | handle %}
+
+                <div class='affiliate-section block mt2 line-break'>
+                <h4 class="serif">{{ info.title }}</h4>
+                <p>{{ info.contents }}</p>
+                </div>
+            {% endfor %}
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+
+{% schema %}
+  {
+    "name": "Affiliate Page",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "Hero Background Image"
+      },
+      {
+        "type": "text",
+        "id": "about_title",
+        "label": "Desktop Headline",
+        "default": "Affiliate Program"
+      },
+      {
+        "type": "text",
+        "id": "mobile_title",
+        "label": "Mobile Headline",
+        "default": "Fur Affiliate Program"
+      },
+
+       {
+        "type": "text",
+        "id": "intro_text",
+        "label": "Intro Text",
+        "default": "Our Referral Program seeks to expand and integrate the Fur community through a network of Affiliates who are passionate about our products and mission. Affiliates have the opportunity to gain commission and rewards for their referral of Fur products to family, friends and followers. We would love for you to join our Fur Affiliate Community!"
+      },
+      {
+        "type": "url",
+        "id": "apply",
+        "label": "Apply Now URL"
+      },
+      {
+        "type": "text",
+        "id": "pros_text",
+        "label": "Pros Info"
+      },
+      {
+        "type": "url",
+        "id": "pros_apply",
+        "label": "Pros CTA URL"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "info",
+        "name": "Info Block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "contents",
+            "label": "Contents"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

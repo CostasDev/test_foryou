@@ -1,0 +1,76 @@
+<div data-section-type="ingredients-section" data-component="ingredients">
+  
+  <div class="image-text-container image-align--{{section.settings.image_align}}">
+    <div class="image-text-item image-text--media">
+      <h2 class="text-center center">{{section.settings.title}}</h2>
+      <div class="image-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;">
+        <img class="lazyload fill" data-src="{{ section.settings.image | img_url: '2048x' | crop: 'center' }}" alt="{{ section.settings.title }}"/>
+        <div class="overlay" >
+          {% for block in section.blocks %}
+            <div id="overlay--{{block.id}}" class="overlay-item {% if forloop.index == 1 %}active{% endif %}" data-tab="#tab--{{block.id}}" data-target="#block--{{block.id}}"></div>
+          {% endfor %}
+        </div>
+      </div>
+      
+    </div>
+    <div class="image-text-item image-text--text">
+      <div class="info">
+        <ul class="ingredient-tabs medium-up--hide">
+          {% for block in section.blocks %}
+          <li id="tab--{{block.id}}" class="{% if forloop.index == 1 %}active{% endif %}" data-overlay="#overlay--{{block.id}}" data-target="#block--{{block.id}}">{{forloop.index}}</li>
+          {% endfor %}
+        </ul>
+        
+        {% for block in section.blocks %}
+          <div id="block--{{block.id}}" class="text-block {% if forloop.index == 1 %}active{% endif %}">
+            <div class="content">
+              <h2>{{block.settings.title}}</h2>
+              {{block.settings.text}}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Key Ingredients",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }, 
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name":"Key Ingredients"
+    }
+  ]
+}
+{% endschema %}

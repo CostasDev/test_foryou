@@ -1,0 +1,24 @@
+{% form 'activate_customer_password' %}
+  <div class="row">
+    <input class="text long{% if form.errors contains 'password' %} error{% endif %}" name="customer[password]" id="customer_password" placeholder="{{ 'customer.activate_account.password' | t }}" type="password">
+    {% include 'form-field-error', field: 'password' %}
+  </div>
+  <div class="row">
+    <input class="text long{% if form.errors contains 'password_confirmation' %} error{% endif %}" name="customer[password_confirmation]" id="customer_password_confirmation" placeholder="{{ 'customer.activate_account.password_confirm' | t }}" type="password">
+    {% include 'form-field-error', field: 'password_confirmation' %}
+  </div>
+  {% include 'form-errors' %}
+  <div class="row actions expanded-top">
+    <button class="btn solid {{ settings.button_shape }}" name="commit" type="submit" value="">
+      {{ 'customer.activate_account.submit_html' | t }}
+    </button>
+  </div>
+  <div class="row expanded-top back">
+    {% capture link %}
+      <button class="underline" type="submit" class="text-link" name="decline" id="customer_decline">
+        {{ 'customer.activate_account.cancel' | t }}
+      </button>
+    {% endcapture %}
+    {{ 'general.navigation.cancel_html' | t: link: link }}
+  </div>
+{% endform %}

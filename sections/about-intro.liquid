@@ -1,0 +1,68 @@
+<div class='container--xl mha px2'>
+    <div class='about__block f aic jcb fw pv1 mb2'>
+      <div class="about__content-wrapper">
+        <div class="about__content  line-break">
+          <h2 class='h3 serif underline__break mb05 '>{{ section.settings.headline_one }}</h2>
+          <p class='mb2 container--m'>{{ section.settings.info_one }}</p>
+        </div>
+      </div>
+      <div class='about__background top ar' style="background-image: url('{{ section.settings.image_one | img_url: '800x' }}')">
+        <img class='x lazyload' data-src="{{ section.settings.image_one | img_url: '800x' }}" alt="{{ section.settings.image_one.alt | escape }}"/>
+      </div>
+    </div>
+    <div class='about__block f aic jcb fw reverse pv1'>
+      <div class="about__content-wrapper">
+        <div class="about__content line-break">
+          <h3 class='serif underline__break mb05 '>{{ section.settings.headline_two }}</h3>
+          <p class='mb2 container--m'>{{ section.settings.info_two }}</p>
+        </div>
+      </div>
+      <div class='about__background bottom al' style="background-image: url('{{ section.settings.image_two | img_url: '800x' }}')">
+        <img class='x lazyload' data-src="{{ section.settings.image_two | img_url: '800x' }}" alt="{{ section.settings.image_two.alt | escape }}"/>
+      </div>
+    </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Intro / Why We Created It",
+    "settings": [
+      {
+        "type": "text",
+        "id": "headline_one",
+        "label": "First headline",
+        "default": "We believe in natural, beautiful care for every part of the body—for every body."
+      },
+      {
+        "type": "text",
+        "id": "info_one",
+        "label": "First Description",
+        "default": "Our entire line is created with the cleanest facial-grade, vegan, cruelty free, non-toxic ingredients that are dermatologically and gynecologically tested. We don't formulate with mineral oil, silicones, parabens, synthetic fragrances, or artificial dyes. That's why Fur is safe enough for your most intimate areas, and effective from head to toe."
+      },
+      {
+        "type": "image_picker",
+        "id": "image_one",
+        "label": "First Image"
+      },
+      {
+        "type": "text",
+        "id": "headline_two",
+        "label": "Second headline",
+        "default": "Gentle enough for pubic hair and skin, but effective from head to toe."
+      },
+      {
+        "type": "text",
+        "id": "info_two",
+        "label": "Second Description",
+        "default": "All of our super gentle formulas are packed with high quality ingredients to soothe and smooth skin to treat and prevent ingrowns, while softening hair and refining regrowth. Whether you shave, wax, laser, or go au naturale, Fur products play well with any haircare routine."
+      },
+      {
+        "type": "image_picker",
+        "id": "image_two",
+        "label": "Second Image"
+      }
+    ]
+  }
+{% endschema %}
+

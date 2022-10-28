@@ -1,0 +1,118 @@
+{% if section.settings.show_promobar %}
+<div data-component="promobar">
+  <div class="announcement tac ttu">
+    <a class="announcement__bar cw" href="{{ section.settings.promobar_url }}"><div class="announcement__text bold active cw">{{ section.settings.promobar_content }}</div></a>
+  </div>
+</div>
+{% endif %}
+
+<header class="header ajax-blocked" data-component="header">
+    <div class="header__wrapper df jcb x y aic pl2 pr2 rel">
+        <div class="navigation__mobile rel">
+          <a title="mobile menu" aria-label="Open or Close Mobile menu" role="button" class="navigation__toggle js-toggle rel block">
+          </a>
+        </div>
+        {% include 'mobile-navigation' %}
+        <div class="header__left">
+            <ul class="df fdr aic">
+            <li class="header__navigation-link js-shop-hover df aic">
+                 <a href='/collections/all' itemprop="url" aria-label="Go to All Collections">Shop</a>
+                 {% include 'shop-all-dropdown' %}
+            </li>
+            <li class="header__navigation-link js-faq-hover df aic">
+                 <a href='/pages/faqs' itemprop="url" aria-label="Go to FAQ page">Help</a>
+                 {% include 'faq-dropdown' %}
+            </li>
+            {% for link in linklists.main-menu.links %}
+                <li class="header__navigation-link"><a href='{{ link.url }}' itemprop="url" aria-label="Go to {{ link.title }}">{{ link.title }}</a></li>
+            {% endfor %}
+            </ul> 
+        </div>
+
+        <div class="header__logo" itemscope itemtype="http://schema.org/Organization">
+            <a href="/" role="button" itemprop="url" aria-label="Go to Homepage">{% include 'icon' with 'logo' %}</a>
+        </div>
+
+        <div class="header__right">
+            <ul class="df fdr aic">
+            {% for link in linklists.desktop-right.links %}
+                <li class="header__navigation-link"><a itemprop="url" href='{{ link.url }}' aria-label="Go to {{ link.title }}">{{ link.title }}</a></li>
+            {% endfor %}
+
+            {% if shop.customer_accounts_enabled %}
+                {% if customer %}
+                    <li class="header__navigation-link"><a href="/account" itemprop="url" aria-label="Go to {{ link.title }}"><span>{{ 'layout.side_nav.account' | t }}</span></a></li>
+                    {% else %}
+                    <li class="header__navigation-link"><a href="/account/login" itemprop="url" aria-label="Go to {{ link.title }}"><span>{{ 'layout.side_nav.signin' | t }}</span></a></li>
+                {% endif %}
+            {% endif %}
+            </ul> 
+        
+        </div>
+
+        <a href="/search" class="header__search js-search abs" data-component="search" aria-label="Open or Close Search Overlay">{% include 'icon' with 'icon-search' %}</a>
+
+         <a href="/cart" class='header__cart js-cart-drawer-toggle abs df fdr aic' aria-label="Open or Close Side Cart">
+            {% include 'icon' with 'icon-cart' %} <div class="header__cart-dot abs"></div>
+            <div class='header__cart-qty df jcs aic' data-cart-count>{% if cart.item_count %} {{ cart.item_count }} {% endif %}</div>
+         </a>
+    </div>
+    
+</header>
+{% include 'search-overlay' %}
+
+
+
+{% schema %}
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_promobar",
+        "label": "Show Promobar",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "promobar_content",
+        "label": "Promobar Desktop Content"
+      },
+      {
+        "type": "url",
+        "id": "promobar_url",
+        "label": "Promobar URL"
+      },
+      {
+        "type": "url",
+        "id": "faq_url1",
+        "label": "FAQ Url 1"
+      },
+      {
+        "type": "text",
+        "id": "faq_text1",
+        "label": "FAQ Text 1"
+      },
+      {
+        "type": "url",
+        "id": "faq_url2",
+        "label": "FAQ Url 2"
+      },
+      {
+        "type": "text",
+        "id": "faq_text2",
+        "label": "FAQ Text 2"
+      },
+        {
+        "type": "url",
+        "id": "faq_url3",
+        "label": "FAQ Url 3"
+      },
+      {
+        "type": "text",
+        "id": "faq_text3",
+        "label": "FAQ Text 3"
+      }
+    ]
+  }
+{% endschema %}

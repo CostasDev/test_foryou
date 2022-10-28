@@ -1,0 +1,23 @@
+{% if blog.title == 'Press'%}
+  <div class='press-page'>
+    {% section 'press-hero' %}
+    <div class="content__wrapper container--xl ph2 mha">
+        <div class='press__headline tac mx2'>
+          <p class="m0 xsmall">Press and inquiries:</p>
+           <h5><a href='mailto:press@furyou.com'>press@furyou.com</a></h5>
+        </div>
+
+        {% paginate blog.articles by 100 %}
+          <div class="press__grid f fw jcb">
+            {% for article in blog.articles %}
+              {% include 'press-post' %}
+            {% endfor %}
+          </div>
+
+          {% include 'pagination' %}
+        {% endpaginate %}
+      </div>
+  </div>
+{% else %}
+  {% section 'blog-template' %}
+{% endif %}

@@ -1,0 +1,71 @@
+<div data-section-type="image-popup" style="background: {{section.settings.bg_color}};" data-component="imagePopup">
+  <div class="image-popup-container">
+    {% for block in section.blocks %}
+      <div class="image-item">
+        <a class="toggle button" data-target="popup--{{block.id}}">
+          <img class="lazyload" data-src="{{ block.settings.image | img_url: '2048x' | crop: 'center' }}" alt="{{ block.settings.title }}"/>
+        </a>
+        <h2>{{block.settings.heading}}</h2>
+      </div>
+      <div id="popup--{{block.id}}" class="popup hide">
+        <div class="popup-header">
+          {{block.settings.title}}
+          <span class="close toggle" data-target="popup--{{block.id}}">close</span>
+        </div>
+        <div class="popup-body">
+          {{block.settings.text}}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "image popup",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "popup",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "heading",
+          "label": "Title"
+        }, 
+        {
+          "type": "header",
+          "content": "Popup content"
+        },
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name":"Image popup"
+    }
+  ]
+}
+{% endschema %}

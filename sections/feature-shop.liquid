@@ -1,0 +1,64 @@
+<div class='feature-block'>
+  <div class='feature-block__inner f aic fw jcb'>
+    <div class='z2 rel px2'>
+      <small class='caps bold mx0 px0 p5 ttu'>{{section.settings.subtitle}}</small>
+      <h3 class='serif pv05 mt0 demi'>{{section.settings.title}}</h3>
+      <div class='container--s pt0 pb1'>{{section.settings.description}}</div>
+      <a href="{{section.settings.link}}" class='btn mt05 bold' role='button' itemprop="url">{{section.settings.cta}}</a>
+    </div>
+    <div class='z2 rel'>
+      <img class="x lazyload" data-src="{{ section.settings.image | img_url: '1000x' }}" alt="{{ section.settings.image.alt }}"/>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Shop Feature",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+     {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Mini Headline",
+        "default": "Everything you need"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Headline",
+        "default": "The Fuller Frontal"
+      },
+      {
+        "type": "richtext",
+        "id": "description",
+        "label": "Description",
+        "default": "<p>The full set of FUR products for daily hair/skin care and ingrown prevention for the entire body.</p>"
+      },
+      {
+        "type": "text",
+        "id": "cta",
+        "label": "CTA",
+        "default": "Shop the Bundle"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "URL"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Shop Feature",
+        "category": "modules"
+      }
+    ]
+  }
+
+{% endschema %}
+

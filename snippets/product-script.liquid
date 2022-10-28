@@ -1,0 +1,7 @@
+<script>
+  window.product = {{ product | json }};
+  window.product.formatPrice = {{ product.price | money | json }};
+  window.product.money_format = "{{ shop.money_format }}";
+  window.product.add_label = {% if product.options.size == 1 %}true{% else %}false{% endif %};
+  window.product.label = "{{ product.options.first | escape }}";
+</script>

@@ -1,0 +1,41 @@
+<div class="collection" data-component="collection">
+<div class="collection__header f jcc aic" style="background-image: url({{collection | img_url: '2000x'}})" alt="{{ collection.image.alt | escape }}">
+    <h1 class='cw serif px2 tac'>{{ collection.title }}</h1>
+</div> 
+
+{% include 'collection-navigation' %}
+
+<section class="collection__content x y" data-component="infiniteScroll">
+
+    {% if collection.products.size == 0 %}
+        <div class="h100vh f jcc aic">
+            <p class="collection__empty body-copy tac x y">No items in this collection.</p>
+        </div>
+    {% else %}
+
+        {% paginate collection.products by '100' %}
+        <div class="collection__wrapper container--xl mxa x y f fw fdr jcc"  id="AjaxinateContainer">    
+            {% for product in collection.products %}
+                {% include 'collection-item' %}
+            {% endfor %}
+        </div>
+        <div id="AjaxinatePagination" class="collection__paginate-cta uppercase">
+            {% if paginate.next %}
+                <a href="{{ paginate.next.url }}">View more</a>
+            {% endif %}
+        </div>
+        {% endpaginate %}
+    {% endif %}
+</section>
+
+</div>
+
+<div class="container--xl mha">
+{% section 'feature-shop' %}
+</div>  
+
+ <script>
+  function navigateAway(obj) {
+    window.location.href = '/collections/' + obj.value
+  }
+</script> 

@@ -1,0 +1,24 @@
+{% assign hero = section.settings %}
+
+<div class='hero--new tac f fw jcb aic rel'>
+  <img class='abs fill x y' src="{{ hero.image | img_url: '2000x' }}" alt="{{ hero.image.alt | escape }}"/>
+  <h1 class='cw serif container--m mha rel z1'>{{ hero.title }}</h1>
+</div>
+
+{% schema %}
+  {
+    "name": "Press Hero",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      }
+    ]
+  }
+{% endschema %}

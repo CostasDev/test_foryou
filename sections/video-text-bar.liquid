@@ -1,0 +1,117 @@
+<div data-section-type="video-text-bar" {% if section.blocks.size > 0 %}class="pricing-container"{% endif %}>
+  <div class="video-text-bar-container">
+    <div class="video-text-media">
+      {% if section.settings.video != blank %}
+        <div class="video-wrapper small--hide" style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;">
+          <video autoplay="true" loop="true" poster="{{section.settings.image}}" muted="" playsinline="" webkit-playsinline="">
+            <source muted="" autoplay="" src="{{section.settings.video}}" type="video/mp4">
+          </video>
+        </div>
+        <div class="video-wrapper medium-up--hide" style="padding-top:{{ 1 | divided_by: section.settings.mobile_image.aspect_ratio | times: 100 }}%;">
+          <video autoplay="true" loop="true" poster="{{section.settings.mobile_image}}" muted="" playsinline="" webkit-playsinline="">
+            <source muted="" autoplay="" src="{{section.settings.mobile_video}}" type="video/mp4">
+          </video>
+        </div>
+      {% else %}
+        <div class="image-wrapper small--hide" style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;">
+          <img class="lazyload fill" data-src="{{ section.settings.image | img_url: '2048x' | crop: 'center' }}" alt="{{ section.settings.title }}"/>
+        </div>
+        <div class="image-wrapper medium-up--hide" style="padding-top:{{ 1 | divided_by: section.settings.mobile_image.aspect_ratio | times: 100 }}%;">
+          <img class="lazyload fill" data-src="{{ section.settings.mobile_image | img_url: '2048x' | crop: 'center' }}" alt="{{ section.settings.title }}"/>
+        </div>
+      {% endif %}
+    </div>
+    <div class="video-text-caption">
+      <div class="info">
+        <h2 style="color: {{section.settings.color}}" class="mobile_{{section.settings.text_align}}">{{section.settings.title}}</h2>
+
+        {% if section.blocks.size > 0 %}
+        <div class="pricing-blocks">
+          {% for block in section.blocks %}
+            <div class="pricing-item">
+              <h3>{{block.settings.title}}</h3>
+              <p class="price">{{block.settings.price}}</p>
+            </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Video text bar",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Mobile Text align",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        }
+      ]
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "url",
+      "id": "video",
+      "label": "Video link"
+    },
+    {
+      "type": "url",
+      "id": "mobile_video",
+      "label": "Mobile Video link"
+    },
+    {
+      "type": "color",
+      "id": "color",
+      "label": "Text color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pricing",
+      "name": "Pricing",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        }, 
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name":"Video text bar"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,96 @@
+{% assign product_metafield = product.metafields.sf_product_metafield %}
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+
+<section data-component='product' class='product rel' itemscope itemtype="http://schema.org/Product">
+
+   <script class='js-product-json' type='text/template'>
+      {
+        "selectedOrFirstAvailableVariant": {{ current_variant.id | json }},
+        "product": {{ product | json }},
+        "sku": {{ current_variant.sku | json }}
+      }
+    </script>
+
+<div class="product__wrapper rel mb2">
+  <div class="product__hero container--xl mxa f jcs" data-component='productInfo'>
+
+      {% include 'product-mobile-carousel' %}
+      {% include 'product-desktop-images' %}
+
+        <div class="product__hero-description f fw ais x y rel">
+          <div class="x">
+            <p class='m0 p0 xsmall mb1'>{{ product_metafield.mini_description }}</p>
+            <h1 itemprop="name" class='h2 pt0'>{{ product.title }}</h1>
+
+           <div class="product__yotpo yotpo bottomLine mb1"
+              data-product-id="{{ product.id }}">
+            </div> 
+
+            {% include 'product-form' %}
+            {% include 'product-description' %}
+            {% include 'product-dropdowns' %}
+          </div>
+        </div>
+ 
+    </div>
+  </div>
+
+  {% if product.tags contains 'Trimmer-PDP' %}
+    <div class="trimmer" data-component="trimmer">
+    {% section 'trimmer-pdp' %} 
+    </div>
+  {% endif %}
+
+  <div class="container--l mha px1 pt2">
+    <div class="yotpo yotpo-main-widget" data-product-id="{{ product.id }}" data-name="{{ product.title | escape }}" data-url="{{ shop.url }}{{ product.url }}" data-image-url="{{ product.featured_image | product_img_url: "large" |replace: '?', '%3F' | replace: '&','%26'}}" data-description="{{ product.description | escape }}"></div>
+  </div>
+
+  {% include 'product-related-products' %}
+
+  <div class="product__breadcrumbs tac">
+    <a class="btn btn_outline" role="button" href="/collections/all"> Back to all products</a>
+  </div>
+ 
+ {% unless product == empty %}
+      <script type="application/json" data-product-json>
+        {{ product | json }}
+      </script>
+ {% endunless %}
+  
+  {% comment %} klaviyo product tracking {% endcomment %}
+    <script type="text/javascript">
+      var _learnq = _learnq || [];
+
+      var item = {
+        Name: {{ product.title|json }},
+        ProductID: {{ product.id|json }},
+        Categories: {{ product.collections|map:'title'|json }},
+        ImageURL: "https:{{ product.featured_image.src|img_url:'grande' }}",
+        URL: "{{ shop.secure_url }}{{ product.url }}",
+        Brand: {{ product.vendor|json }},
+        Price: {{ product.price|money|json }},
+        CompareAtPrice: {{ product.compare_at_price_max|money|json }}
+      };
+
+      _learnq.push(['track', 'Viewed Product', item]);
+      _learnq.push(['trackViewedItem', {
+        Title: item.Name,
+        ItemId: item.ProductID,
+        Categories: item.Categories,
+        ImageUrl: item.ImageURL,
+        Url: item.URL,
+        Metadata: {
+          Brand: item.Brand,
+          Price: item.Price,
+          CompareAtPrice: item.CompareAtPrice
+        }
+      }]);
+    </script>
+
+    <script type="text/javascript">
+      var _learnq = _learnq || [];
+      document.getElementById("addToCart-klaviyo").addEventListener('click',function (){
+        _learnq.push(['track', 'Added to Cart', item]);
+      });
+    </script>
+</section>

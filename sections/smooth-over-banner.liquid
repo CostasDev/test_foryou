@@ -1,0 +1,84 @@
+<div data-section-type="smooth-over-banner" style="background: {{section.settings.bg_color}};">
+  <div class="smooth-over-banner-container">
+    <div class="heading">
+      <h2 class="small--hide">{{section.settings.title}}</h2>
+      <h2 class="medium-up--hide">{{section.settings.mobile_title}}</h2>
+    </div>
+    <div class="banner_1">
+      <div class="image-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.image_1.aspect_ratio | times: 100 }}%;">
+        <img class="lazyload fill" data-src="{{ section.settings.image_1 | img_url: '2048x' | crop: 'center' }}" alt="{{ section.settings.title }}"/>
+      </div>
+    </div>
+    <div class="banner_2">
+      <div class="image-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.image_2.aspect_ratio | times: 100 }}%;">
+        <img class="lazyload fill" data-src="{{ section.settings.image_2 | img_url: '2048x' | crop: 'center' }}" alt="{{ section.settings.title }}"/>
+      </div>
+    </div>
+    <div class="text_1">
+      {{section.settings.text_1}}
+    </div>
+    <div class="text_2">
+      {{section.settings.text_2}}
+    </div>
+    {% if section.settings.mobile_image != blank %}
+    <div class="banner_3">
+      <div class="image-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.mobile_image.aspect_ratio | times: 100 }}%;">
+        <img class="lazyload fill" data-src="{{ section.settings.mobile_image | img_url: '2048x' | crop: 'center' }}" alt="{{ section.settings.title }}"/>
+      </div>
+    </div>
+    {% endif %}
+   
+  </div>
+</div>
+{% schema %}
+{ 
+  "name": "Smooth over banner",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title"
+    },   
+    {
+      "type": "textarea",
+      "id": "mobile_title",
+      "label": "Mobile Title"
+    }, 
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    },
+    {
+      "type": "richtext",
+      "id": "text_1",
+      "label": "Text 1"
+    },
+    {
+      "type": "richtext",
+      "id": "text_2",
+      "label": "Text 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile bottom image"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    }
+  ],
+  "presets": [
+    {
+      "name":"smooth over banner"
+    }
+  ]
+}
+{% endschema %}

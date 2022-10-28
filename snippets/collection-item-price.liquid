@@ -1,0 +1,49 @@
+{% if product.available %}
+  {% assign sold_out = false %}
+{% else %}
+  {% assign sold_out = true %}
+{% endif %}
+
+{% if product.compare_at_price_min > product.price_min %}
+  {% if sold_out %}
+    {% assign on_sale = false %}
+  {% else %}
+    {% assign on_sale = true %}
+  {% endif %}
+{% else %}
+  {% assign on_sale = false %}
+{% endif %}
+
+
+<span class="collection__item-price f jcc aic">
+
+	{% if product.price_varies %}
+	    {% capture price_min %}{{ product.price_min | money | remove: '.00' | remove: ','}}{% endcapture %}
+	    {% capture price_max %}{{ product.price_max | money | remove: '.00' | remove: ',' }}{% endcapture %}
+
+        {% if on_sale %}
+            <span class="mx0 small f fdr">
+            <span><s><em>Original price</em>{{ product.compare_at_price_min | money | remove: '.00' | remove: ',' }} - {{ product.compare_at_price_max | money | remove: '.00' | remove: ','}}</s></span>
+            <span class="bold"><em>Sale price:</em>{{ product.price_min | money | remove: '.00' | remove: ',' }} - {{ product.price_max | money | remove: '.00' | remove: ','}}</span>
+            </span>
+
+        {% else %}
+            <span class="mx0 small bold" aria-label="Price: {{ product.price_min | money | remove: '.00' | remove: ',' }} - {{ product.price_max | money | remove: '.00' | remove: ','}}">
+            {{ product.price_min | money | remove: '.00' | remove: ',' }} - {{ product.price_max | money | remove: '.00' | remove: ','}}
+            </span>
+        {% endif %}
+
+	{% else %}
+        <span class="mx0 small">
+        {% if on_sale %}
+          <span class="small"><s><em>Original price {{ product.compare_at_price_min| money | remove: '.00' | remove: ',' }}</em><span>{{ product.compare_at_price_min| money | remove: '.00' | remove: ',' }}</span></s></span> <span class="bold"><em>Sale price {{ product.price | money | remove: '.00' | remove: ',' }}</em><span>{{ product.price | money | remove: '.00' | remove: ',' }}</span> </span>   
+        {% else %}
+            <span class="bold">{{ product.price | money | remove: '.00' | remove: ',' }}</span>
+        {% endif %}
+        </span>
+	{% endif %}
+			
+	
+</span>
+
+<div class="yotpo collection-item__stars bottomLine" data-product-id="{{ product.id }}"></div>

@@ -1,0 +1,41 @@
+<div class='jobs content content__wrapper container--l mha' data-component='careers'>
+
+  <ul>
+  {% for block in section.blocks %}
+    {% assign job = block.settings %}
+    {% assign id = job.title | handle %}
+
+    <li id='{{ id }}' class='jobs__job rel block'>
+      <h3><a href='#{{ id }}' class='jobs__job__q rel serif'>{{ job.title }}</a></h3>
+      <div class='jobs__job__a rel p mt1 line-break'>{{ job.contents }}</div>
+      <span class='abs top right block'></span>
+    </li>
+  {% endfor %}
+  </ul>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Job Listings",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "job",
+        "name": "Job",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "contents",
+            "label": "Contents"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,32 @@
+<div data-component="marquee">
+    <div class="marquee3k home__banner x y f jcc aic" data-pausable="true" data-speed="0.1">
+       <div class="f fdr">
+            <p class="marquee__text"><i>Free</i> shipping on all domestic orders</p>
+            <p class="marquee__text">Shop now, pay later with Quadpay</p>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Home Banner",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "banner_text",
+        "label": "Text"
+      },
+      {
+        "type": "url",
+        "id": "banner_url",
+        "label": "Banner URL"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Home Banner",
+        "category": "homepage"
+      }
+    ]
+  }
+{% endschema %}

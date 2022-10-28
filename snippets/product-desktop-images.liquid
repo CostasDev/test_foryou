@@ -1,0 +1,33 @@
+{% assign number_of_images = 0 %}
+{% for image in product.images %}
+  {% assign number_of_images = number_of_images | plus: 1 %}
+{% endfor %}
+
+<div class="product__images desktop product__hero-images">
+  <div class="product__images-inner">
+  {% assign featured_image = product.featured_image %}
+    {% if number_of_images > 1 %}
+      <div class="product__gallery fdc">
+        {% for image in product.images %}
+          <span class='js-product-image product__gallery_item {% if forloop.first == true %}active{% endif %}' href="{{ image.src | product_img_url: '1500x' }}" data-id="{{ image.id }}">
+            <button class="box" style="background-image: url('{{ image.src | product_img_url: 'medium' }}');" alt="{{ image.src.alt | escape }}" aria-label="Display {{ image }} Image">
+            </button>
+          </span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  <div class='product__images_main'>
+    <img class="js-main-product" src="{{ featured_image | product_img_url: '1500x' }}" alt="{{ featured_image.alt | escape }}">
+    <img class="lazyload" id="{{ featured_image.id }}" data-src="{{ featured_image.src | product_img_url: '1500x' }}" alt="{{ featured_image.alt | escape }}"/>
+  </div>
+
+  {% for image in product.images %}
+    {% unless image contains featured_image %}
+      <img id="{{ image.id }}" class="hidden lazyload" data-src="{{ image.src | product_img_url: '1500x' }}" alt="{{ image.alt | escape }}"/>
+    {% endunless %}
+  {% endfor %}
+
+  <div class="product__badge">{% include 'product-badges' %}</div>
+
+  </div>
+</div>

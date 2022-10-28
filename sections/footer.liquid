@@ -1,0 +1,118 @@
+<footer class="footer rel x y">
+    <div class="footer__wrapper df mt3">
+        <div class="footer__main">    
+            {% comment %} <div class="footer__logo z2" itemscope itemtype="http://schema.org/Organization">
+                <a href="/" itemprop="url" tabindex="-1">
+                {% include 'logo' %}
+                </a>
+            </div> {% endcomment %}
+            <div class="footer__social">
+                <div class="footer__newsletter">{% include 'footer-newsletter' %}</div>
+                <div class="mt1">{% include 'footer-connect' %}</div>
+            </div>
+        </div>
+
+        <div class="footer-categories df fdr fw">
+
+            {% if linklists.footershop.links.size > 0 %}
+                <div class="footer__category-block df fdc mr3">
+                    <div class="footer__title">
+                    Shop
+                    </div>
+                    <ul class="df fdc ais">
+                        {% for link in linklists.footershop.links %}
+                            <li><a class="footer__link" itemprop="url" href='{{ link.url }}' aria-label="Go to {{ link.title }}">{{ link.title }}</a></li>
+                        {% endfor %}
+                    </ul> 
+                </div>
+            {% endif %}
+
+ 
+            {% if linklists.footer-resources.links.size > 0 %}
+                <div class="footer__category-block df fdc mr3">
+                    <div class="footer__title">
+                    Resources
+                    </div>
+                    <ul class="df fdc ais">
+                        {% for link in linklists.footer-resources.links %}
+                            <li><a class="footer__link" itemprop="url" href='{{ link.url }}' aria-label="Go to {{ link.title }}">{{ link.title }}</a></li>
+                        {% endfor %}
+                    </ul> 
+                </div>
+      
+        {% endif %}
+
+        {% if linklists.footer-account.links.size > 0 %}
+            <div class="footer__category-block df fdc mr3">
+                <div class="footer__title">
+                Account
+                </div>
+                <ul class="df fdc ais">
+                    {% if shop.customer_accounts_enabled %}
+                        {% if customer %}
+                            <li><a class="footer__link" href="/account" itemprop="url" aria-label="Go to {{ link.title }}"><span>My Account</span></a></li>
+                            {% else %}
+                            <li><a class="footer__link" href="/account/login" itemprop="url" aria-label="Go to {{ link.title }}"><span>Login</span></a></li>
+                        {% endif %}
+                    {% endif %}
+           
+                    {% for link in linklists.footer-account.links %}
+                        <li><a class="footer__link" itemprop="url" href='{{ link.url }}' aria-label="Go to {{ link.title }}">{{ link.title }}</a></li>
+                    {% endfor %}
+         
+                </ul> 
+            </div>
+        {% endif %}
+
+        {% if linklists.footer-contact.links.size > 0 %}
+            <div class="footer__category-block df fdc">
+                <div class="footer__title">
+                Contact
+                </div>
+                <ul class="df fdc ais">
+                {% for link in linklists.footer-contact.links %}
+                    <li><a class="footer__link" itemprop="url" href='{{ link.url }}' aria-label="Go to {{ link.title }}">{{ link.title }}</a></li>
+                {% endfor %}
+                </ul> 
+            </div>
+        {% endif %}
+       
+        </div>
+
+                
+    </div>
+    <div class="footer__legal container--mx mha pl1 pr1 pt1 mb05">
+        <p class='small p1 mx0 tac c-gray'>
+            {{ section.settings.disclaimer}}
+        </p>
+    </div>
+    <div class="footer__legal bg-lightgray">
+        <p class='small px1 mx0 tac'>
+        @ Fur LLC DBA FUR <span>{{ section.settings.address}} | <a class="small" href="/pages/privacy">Privacy Policy</a> | <a class="small" href="/pages/terms-conditions">Terms & Conditions</a></span>
+        </p>
+    </div>
+</footer>
+
+
+
+{% schema %}
+  {
+    "name": "Footer",
+    "settings": [
+        {
+        "type": "text",
+        "id": "disclaimer",
+        "label": "Disclaimer",
+        "default": "We invite all who have used our Fur products to share their individual experiences. However, they are individual results and results do vary. The testimonials are not necessarily representative of those who will use our products."
+      },
+      {
+        "type": "text",
+        "id": "address",
+        "label": "Address",
+        "default": "64 Bleecker St Suite 102, NY, NY 10012"
+      }
+    ]
+  }
+
+{% endschema %}
+

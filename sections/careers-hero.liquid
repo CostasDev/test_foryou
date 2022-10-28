@@ -1,0 +1,18 @@
+<div class="careers-text line-break px2 container--m mxa">
+  <p class="">{{ section.settings.careers_text }}</p>
+</div>
+
+
+ {% schema %}
+  {
+    "name": "Careers Info",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "careers_text",
+        "label": "Careers informational description. ",
+        "default": "<p>There aren't any current job availabilities at Fur right now. Please feel free to reach out in the future if another role you are interested in becomes available!</p>"
+      }
+    ]
+  }
+{% endschema %}

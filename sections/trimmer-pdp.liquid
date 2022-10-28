@@ -1,0 +1,101 @@
+  <div class="trimmer bg-lightbeige x y" data-component="trimmer">
+    <div class="trimmer__wrapper x f fdr">
+    <div class="trimmer__info x y rel">
+      <div id="trimmer__nav" class="trimmer__nav nav x f fdr jcc aic z2">
+        <a class="active-tab px1 xsmall" href="#start">Get Started</a>
+        <a class="pl1 pr1 xsmall" href="#groom">How to</a>
+        <a class="pl1 pr1 xsmall" href="#aftercare">Aftercare</a>
+        <a class="pl1 pr1 xsmall" href="#trimmer-faq">FAQ</a>
+      </div>
+      <div class="trimmer__nav-content tac f jcc x y rel">
+
+        <div class="trimmer__nav-block active-tab x" id="start">
+          <div class="trimmer__nav-text x y mxa f jcc p-medium px2">
+            <div class="trimmer__nav-text-wrapper">
+            {{ product.metafields.trimmer.trimmer_text1 }}
+            </div>
+          </div>
+          <div class="trimmer__nav-visual">
+            <img class="x lazyload" data-src="{{ product.metafields.trimmer.trimmer_image1 }}">
+          </div> 
+        </div>
+        <div class="trimmer__nav-block x" id="groom">
+          <div class="trimmer__nav-text x y mxa f jcc p-medium px2">
+            <div class="trimmer__nav-text-wrapper">
+              <p>{{ product.metafields.trimmer.trimmer_text2 }}</p>
+            </div>
+          </div>
+          <div class="trimmer__nav-visual">
+            <img class="x" src="{{ product.metafields.trimmer.trimmer_image2 }}">
+          </div> 
+        </div>
+        <div class="trimmer__nav-block x" id="aftercare">
+          <div class="trimmer__nav-text x y mxa f jcc p-medium px2">
+            <div class="trimmer__nav-text-wrapper">
+              <p>{{ product.metafields.trimmer.trimmer_text3 }}</p>
+            </div>
+          </div>
+          <div class="trimmer__nav-visual">
+            <img class="x" src="{{ product.metafields.trimmer.trimmer_image3 }}">
+          </div> 
+        </div>
+          <div class="trimmer__nav-block x" id="trimmer-faq">
+           <div class="trimmer__nav-faq x y container--m x y mxa f jcc fdc px2">
+             <p class="small">{{ product.metafields.trimmer.trimmer_faq }}</p>
+          </div>
+        </div>
+      </div>
+ 
+    </div>
+
+
+    </div>        
+
+</div>
+
+{% schema %}
+  {
+    "name": "Trimmer",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "textblock1",
+        "label": "How to Get Started"
+      },
+      {
+        "type": "richtext",
+        "id": "textblock2",
+        "label": "How to Groom"
+      },
+      {
+        "type": "richtext",
+        "id": "textblock3",
+        "label": "Aftercare"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "question",
+        "name": "Trimmer QA",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question",
+            "label": "Question"
+          },
+          {
+            "type": "richtext",
+            "id": "answer",
+            "label": "Answer"
+          }
+        ]
+      }
+    ],
+     "presets": [
+      {
+        "name": "Trimmer",
+        "category": "trimmer"
+      }
+    ]
+  }
+{% endschema %}

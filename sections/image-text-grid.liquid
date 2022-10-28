@@ -1,0 +1,156 @@
+<div id="image-text-grid--{{section.id}}" class="{{section.settings.layout}}" data-section-type="image-text-grid" data-component="image-text">
+  {% for block in section.blocks %}
+  <div class="image-text-container  mobile--{{block.settings.image_status}} {% if block.settings.mobile_text_left %}mobile-text-left{% endif %} ">
+    <div class="image-text-item image-text--media">
+      <div class="image-wrapper round--{{block.settings.round_image}}">
+        <img class="lazyload small--hide" data-src="{{ block.settings.image | img_url: '2048x' | crop: 'center' }}" alt="{{ block.settings.title }}"/>
+        <img class="lazyload medium-up--hide" data-src="{{ block.settings.mobile_image | img_url: '2048x' | crop: 'center' }}" alt="{{ block.settings.title }}"/>
+      </div>
+    </div>
+    <div class="image-text-item image-text--text">
+      <div class="info">
+          <p class="pre">{{block.settings.pre}}</p>
+          <h2 class="large--{{block.settings.enlarge_text}}">{{block.settings.title}}</h2>
+          {{block.settings.text}}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<style>
+  #image-text-grid--{{section.id}} .image-text-item {
+    background: {{section.settings.bg_color}};
+  }
+  #image-text-grid--{{section.id}} .image-text-item.image-text--media {
+    background: {{section.settings.image_bg_color}};
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Image text grid",
+  "settings": [
+    {
+      "type": "select",
+      "id": "image_align",
+      "label": "Image position",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },  
+    {
+      "type": "color",
+      "id": "image_bg_color",
+      "label": "Image background color"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "small--hide",
+          "label": "Desktop"
+        },
+        {
+          "value": "medium-up--hide",
+          "label": "Mobile"
+        },
+        {
+          "value": "all",
+          "label": "Desktop / mobile"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "image block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile image"
+        },
+        {
+          "type": "checkbox",
+          "id": "round_image",
+          "label": "Round image"
+        },
+        {
+          "type": "text",
+          "id": "pre",
+          "label": "Pre heading"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "checkbox",
+          "id": "enlarge_text",
+          "label": "Enlarge text"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        },
+        {
+          "type": "header",
+          "content": "Mobile layout"
+        },
+        {
+          "type": "select",
+          "id": "image_status",
+          "label": "Mobile image tatus",
+          "options": [
+            {
+              "value": "half",
+              "label": "Half image"
+            },
+            {
+              "value": "bottom",
+              "label": "Bottom image"
+            },
+            {
+              "value": "hide",
+              "label": "Hide image"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "id": "mobile_text_left",
+          "label": "Mobile text left align"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name":"image with text grid"
+    }
+  ]
+}
+{% endschema %}

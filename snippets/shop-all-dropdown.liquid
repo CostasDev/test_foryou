@@ -1,0 +1,100 @@
+ <div class="header__shop js-header__shop ">
+    <div class="header__shop-wrapper js-shopall-wrapper pt1 pb2 pl1 pr1 df fdr jcb mxa x y">
+        <div class="header__shop-lists df fdr ml1">
+            <ul class="df fdc jcs">
+            <div>
+              <span class="header__shop-title bold ttu">Products</span>
+              {% for link in linklists.shop-products.links %}
+                {% capture child_list_handle %}{{ link.title | handle }}{% endcapture %}
+                  <li>
+                    <a class="header__shop-link" href="{{ link.url }}" itemprop="url" aria-label="{{ link.title }}">{{ link.title }}</a>
+                  </li>
+              {% endfor %}
+              </div>
+            </ul>
+            <ul class="ml3 df fdc jcs">
+            <div class="mb2">
+              <span class="header__shop-title bold ttu">By Routine</span>
+              {% for link in linklists.shop-routine.links %}
+                {% capture child_list_handle %}{{ link.title | handle }}{% endcapture %}
+                  <li>
+                    <a class="header__shop-link" href="{{ link.url }}" itemprop="url" aria-label="{{ link.title }}">{{ link.title }}</a>
+                  </li>
+              {% endfor %}
+              </div>
+
+              <div>
+              <div class="header__shop-title bold ttu mt2">By Concern</div>
+              {% for link in linklists.shop-concern.links %}
+                {% capture child_list_handle %}{{ link.title | handle }}{% endcapture %}
+                  <li>
+                    <a class="header__shop-link" href="{{ link.url }}" itemprop="url" aria-label="{{ link.title }}">{{ link.title }}</a>
+                  </li>
+              {% endfor %}
+              </div>
+
+            </ul>
+            <ul class="ml3 df fdc jcs">
+            <div class="mb2">
+              <span class="header__shop-title bold ttu">Refills</span>
+              {% for link in linklists.shop-refills.links %}
+                {% capture child_list_handle %}{{ link.title | handle }}{% endcapture %}
+                  <li>
+                    <a class="header__shop-link" href="{{ link.url }}" itemprop="url" aria-label="{{ link.title }}">{{ link.title }}</a>
+                  </li>
+              {% endfor %}
+              </div>
+
+              <div class="mb2">
+              <div class="header__shop-title bold ttu mt2 ">Merch</div>
+              {% for link in linklists.shop-merch.links %}
+                {% capture child_list_handle %}{{ link.title | handle }}{% endcapture %}
+                  <li>
+                    <a class="header__shop-link" href="{{ link.url }}" itemprop="url" aria-label="{{ link.title }}">{{ link.title }}</a>
+                  </li>
+              {% endfor %}
+              </div>
+
+              <div>
+              <li class=""><a href="/collections/all" class="header__shop-title bold ttu">Shop All</a></li>
+              <li><a href="/pages/quiz" class="header__shop-title bold ttu" itemprop="url" aria-label="Link to Quiz">Take the Quiz</a></li>
+              </div>
+            </ul>
+
+        </div>
+    <div class="header__shop-collections df fdr jce">
+          <div class="header__shop-block df fdc ac">
+            <a class="bold ttu" href="/collections/best-sellers">
+              <div class="header__shop-image mb05">
+                  <img class="initial-image" src="{{ 'bestsellers.png' | asset_img_url: '800x' }}"  alt="Bestsellers">
+                  <img class="hidden-image" src="{{ 'bestsellers-hover.png' | asset_img_url: '800x' }}" alt="Bestsellers decorative image">
+              </div>
+              <p class="header__shop-title ttu">Shop Best sellers</p>
+            </a>
+          </div>
+          <div class="header__shop-block df fdc ac">
+            <a class="bold ttu" href="/collections/top-rated">
+              <div class="header__shop-image mb05">
+                  <img class="initial-image" src="{{ 'toprated.png' | asset_img_url: '800x' }}" alt="Image of top rated product">
+                  <img class="hidden-image" src="{{ 'toprated-hover.png' | asset_img_url: '800x' }}" alt="Image of person holding Fur products">
+              </div>
+              <p class="header__shop-title ttu">Shop Top Rated</p>
+            </a>
+          </div>
+            <div class="header__shop-block df fdc ac hide-mobile">
+            <a class="bold ttu" href="/collections/bundles">
+              <div class="header__shop-image mb05">
+                  <img class="initial-image" src="{{ 'bundles.png' | asset_img_url: '800x' }}" alt="Image of bundles">
+                  <img class="hidden-image" src="{{ 'bundles-hover.png' | asset_img_url: '800x' }}" alt="Image of Fur products">
+                  <div class="header__badge df jcc aic z3">
+                  <span class="badge-text df ac jcc aic tac">Save $$</span>
+                    {% include 'icon' with 'icon-save' %} 
+                  </div>
+              </div>
+              <p class="header__shop-title ttu">Shop Kits</p>
+            </a>
+          </div>
+
+        </div>
+    </div>
+  </div>

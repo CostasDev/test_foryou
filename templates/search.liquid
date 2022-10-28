@@ -1,0 +1,83 @@
+<div class="search">
+
+{% assign respond_js_secret_key = shop.domain | md5 %}
+{% unless search.terms == respond_js_secret_key %}
+
+<div class="search__results">
+  <div class="search__results-wrapper">
+    <div class='hero--new tac f fw jcb aic rel'>
+        <img class='abs fill x y' src="{{ 'search-header-min.png' | asset_img_url: '1200x' }}" alt="I'm Looking for" />
+        <div class="hero__image-overlay"></div>
+        <h1 class='cw serif container--m mha rel z1'>I'm looking for...</h1>
+    </div>
+  
+  {% if search.performed %}
+
+  {% if search.results_count > 0 %}
+    <p class="search__header tac mt2">Displaying search results for: {{ search.terms }}</p>
+      <div class="search__products">
+
+        {% paginate search.results by 100 %}
+          <div class="search__products-wrapper container--xl mxa x y f fw fdr jcc">
+              {% for item in search.results %} 
+                {% if item.id != 7342315503807 and item.id != 90160955583 and item.id != 90597490879 and item.id != 90551910591 %}
+                  {% if item.object_type == 'product' %}
+                      <div class="collection__item">
+                      {% include 'search-grid-product' %}
+                      </div>
+                  {% elsif item.object_type == 'article' %}
+                    <div class="collection__item">
+                      {% include 'search-grid-item' %}
+                      </div>
+                  {% else %}
+                        <div class="collection__item">
+                        {% include 'search-grid-item' %}
+                        </div>
+                  {% endif %} 
+                {% endif %}
+               
+              {% endfor %}
+      
+
+            <div class="search-pagination">
+              {% include 'pagination' %}
+            </div>
+          </div>
+        {% endpaginate %}      
+      </div>
+    {% else %}
+    <div class="search__empty">
+      <p class="search__header tac">No results for {{ search.terms }}</p>
+      
+    </div>
+    {% endif %}
+
+    {% else %}
+
+    <div class="search-bar-wrapper ac px2">
+      <form action="/search" method="get" class="searchbar-form" role="search"  id="searchform" _lpchecked="1">
+        <label for="seachForm" class='sans py1' style="display: none;">Search Form</label>
+        <input type="hidden" name="type">
+
+        <input type="search" name="q" class="searchbar-input" placeholder="" value="{{ search.terms }}"  autocomplete="off">
+        <input type="hidden" class="btn" value="Search">
+
+        <div class="search-btn">
+          <button type="submit" aria-label="Submit Search"> 
+            {% include 'icon' with 'search-arrow-right' %}
+          </button>
+        </div>
+      </form>
+      <div class="line-break">
+      <p class="">Search by product name, type, routine, or concern.</p>
+      <p class="search-popular">Most popular searches: <a class="c-gold tda" href="/search?type=&q=razor+burn" itemprop="url" aria-label="Search for razor burn">razor burn,</a> <a class="c-gold tda" href="/search?type=&q=ingrowns" itemprop="url" aria-label="Search for Ingrowns">ingrowns,</a> <a class="c-gold tda" href="/search?type=&q=fur+oil" itemprop="url" aria-label="Search for fur oil">fur oil</a></p>
+      </div>
+    {% endif %}
+ 
+    </div>
+{% endunless %}
+  </div>
+</div>
+</div>
+
+

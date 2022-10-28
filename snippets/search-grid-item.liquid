@@ -1,0 +1,14 @@
+<div>
+  <a title="{{ item.title }}" href="{{ item.url }}" >
+    <div class="collection-product__image rel">
+      <div class="collection-product__image-wrapper fill-wrapper">
+      {% if item.image %}
+      <img class="lazyload fill initial-image" data-src="{{ item.image | img_url: '1200x'}}">  {% else %}  <img class="lazyload fill initial-image" data-src="{{ 'search-pages-placeholder.png' | asset_url }}" alt="{{ item.title }}"> {% endif %}
+      </div>
+    </div>
+
+    <div class="f fdc tac mt05 mb2">
+      <p class="collection-product__title tac bold mx0"> {{ item.title }} </p>
+    </div>
+  </a>
+</div>

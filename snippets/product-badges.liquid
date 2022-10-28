@@ -1,0 +1,29 @@
+
+ {% if product.metafields.sf_badges.new == 1 %}
+          <div class="badge ttu f fdc jcc aic">
+            <p>New</p>
+          </div>
+      {% elsif product.metafields.sf_badges.team_pick == 1 %}
+          <div class="badge ttu f fdc jcc aic">
+            <p>Team</p>
+            <p>Pick</p>
+          </div>
+      {% elsif product.metafields.sf_badges.best_seller == 1 %}
+          <div class="badge ttu f fdc jcc aic">
+            <p>Best</p>
+            <p>Seller</p>
+          </div>
+      {% elsif product.metafields.sf_badges.top_rated == 1 %}
+          <div class="badge ttu f fdc jcc aic">
+            <p>Top</p>
+            <p>Rated</p>
+          </div>
+      {% elsif product.metafields.sf_badges.savings %}
+          <div class="badge ttu f fdc jcc aic">
+            <p>Save</p>
+            <p>${{product.metafields.sf_badges.savings }}</p>
+          </div>
+      {% elsif product.metafields.sf_badges.custom_badge %}
+          <img src="{{ product.metafields.sf_badges.custom_badge }}">
+      {% else %}
+{% endif %}

@@ -1,0 +1,148 @@
+{% assign template_base = template | replace: '.', ' ' | truncatewords: 1, '' | handle %}
+
+<!-- Klayvio Tracking -->
+<script type="application/javascript" async src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=JdK2nB"></script>
+
+<!-- yotpo reviews carousel-->
+<script type="text/javascript">(function e(){var e=document.createElement("script");e.type="text/javascript",e.async=true,e.src="//staticw2.yotpo.com/4DFibdQyjDSCIrcyj7kXH4UJiFzB26880Opwj3VB/widget.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();</script>
+
+<!-- Zip (formerly known as Quadpay with custom tag) quadpay.js Library added 8/3/2021-->
+<script src="https://cdn.quadpay.com/v1/quadpay.js?tagname=quadpay-widget"></script>
+
+<!-- shop my shelf added 5/16/2022-->
+ <script defer src="https://static.myshlf.us/Affiliates/sms_aff_clicktrack.js"></script>
+
+<!-- accessibe -->
+<script> (function(){ var s = document.createElement('script'); var h = document.querySelector('head') || document.body; s.src = 'https://acsbapp.com/apps/app/dist/js/app.js'; s.async = true; s.onload = function(){ acsbJS.init({ statementLink : '', footerHtml : '', hideMobile : false, hideTrigger : false, disableBgProcess : false, language : 'en', position : 'right', leadColor : '#146ff8', triggerColor : '#000000', triggerRadius : '50%', triggerPositionX : 'right', triggerPositionY : 'bottom', triggerIcon : 'people', triggerSize : 'small', triggerOffsetX : 20, triggerOffsetY : 20, mobile : { triggerSize : 'small', triggerPositionX : 'right', triggerPositionY : 'bottom', triggerOffsetX : 10, triggerOffsetY : 20, triggerRadius : '50%' } }); }; h.appendChild(s); })(); </script>
+
+
+<!--  redirect quiz landing page -->
+{% if page.url == '/pages/quiz' %}
+  <script>
+    let url = window.location.href;
+    if(url.includes('?')){    
+      } else {
+      window.location.replace("https://furyou.com/pages/quiz?view=quiz-form");
+    }
+  </script>
+{% endif %}
+
+<!--  tt pixel 1/28/22 -->
+<script>
+		!function (w, d, t) {
+		  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++
+)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=i,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=i+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+		
+		  ttq.load('C7Q4HRKRMF4VVL6M1T00');
+		  ttq.page();
+		}(window, document, 'ttq');
+</script>
+
+<!-- Google Tag Manager 8/10/20 -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MJ9KDKG');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Optimize added 8/7/2020 -->
+ <script src="https://www.googleoptimize.com/optimize.js?id=OPT-PFVF3PP"></script>
+
+
+<!-- klaviyo tracking -->
+<script>
+  var _learnq = _learnq || [];
+  _learnq.push(['identify', {
+    '$email': '{{ customer.email }}',
+    '$first_name': '{{ customer.first_name }}',
+    '$last_name': '{{ customer.last_name }}'
+  }]);
+</script>
+
+
+ <!-- Begin Pinterest Tag -->
+  <script>
+    !function (e) {
+      if (!window.pintrk) {
+      window.pintrk = function () { window.pintrk.queue.push(Array.prototype.slice.call(arguments)) }; var
+          n = window.pintrk; n.queue = [], n.version = "3.0"; var
+            t = document.createElement("script"); t.async = !0, t.src = e; var
+              r = document.getElementsByTagName("script")[0]; r.parentNode.insertBefore(t, r)
+      }
+    }
+      ("https://s.pinimg.com/ct/core.js");
+
+    pintrk('load', '2613215308769', { em: '{{ customer.email }}', });
+    pintrk('page');
+  </script>
+  <!-- Pinterest Events -->
+
+  <!-- End Pinterest Tag -->
+
+
+  <!-- crazyegg added 9/10/2020 -->
+  <script type="text/javascript" src="//script.crazyegg.com/pages/scripts/0098/5403.js" async="async"></script> 
+
+  <!-- yotpo loyalty rewards -->
+  <script src="https://yotpo-people.s3.amazonaws.com/tsirilson/shopify-utils/shopify-cart.js" async></script>
+  <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/lmKTv4brjzvrXL7sovn6Ug" async></script>
+  <script src="https://cdn-loyalty.yotpo.com/loader/lmKTv4brjzvrXL7sovn6Ug.js" aync></script>
+  {{ 'swell-cart.js' | asset_url | script_tag }}
+
+
+<!-- google dynamic remarketing tag for theme.liquid -->
+{% if template contains 'product' %}
+<script type="text/javascript">
+  var json_product = {{ product | json }};
+</script>
+<script>
+  var ecomm_prodid=[];
+  for(var i=0;i<json_product.variants.length;i++)
+    ecomm_prodid.push('shopify_US_{{product.id}}_'+json_product.variants[i].id);
+</script>
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_prodid: ecomm_prodid,
+    ecomm_pagetype: 'product',
+    ecomm_totalvalue: parseFloat('{{ product.price | money_without_currency | remove: ","}}')
+  };
+</script>
+{% elsif template contains 'collection' %}
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_pagetype: 'category'
+  };
+</script>
+{% elsif template contains 'cart' %}
+<script type="text/javascript">
+  var id = new Array();
+  {% for item in cart.items %}
+  id.push('shopify_US_{{item.product.id}}_{{item.variant.id}}');
+   {% endfor %}
+
+   var google_tag_params = {
+     ecomm_prodid: id,
+     ecomm_pagetype: 'cart',
+     ecomm_totalvalue: parseFloat('{{ cart.total_price | money_without_currency | remove: ","}}')
+   };
+</script>
+{% elsif template contains 'search' %}
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_pagetype: 'searchresults'
+  };
+</script>
+{% elsif template contains 'index' %}
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_pagetype: 'home'
+  };
+</script>
+{% else %}
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_pagetype: 'other'
+  };
+</script>
+{% endif %}

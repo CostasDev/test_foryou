@@ -1,0 +1,78 @@
+<form action="/cart/add" method="post" enctype="multipart/form-data" data-productid="{{product.id}}" class="product-form  collection-item__form f fdc jcb y mt05" data-section="{{ section.id }}">
+
+  <div class="y">
+    <select name="id" class="no-js hide js-product-selector" data-product-select>
+      {% for variant in product.variants %}
+        <option
+          {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}
+          {% unless variant.available %}disabled="disabled"{% endunless %}å
+          value="{{ variant.id }}">
+            {{ variant.title }}
+        </option>
+      {% endfor %}
+    </select>
+  </div>
+
+
+  <div class="y">
+      <div class="js-collection-variants hidden">
+      {% unless product.has_only_default_variant %}
+        {% for option in product.options_with_values %}
+          <div class="product__options js-options">
+  
+            <fieldset class='size-selector__fields f jcs aic mb05' data-single-option-selector data-index="option{{ option.position }}">
+              <div class='f fw jcc aic x'>
+                {% for value in option.values %}
+                  <div class='inline'>
+                  <label class='collection-item__checkbox rel tac small' for='{{value | escape}}'> 
+                    <input type='radio' class='collection-item__checkbox-input f jcs abs aic' id="{{value | escape}}" value="{{ value | escape }}" {% if option.selected_value == value %}checked="checked"{% endif %} name='size' />
+                        <div class="collection-item__checkbox-mark abs"></div>
+                        <span class="collection-item__checkbox-label rel z1">{{value}}</span>
+                    </label>
+                  </div>
+                {% endfor %}
+              </div>
+            </fieldset>
+          </div>
+        {% endfor %}
+      {% endunless %}
+      </div>
+
+  {% comment %} if product is set to display OOS {% endcomment %}
+  {% if product.metafields.sf_product_metafield.out_of_stock == 1 %}
+      <div class="collection__quickadd bg-w ttu x f jcc aic small c-lightgray no-cursor">Sold Out</div>
+
+  {% else %}
+  
+  {% if product.available %}
+    {% unless product.has_only_default_variant %}
+      <div class="collection__quickadd x bg-w f jcc aic small ttu pointer">
+        <a href="{{ product.url }}">View More</a>
+      </div>
+
+    {% else %}
+
+      <button type="submit" name="add" class='collection__quickadd js-submit-cart ttu x bg-w f jcc aic small' data-add-to-cart {% unless product.available %}disabled="disabled"{% endunless %}>
+          <span class="js-cart-btn-message" data-add-to-cart-text>
+            {% if product.available %}
+              Add to Bag
+            {% else %} 
+              Sold Out
+            {% endif %}
+          </span>
+      </button>
+
+      {% endunless %}
+      {% else %}
+
+        <div class="collection__quickadd bg-w ttu x f jcc aic small c-lightgray no-cursor">Sold Out</div>
+
+      {% endif %}
+    {% endif %}
+  </div>
+
+</form>
+
+
+
+

@@ -1,0 +1,20 @@
+<div class='product__radio {{class}} f jcc aic' for='{{label}}' tabindex="0" role="radio">
+  <input
+    id='{{label}}'
+    type=radio
+    name={{name}}
+    value='{{value}}'
+    class='hidden abs'
+    {{ attributes }}
+    {% if checked %}checked{% endif %}
+  />
+    <label class='product__radio-label' for='{{label}}' tabindex="0" role="radio">{{label}}</label>
+  <span class='__check abs fill x y' data-{{ name | handleize }}='{{ value | handleize }}'></span>
+</div>
+
+{% assign label = blank %}
+{% assign name = blank %}
+{% assign value = blank %}
+{% assign attributes = blank %}
+{% assign checked = false %}
+{% assign selectorClass = blank %}

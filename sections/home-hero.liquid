@@ -1,0 +1,311 @@
+{% assign hero = section.settings %}
+
+
+<div class="homehero hide-mobile x y rel js-homehero">
+    <div class="homehero__wrapper fill">
+        <div class="homehero__overlay pa x y top bottom left right z1"
+             style="background-image: url({{ hero.image | img_url: '1400x' }});"
+             alt="{{ hero.image.alt | escape }}">
+        </div>
+
+        {% if hero.text_alignment == 'centered' %} 
+            <div class='homehero__center pa z3 tac mt1 f fdc jcc aic x y'>
+                <h2
+                  class='homehero__headline tac container--l mha js-hero__text
+                  {% if hero.text_color == "white" %} cw {% endif %}'>
+                  {{ hero.title }}
+                </h2>
+                <p
+                  class='homehero__copy tac container--l mha js-hero__text
+                  {% if hero.text_color == "white" %} cw {% endif %}'>
+                  {{ hero.subtitle }}
+                </p> 
+                <a class='btn mt1 homehero__btn 
+                  {% if hero.cta_color == "chartreuse" %} btn_chartreuse 
+                  {% elsif hero.cta_color == "black" %} btn_bw
+                  {% elsif hero.cta_color == "white" %} btn_wb
+                  {% endif %}'
+                  role='button'
+                  href="{{ hero.cta_url }}"
+                  itemprop="url"
+                  aria-label="{{ hero.cta }}">
+                  {{ hero.cta }}
+                </a>
+            </div>
+        {% elsif hero.text_alignment == 'left_side' %} 
+            <div class='homehero__left pa left bottom z3 px2'>
+                <h2 class='homehero__headline js-hero__text mb1
+                    {% if hero.text_color == "white" %} cw {% endif %}'>
+                  {{ hero.title }}
+                </h2>
+                <p class='homehero__copy m0 js-hero__text
+                  {% if hero.text_color == "white" %} cw {% endif %}'>
+                  {{ hero.subtitle }}
+                </p> 
+                <a class='btn homehero__btn mt2 mb2
+                  {% if hero.cta_color == "chartreuse" %} btn_chartreuse
+                  {% elsif hero.cta_color == "black" %} btn_bw
+                  {% elsif hero.cta_color == "white" %} btn_wb
+                  {% endif %}'
+                  role='button'
+                  href="{{ hero.cta_url }}"
+                  itemprop="url"
+                  aria-label="{{ hero.cta }}">
+                  {{ hero.cta }}
+                </a>
+              </div>
+          {% elsif hero.text_alignment == 'custom' %} 
+              <div class='homehero__custom pa left top bottom z3 px2 x f fdc jcb'>
+                  <h2 class='homehero__headline js-hero__text mb1 pt1
+                      {% if hero.text_color == "white" %} cw {% endif %}'>
+                    {{ hero.title }}
+                  </h2>
+
+                  <div>
+                    <p class='homehero__copy m0 js-hero__text
+                      {% if hero.text_color == "white" %} cw {% endif %}'>
+                      {{ hero.subtitle }}
+                    </p> 
+                    <a class='btn homehero__btn mt2 mb2
+                      {% if hero.cta_color == "chartreuse" %} btn_chartreuse
+                      {% elsif hero.cta_color == "black" %} btn_bw
+                      {% elsif hero.cta_color == "white" %} btn_wb
+                      {% endif %}'
+                      role='button'
+                      href="{{ hero.cta_url }}"
+                      itemprop="url"
+                      aria-label="{{ hero.cta }}">
+                      {{ hero.cta }}
+                    </a>
+                  </div>
+              </div>
+        {% endif %}
+    </div>
+</div>
+
+
+<div class="homehero hide-desktop x y rel js-homehero">
+    <div class="homehero__wrapper fill">
+        <div class="homehero__overlay pa x y top bottom left right z1"
+             style="background-image: url({{ hero.mobile_image | img_url: '800x' }});"
+             alt="{{ hero.mobile_image.alt | escape }}">
+        </div>
+
+        <div class="pa z3 f fdc x px1
+          {% if hero.text_color == 'white' %} cw {% endif %}
+          {% if hero.mobile_text_alignment == 'upper_left' %} mt1
+            {% elsif hero.mobile_text_alignment == 'lower_left' %} bottom left 
+            {% elsif hero.mobile_text_alignment == 'lower_centered' %} x jce aic bottom tac 
+            {% elsif hero.mobile_text_alignment == 'centered' %} x jcc aic y 
+            {% elsif hero.mobile_text_alignment == 'custom_placement' %} jcs
+          {% endif %}">
+            <div class="
+              {% if hero.mobile_text_alignment == 'custom_placement' %} homehero__custom-title pa f jcc fdc x js-hero__text {% endif %}">
+              <h2 class="homehero__headline 
+                  {% if hero.mobile_text_alignment == 'centered' %} jcc aic tac {% endif %}">
+                  {{ hero.mobile_title }}
+              </h2>
+              <p class="homehero__copy mt05
+              {% if hero.mobile_text_alignment == 'centered' %} tac
+              {% elsif hero.mobile_text_alignment == 'custom_placement' %} hide
+              {% endif %}">
+              {{ hero.mobile_subtitle }}
+              </p>
+            </div>
+            <div class="container--s mt05
+            {% if hero.mobile_text_alignment == 'centered' %} jcc aic tac
+            {% elsif hero.mobile_text_alignment == 'lower_centered' %} jcc aic tac 
+            {% elsif hero.mobile_text_alignment == 'custom_placement' %} hide
+            {% endif %}">
+              
+              <a class='btn mt1 homehero__btn 
+                {% if hero.mobile_cta_color == "chartreuse" %} btn_chartreuse 
+                {% elsif hero.mobile_cta_color == "black" %} btn_bw
+                {% elsif hero.mobile_cta_color == "white" %} btn_wb
+                {% endif %}'
+                role='button'
+                href="{{ hero.cta_url }}">
+                {{ hero.cta }}
+              </a>
+            </div>
+        </div> 
+        {% if hero.mobile_text_alignment == 'custom_placement' %} 
+            <div class="pa x bottom z3 px15
+                {% if hero.text_color == 'white' %} cw
+                {% endif %}">
+
+                <p class="homehero__copy mt05
+                {% if hero.mobile_text_alignment == 'centered' %} tac
+                {% endif %}">
+                {{ hero.mobile_subtitle }}
+                </p>   
+              
+                <a class='btn mt15 homehero__btn 
+                  {% if hero.mobile_cta_color == "chartreuse" %} btn_chartreuse 
+                  {% elsif hero.mobile_cta_color == "black" %} btn_bw
+                  {% elsif hero.mobile_cta_color == "white" %} btn_wb
+                  {% endif %}'
+                  role='button'
+                  href="{{ hero.cta_url }}">
+                  {{ hero.cta }}
+                </a>
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "Homepage Hero",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Desktop Image"
+      },
+        {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Desktop Headline"
+      },
+        {
+        "type": "text",
+        "id": "mobile_title",
+        "label": "Mobile Headline"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Desktop Subtitle"
+      },
+      {
+        "type": "text",
+        "id": "mobile_subtitle",
+        "label": "Mobile Subtitle"
+      },
+      {
+        "type": "text",
+        "id": "cta",
+        "label": "CTA"
+      },
+      {
+        "type": "url",
+        "id": "cta_url",
+        "label": "CTA url"
+      },
+      {
+      "type": "radio",
+      "id": "text_color", 
+      "label": "Text Color",
+      "options": [    
+        {      
+        "value": "white",    
+        "label": "white"  
+        },
+        {  
+        "value": "black",  
+        "label": "black"
+        }
+      ]
+      },
+      {
+      "type": "radio",
+      "id": "cta_color", 
+      "label": "Desktop Button Color",
+      "options": [    
+        {      
+        "value": "chartreuse",    
+        "label": "chartreuse"  
+        },
+        {  
+        "value": "black",  
+        "label": "black"
+        },
+         {  
+        "value": "white",  
+        "label": "white"
+        }
+        ]
+      },
+      {
+      "type": "radio",
+      "id": "mobile_cta_color", 
+      "label": "Mobile Button Color",
+      "options": [    
+        {      
+        "value": "chartreuse",    
+        "label": "chartreuse"  
+        },
+        {  
+        "value": "black",  
+        "label": "black"
+        },
+         {  
+        "value": "white",  
+        "label": "white"
+        }
+        ]
+      },
+      {
+      "type": "radio",
+      "id": "text_alignment", 
+      "label": "Desktop Text alignment",
+      "options": [    
+        {      
+        "value": "centered",    
+        "label": "Centered"  
+        },
+        {  
+        "value": "left_side",  
+        "label": "Left Side"
+        },
+        {  
+          "value": "custom",  
+          "label": "Custom"
+          } 
+        ]
+      },
+      {
+      "type": "radio",
+      "id": "mobile_text_alignment", 
+      "label": "Mobile Text alignment",
+      "options": [ 
+        {  
+        "value": "lower_left",  
+        "label": "Lower Left"
+        },   
+         {  
+        "value": "upper_left",  
+        "label": "Upper Left"
+        },  
+        {      
+        "value": "lower_centered",    
+        "label": "Lower Centered"  
+        },
+        {      
+        "value": "centered",    
+        "label": "Centered"  
+        },
+        {      
+        "value": "custom_placement",    
+        "label": "Top and Bottom / Custom"  
+        }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Homepage Hero",
+        "category": "homepage"
+      }
+    ]
+  }
+{% endschema %}

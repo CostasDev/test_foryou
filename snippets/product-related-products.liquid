@@ -1,0 +1,56 @@
+{% assign current_product = product %}
+{% assign exclusions = 'frontpage,all' | split: ',' %}
+
+{% comment %}
+  Looking for a relevant collection.
+{% endcomment %}
+
+{% if product.metafields.c_f['Related Products'] %}
+  {% assign collection = collections[product.metafields.c_f['Related Products']] %}
+{% endif %}
+
+{% assign found_a_collection = false %}
+{% if collection and collection.all_products_count > 1 %}
+  {% unless exclusions contains collection.handle %}
+    {% assign found_a_collection = true %}
+  {% endunless %}
+{% endif %}
+{% unless found_a_collection %}
+  {% for c in product.collections %}
+    {% unless exclusions contains c.handle %}
+      {% assign found_a_collection = true %}
+      {% assign collection = c %}
+      {% break %}
+    {% endunless %}
+  {% endfor %}
+{% endunless %}
+
+{% comment %}
+  If we have a relevant collection.
+{% endcomment %}
+
+{% if found_a_collection %}
+  {% capture related_items %}
+    {% for product in collection.products %}
+      {% unless product.handle == current_product.handle %}
+        {% include 'collection-item' %}
+      {% endunless %}
+    {% endfor %}
+  {% endcapture %}
+
+  {% assign related_items = related_items | trim %}
+
+  {% unless related_items == blank %}
+    <div class="related g_padding">
+      <div class='tac'>
+        <p class='h5 ttu bold small mb1'>You can have it all</p>
+        <p class='h3 serif p0 mb1 pl05 pr05'>Get everything you need for smoother skin</p>
+      </div>
+
+     <div class="collection__wrapper container--l mxa f jcc ais fw">
+          {{ related_items }}
+     </div>
+
+    </div>
+  {% endunless %}
+{% endif %}

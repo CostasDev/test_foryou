@@ -1,0 +1,13 @@
+<div class="article">
+    <div class="bg-lightbeige">
+      {% if blog.title == 'Press' %}
+        <div class="content__wrapper">
+          {% include 'press-post' %}
+        </div>
+      {% else %}
+        {% include 'article-post' %}
+      {% endif %}
+      <!-- {% include 'article-comments' %} -->
+    </div>
+    <!-- {% include 'article-pagination' %} -->
+</div>

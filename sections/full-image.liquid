@@ -1,0 +1,49 @@
+<div data-section-type="full_image" data-component="arrow">
+  <div class="image-banner-media small--hide" style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;">
+    <img class="lazyload fill " data-src="{{ section.settings.image | img_url: '2048x' | crop: 'center' }}" alt="{{ section.settings.title }}"/>
+  </div>
+  <div class="image-banner-media medium-up--hide" style="padding-top:{{ 1 | divided_by: section.settings.mobile_imag.aspect_ratio | times: 100 }}%;">
+    <img class="lazyload fill" data-src="{{ section.settings.mobile_imag | img_url: '2048x' | crop: 'center' }}" alt="{{ section.settings.title }}"/>
+  </div>
+  {% if section.settings.arrow %}
+    <a href="{{section.settings.link}}" class="arrow" role="button" itemprop="url">
+      <svg width="99" height="93" viewBox="0 0 99 93" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M95 51L49.5 89L4 51" stroke="#231F20" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M50 89V4" stroke="#231F20" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Full image",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_imag",
+      "label": "Mobile image"
+    },
+    {
+      "type": "checkbox",
+      "id": "arrow",
+      "label": "Arrow"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    }
+  ],
+  "presets": [
+    {
+      "name":"Full image"
+    }
+  ]
+}
+{% endschema %}

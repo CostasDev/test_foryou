@@ -1,0 +1,53 @@
+ <div class="header__shop js-header__faq">
+    <div class="header__shop-wrapper js-faq-wrapper pt1 pb2 pl1 pr1 df fdr jcb mxa x y">
+        <div class="header__shop-lists df fdr ml1">
+            <ul class="df fdc">
+              <span class="header__shop-title bold ttu {% if linklists.shop-products.links %} active {% endif %}">FAQS</span>
+              {% for link in linklists.mobile-faq.links %}
+                {% capture child_list_handle %}{{ link.title | handle }}{% endcapture %}
+                  <li>
+                    <a class="js-faq-redirect" href="{{ link.url }}" itemprop="url" aria-label="{{ link.title }}">{{ link.title }}</a>
+                  </li>
+              {% endfor %}
+
+            <span class="header__shop-title mt2  bold ttu {% if linklists.shop-products.links %} active {% endif %}">Resources</span>
+              {% for link in linklists.resources-menu.links %}
+                {% capture child_list_handle %}{{ link.title | handle }}{% endcapture %}
+                  <li>
+                    <a href="{{ link.url }}" itemprop="url" aria-label="{{ link.title }}">{{ link.title }}</a>
+                  </li>
+              {% endfor %}
+
+            </ul>
+            <div class="ml1 df fdc ml2">
+
+            </div>
+        </div>
+    <div class="header__shop-collections df fdr">
+          <div class="header__shop-block df fdc ac">
+            <a class="bold ttu" href="{{ section.settings.faq_url1 }}" itemprop="url" aria-label="{{ section.settings.faq_text1 }}">
+              <div class="header__shop-image mb05">
+                  <img class="initial-image" src="{{ 'faq1-min.png' | asset_img_url: '1200x' }}" alt="Image of Fur products on pedestal.">
+              </div>
+              <p class="header__shop-title ttu">{{ section.settings.faq_text1 }}</p>
+            </a>
+          </div>
+          <div class="header__shop-block df fdc ac">
+            <a class="bold ttu" href="{{ section.settings.faq_url2 }}" itemprop="url" aria-label="{{ section.settings.faq_text2 }}">
+              <div class="header__shop-image mb05">
+                  <img class="initial-image" src="{{ 'faq2-min.png' | asset_img_url: '1200x' }}" alt="Fur images in front of plants.">
+              </div>
+              <p class="header__shop-title ttu">{{ section.settings.faq_text2 }}</p>
+            </a>
+          </div>
+          <div class="header__shop-block df fdc ac">
+            <a class="bold ttu" href="{{ section.settings.faq_url3 }}" itemprop="url" aria-label="{{ section.settings.faq_text3 }}">
+              <div class="header__shop-image mb05">
+                <img class="initial-image" src="{{ 'faq3-min.png' | asset_img_url: '1200x' }}" alt="Image of Fur products and plant.">
+              </div>
+              <p class="header__shop-title ttu">{{ section.settings.faq_text3 }}</p>
+            </div>
+           </a>
+        </div>
+    </div>
+  </div>

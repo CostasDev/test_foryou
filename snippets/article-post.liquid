@@ -1,0 +1,39 @@
+{% capture class %}{% cycle blog.handle: 'col-0', 'col-1' %}{% endcapture %}
+
+<div class="px2 post__article single x" itemscope itemtype="http://schema.org/BlogPosting">
+<div class="container--m mha">
+  <meta itemprop="articleSection" content="{{ blog.title }}">
+  <meta itemprop="keywords" content="{{ article.tags | join: ', ' }}">
+
+  <a href="{{ article.url }}"> <h1 class='serif' itemprop="headline">{{ article.title }}</h1></a>
+  {% capture date %}
+    <time pubdate datetime="{{ article.published_at | date: format: 'day_month_and_year' }}" itemprop="datePublished">{{ article.published_at | date: format: 'day_month_and_year' }}</time>
+  {% endcapture %}
+  <span class="m0">Posted by: {{article.author}}</span>
+  <div class="m0 p0">{{ article.published_at | date: "%m.%d.%y" }}</div>
+  <hr class='mt2 mb2'/>
+</div>
+  {% if template == 'article' %}
+    <div itemprop="articleBody" id="rte" class="article__body x">
+      {{ article.content }}
+    </div>
+  {% else %}
+    <a class="btn border more" href="{{ article.url }}" title="{{ article.title }}">{{ 'blogs.article.read_entire_article_html' | t }}</a>
+  {% endif %}
+
+</div>
+
+{% if article.excerpt.size > 0 %}
+{% assign handles = article.excerpt | split: ',' %}
+<div class='collection__wrapper x y f fw fdr jcc bg-w mb2'>
+  <div class="container--xl mxa x y f fw fdr jcc">
+    <h3 class='mt2 mb1 fill-h tac'>Shop this story</h3>
+
+    {% for handle in handles limit: 8 %}
+    {% assign product = all_products[handle] %}      
+          {% include 'collection-item' %}      
+    {% endfor %}
+    </div>
+
+</div>
+ {% endif %}

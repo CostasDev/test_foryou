@@ -1,0 +1,142 @@
+<div data-section-type="blog" data-component="blog">
+    
+    <div class='bg-lightbeige'>
+        <div class="container--xl ph1 blog-tabs">
+            <ul class="btn-container">
+                {% for block in section.blocks %}
+                    {% assign handle = block.settings.title | handleize %}
+                    <li class="{% if forloop.index == 1 %}active{% endif %}" data-target="{{handle}}">{{block.settings.title}}</button>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="featured-blogs">
+            {% for block in section.blocks %}
+            {% assign handle = block.settings.title | handleize %}
+            <div class="container--xl filtered-div {% if forloop.index == 1 %}show{% endif %}"  data-id="{{handle}}">
+                <div class="left-side">
+                    {% assign article_1 = articles[block.settings.article_1] %}
+                    {% if article_1.metafields.category.inspiration %}
+                        {% include 'blog-post' with tag: 'inspiration', article: article_1 %}
+                    {% elsif article_1.metafields.category.interviews %}
+                        {% include 'blog-post' with tag: 'interviews', article: article_1 %}
+                    {% elsif article_1.metafields.category.education %}
+                        {% include 'blog-post' with tag: 'education', article: article_1 %}
+                    {% elsif article_1.metafields.category.how_to %}
+                        {% include 'blog-post' with tag: 'how to', article: article_1 %}
+                    {% else %}
+                        {% include 'blog-post' with tag: 'others', article: article_1 %}
+                    {% endif %}
+                </div>
+                <div class="right-side">
+                    <div class="item">
+                        {% assign article_2 = articles[block.settings.article_2] %}
+                        {% if article_2.metafields.category.inspiration %}
+                            {% include 'blog-post' with tag: 'inspiration', article: article_2 %}
+                        {% elsif article_2.metafields.category.interviews %}
+                            {% include 'blog-post' with tag: 'interviews', article: article_2 %}
+                        {% elsif article_2.metafields.category.education %}
+                            {% include 'blog-post' with tag: 'education', article: article_2 %}
+                        {% elsif article_2.metafields.category.how_to %}
+                            {% include 'blog-post' with tag: 'how to', article: article_2 %}
+                        {% else %}
+                            {% include 'blog-post' with tag: 'others', article: article_2 %}
+                        {% endif %}
+                    </div>
+                    <div class="item">
+                        {% assign article_3 = articles[block.settings.article_3] %}
+                        {% if article_3.metafields.category.inspiration %}
+                            {% include 'blog-post' with tag: 'inspiration', article: article_3 %}
+                        {% elsif article_3.metafields.category.interviews %}
+                            {% include 'blog-post' with tag: 'interviews', article: article_3 %}
+                        {% elsif article_3.metafields.category.education %}
+                            {% include 'blog-post' with tag: 'education', article: article_3 %}
+                        {% elsif article_3.metafields.category.how_to %}
+                        {% include 'blog-post' with tag: 'how to', article: article_3 %}
+                        {% else %}
+                            {% include 'blog-post' with tag: 'others', article: article_3 %}
+                        {% endif %}
+                    </div> 
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="blog container--xl ph1 mha content__wrapper">
+        <div class="inner">
+        {% if blog.articles_count > 0 %}
+            {% paginate blog.articles by 100 %}
+            <div class="container">
+                {% for article in blog.articles %}
+                    {% if article.metafields.category.inspiration %}
+                        <div class="filtered-div" data-id="inspiration">
+                            {% include 'blog-post' with tag: 'inspiration' %}
+                        </div>
+                    {% elsif article.metafields.category.interviews %}
+                        <div class="filtered-div" data-id="interviews">
+                            {% include 'blog-post' with tag: 'interviews' %}
+                        </div>
+                    {% elsif article.metafields.category.education %}
+                        <div class="filtered-div" data-id="education">
+                            {% include 'blog-post' with tag: 'education' %}
+                        </div>
+                    {% elsif article.metafields.category.how_to %}
+                        <div class="filtered-div" data-id="how-to">
+                            {% include 'blog-post' with tag: 'how to' %}
+                        </div>
+                    {% else %}
+                        <div class="filtered-div" data-id="others">
+                            {% include 'blog-post' with tag: 'others' %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% include 'pagination' %}
+            {% endpaginate %}
+        {% else %}
+            <h3 class="empty">{{ 'blogs.general.no_articles' | t }}</h3>
+        {% endif %}
+        </div>
+    </div>
+</div>
+
+
+
+{% schema %}
+{
+    "name": "Blog page",
+    "settings": [
+        {
+            "type": "header",
+            "content": "featured blogs"
+        }
+    ],
+    "blocks": [
+        {
+            "name": "Filter",
+            "type": "filter",
+            "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title"
+            },
+            {
+                    "type": "article",
+                    "id": "article_1",
+                    "label": "Article 1"
+                },
+                {
+                    "type": "article",
+                    "id": "article_2",
+                    "label": "Article 2"
+                },
+                {
+                    "type": "article",
+                    "id": "article_3",
+                    "label": "Article_3"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

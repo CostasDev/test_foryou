@@ -1,0 +1,31 @@
+{% capture class %}{% cycle blog.handle: 'col-0', 'col-1' %}{% endcapture %}
+
+<div class="mv2 post__article" itemscope itemtype="http://schema.org/BlogPosting">
+  <meta itemprop="articleSection" content="{{ blog.title }}">
+  <meta itemprop="keywords" content="{{ article.tags | join: ', ' }}">
+
+  {% if article.image %}
+    {% if template == 'article' %}
+      <img itemprop="image" data-src="{{ article.image | img_url: '1024x1024' }}" class="image lazyload" alt="{{ article.image.alt | escape }}">
+    {% else %}
+      <a class="article-image" href="{{ article.url }}">
+        {% if settings.blog_featured_images_fixed_height_enabled %}
+          <div itemprop="image" style="background-image: url({{ article.image | img_url: '1024x1024' }});" class="image-preview" alt="{{ article.image.alt | escape }}"></div>
+        {% else %}
+          <img itemprop="image" data-src="{{ article.image | img_url: '1024x1024' }}" class="image lazyload" alt="{{ article.image.alt | escape }}">
+        {% endif %}
+      </a>
+    {% endif %}
+  {% endif %}
+  <p class="tag">{{tag | replace: '_', ' '}}</p>
+  <a href="{{ article.url }}"> <h4 class='pb05 demi mx0' itemprop="headline">{{ article.title }}</h4></a>
+  {% capture date %}
+    <time pubdate datetime="{{ article.published_at | date: format: 'day_month_and_year' }}" itemprop="datePublished">{{ article.published_at | date: format: 'day_month_and_year' }}</time>
+  {% endcapture %}
+  
+  {% if template == 'article' %}
+    <div itemprop="articleBody" id="rte">
+      {{ article.content }}
+    </div>
+  {% endif %}
+</div>

@@ -1,0 +1,1175 @@
+{
+  "form": {
+    "id": "oL3tX9",
+    "name": "Quiz",
+    "handle": "quiz-copy",
+    "theme_id": "81463967823",
+    "settings": {
+      "locales": {
+        "back": "Back",
+        "next": "Next",
+        "cancel": "Cancel",
+        "edit_link": "Edit account",
+        "fix_errors": "Please fix errors before continuing",
+        "is_invalid": "{{label}} is invalid",
+        "email_taken": "Email has already been taken",
+        "phone_taken": "Phone number has already been taken",
+        "step_counter": "Step {{current}} of {{total}}",
+        "verify_email": "Check your email for a verification link to activate your account.",
+        "not_available": "An error occurred while saving your account, please try again in a few minutes.",
+        "create_account": "Create",
+        "update_account": "Submit",
+        "recaptcha_error": "Challenge verification failed, please try again",
+        "creating_account": "Calculating...",
+        "updating_account": "Calculating...",
+        "invalid_email_domain": "Email contains an invalid domain name"
+      },
+      "customCSS": ".cf-form-inner {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n}\n\n.cf-step-tabs {\n  padding: 1rem;\n  text-align: center;\n  border: 0;\n  z-index: 10;\n}\n\n.cf-step-tabs .cf-step-title {\n  display: none;\n}\n\n.cf-step-tabs .cf-step-counter {\n  font-size: .8rem;\n  font-weight: initial;\n  margin: 0;\n  opacity: 1;\n  color: #BEB132;\n  text-transform: uppercase;\n}\n\n.cf-field {\n  padding: 0 1rem;\n  text-align: center;\n  justify-content: center;\n  align-items: center;\n}\n\n.cf-field h1,\n.cf-field h2 {\n  margin: 0 auto 1rem;\n  font-family: Superior Title Web;\n  font-weight: 500 !important;\n  font-size: 28px;\n  font-size: 1.75rem;\n}\n\n@media (min-width: 56.26em) {\n  .cf-field h1,\n  .cf-field h2 {\n    font-size: 2.5rem;\n  }\n}\n\n@media (min-width: 75em) {\n  .cf-field h1,\n  .cf-field h2 {\n    font-size: 3rem;\n  }\n}\n\n.cf-field > label {\n  margin: 0 auto;\n  padding: .5rem 0;\n  line-height: 1.4;\n}\n\n.js-quiz-step:not(.quiz-account) .cf-field > label {\n  margin: 0 auto .5rem;\n  text-align: center;\n  font-family: Superior Title Web;\n  font-weight: 500; \n  font-size: 28px;\n  font-size: 1.75rem;\n  line-height: 1.1;\n}\n\n@media (min-width: 56.26em) {\n  .js-quiz-step:not(.quiz-account) .cf-field > label {\n    margin: 0 auto 1rem;\n    font-size: 2.5rem;\n  }\n}\n\n@media (min-width: 75em) {\n  .js-quiz-step:not(.quiz-account) .cf-field > label {\n    font-size: 3rem;\n  }\n}\n\n.cf-field input {\n  margin: .5rem 0;\n  text-align: center !important;\n  font-family: Superior Title Web;\n  font-weight: 500; \n  font-size: 19px;\n  font-size: 1.2rem;\n  border: 0;\n  background: #fff;\n}\n\n@media (min-width: 56.26em) {\n  .cf-field input {\n    font-size: 28px;\n    font-size: 1.75rem;\n  }\n}\n\n.cf-field label + input {\n  margin-top: 0;\n}\n\n.cf-field[data-cf-field-type=group],\n.cf-field-container[data-cf-field-type=group] {\n  border: none;\n  padding: 0;\n}\n\n[data-cf-step-id=\"130252\"] .cf-form-actions {\n  display: none;\n}\n\n.cf-form-actions {\n  text-align: center;\n  margin-top: 1rem !important;\n}\n\n.cf-form-actions button {\n  min-width: 120px;\n  margin: 0 .5rem 1rem !important;\n  text-transform: uppercase;\n}\n\n[data-cf-step-id=\"120176\"] + .cf-form-actions .cf-prev-step {\n  display: none;\n}\n\n.cf-field[data-cf-invalid=true],\n.cf-fields-wrapper .cf-form-actions .cf-step-invalid .cf-error-message,\n.cf-form-inner .cf-form-actions .cf-step-invalid .cf-error-message {\n  border-radius: 0;\n}\n\n.cf-field-errors ul {\n  padding-left: 0 !important;\n}\n\n.cf-field-errors li {\n  display: inline-block;\n}\n\n.cf-fields-wrapper .cf-form-actions .cf-step-invalid,\n.cf-form-inner .cf-form-actions .cf-step-invalid {\n  margin-bottom: 60px;\n}\n\n.quiz-input-block .cf-enum-field__choices {\n  flex-direction: row;\n  justify-content: center;\n  width: 100%;\n}\n\n.quiz-input-block .cf-enum-field__choice {\n  width: 100%;\n  margin: .25rem;\n  padding: 0;\n  justify-content: center;\n  background: #fff;\n  cursor: pointer;\n}\n\n@media (min-width: 56.26em) {\n  .quiz-input-block .cf-enum-field__choice {\n    width: calc(50% - 1rem);\n    margin: .5rem;\n  }\n}\n\n.quiz-input-block span {\n  display: block;\n  width: 100%;\n  padding: 1rem;\n  color: #000;\n  text-transform: uppercase;\n  background: #fff;\n}\n\n@media (min-width: 56.26em) {\n  .quiz-input-block span {\n    padding: 2rem 1rem;\n  }\n}\n\n.quiz-input-block input {\n  opacity: 0;\n  position: absolute !important;\n}\n\n.quiz-input-block input:checked + span {\n  color: #fff;\n  background: #BEB132;\n}\n\n.quiz-text-link {\n  width: auto !important;\n  text-decoration: underline;\n}",
+      "enableRecaptcha": false,
+      "whitelistedTags": "",
+      "recaptchaSiteKey": "",
+      "markRequiredFields": false,
+      "displayCancelButton": false,
+      "goBackAfterSubmission": false,
+      "cancelButtonRedirectUrl": "\/account\/login",
+      "postSubmissionRedirectUrl": "",
+      "goBackAfterCancelButtonClick": false
+    },
+    "install_locations": [
+      "manual"
+    ],
+    "customers_count": 153,
+    "customers_today_count": 5,
+    "created_at": "2020-04-14T00:15:49Z",
+    "updated_at": "2020-05-05T20:46:37Z",
+    "revision_ids": [
+      "PnTZ6y",
+      "znTd1B",
+      "X1TNbB",
+      "06T4Zw",
+      "B5T95a",
+      "xMTK5K",
+      "l5T9bl",
+      "orTObe",
+      "GYTDKE",
+      "4aTn8z",
+      "akTNrw",
+      "qYTv3w",
+      "d7T24v",
+      "boTgO1",
+      "orT3D2",
+      "DRT4bk",
+      "1wTYan",
+      "1wTNE9",
+      "kdTeqM",
+      "LbTqKe",
+      "qYTx2a",
+      "8oTZL1",
+      "boTolB",
+      "wDT36L",
+      "Y9T8K3",
+      "7kTYLd",
+      "ErT53y",
+      "X1TN5R",
+      "Y9T8NL",
+      "vbTGla",
+      "AdTLzM",
+      "qYTvZR",
+      "ErT5zZ",
+      "X1T3rG",
+      "vbTz8D",
+      "orT3bN",
+      "DRT4mz",
+      "LbTxw6",
+      "K0TwlY",
+      "AdTL2N",
+      "p4T7ey",
+      "xMTb7b",
+      "p4T7X5",
+      "gyT3wR",
+      "58T4or",
+      "LbTqpD",
+      "7kTgkR",
+      "NMTb67",
+      "d7T28n",
+      "xMTPk5",
+      "mLTx85",
+      "kdTAPN",
+      "X1T3Lo",
+      "6XTrNA",
+      "yzTzYY",
+      "B5Tb0d",
+      "yzTzXX",
+      "B5Tw8b",
+      "1wTrPb",
+      "NMTZ5o",
+      "evTED6",
+      "B5T9Lz",
+      "orTOlE",
+      "Y9T8ql",
+      "yzTrb8",
+      "nRT979",
+      "NMT2Yp",
+      "K0Twmv",
+      "rATRXz",
+      "Z6T6kw",
+      "8oTZK9",
+      "d7TRL4",
+      "9pToN7",
+      "kdTe34",
+      "wDTZ70",
+      "8oTkBG",
+      "vbTzvl",
+      "AdTL77",
+      "2ET8g9",
+      "xMT3Bl",
+      "9pToPX",
+      "mLTVG0",
+      "3qTndV",
+      "mLTxnD",
+      "GYT2oL",
+      "58T3XB",
+      "6XTMna",
+      "1wTr9a",
+      "akTNEv",
+      "VNT2oz",
+      "nRT9GG",
+      "1wTrYd",
+      "9pTq2z",
+      "6XTMDv",
+      "vbT4Zr",
+      "d7TKe6",
+      "Z6TpOb",
+      "VNTYaG"
+    ]
+  },
+  "revision": {
+    "id": "PnTZ6y",
+    "created_at": "2020-05-08T05:30:24Z",
+    "embed_version": "3.1.7",
+    "published_at": null,
+    "fields": [
+      {
+        "id": 151801,
+        "dataColumn": null,
+        "parentId": null,
+        "position": 0,
+        "type": "group",
+        "stepId": 1,
+        "default": "",
+        "label": "Intro",
+        "placeholder": null,
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12,
+          "cssClass": "js-quiz-step quiz-account"
+        },
+        "settings": {
+          "hideLabel": true
+        },
+        "validations": [],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 122750,
+        "dataColumn": null,
+        "parentId": 151801,
+        "position": 0,
+        "type": "heading",
+        "stepId": 1,
+        "default": "",
+        "label": "Intro heading",
+        "placeholder": null,
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12
+        },
+        "settings": {
+          "size": 1,
+          "content": "What's your name?",
+          "hideLabel": true,
+          "fontWeight": "bold"
+        },
+        "validations": [],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 724506,
+        "dataColumn": null,
+        "parentId": 151801,
+        "position": 1,
+        "type": "paragraph",
+        "stepId": 1,
+        "default": "",
+        "label": "Intro paragraph",
+        "placeholder": null,
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12
+        },
+        "settings": {
+          "content": "<p>We'd like to personalize your results.<\/p>",
+          "fontSize": 14,
+          "hideLabel": true
+        },
+        "validations": [],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 180918,
+        "dataColumn": {
+          "key": "first_name",
+          "label": "First name",
+          "dataType": "text"
+        },
+        "parentId": 151801,
+        "position": 2,
+        "type": "text",
+        "stepId": 1,
+        "default": "",
+        "label": "Name",
+        "placeholder": null,
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12
+        },
+        "settings": {
+          "hideLabel": true
+        },
+        "validations": [
+          {
+            "operator": "not_blank",
+            "comparand": "",
+            "errorMessage": "Must not be blank",
+            "metadata": {
+              "hiddenInApp": true
+            }
+          }
+        ],
+        "sensitive": null,
+        "preset": "first_name",
+        "autotag": null
+      },
+      {
+        "id": 858764,
+        "dataColumn": null,
+        "parentId": 151801,
+        "position": 3,
+        "type": "link",
+        "stepId": 1,
+        "default": "",
+        "label": "Sign in",
+        "placeholder": null,
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12,
+          "cssClass": "js-quiz-signin quiz-text-link"
+        },
+        "settings": {
+          "url": "\/account\/login?return_url=%2Fpages%2Fquiz%3Fview%3Dquiz-form",
+          "content": "Already have an account? Sign in!",
+          "fontSize": 14,
+          "hideLabel": true,
+          "fontWeight": "normal",
+          "openInNewTab": false
+        },
+        "validations": [],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 364583,
+        "dataColumn": null,
+        "parentId": null,
+        "position": 0,
+        "type": "group",
+        "stepId": 120176,
+        "default": "",
+        "label": "Account info group",
+        "placeholder": null,
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12,
+          "cssClass": "js-quiz-step quiz-account"
+        },
+        "settings": {
+          "hideLabel": true
+        },
+        "validations": [],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 447544,
+        "dataColumn": null,
+        "parentId": 364583,
+        "position": 0,
+        "type": "heading",
+        "stepId": 120176,
+        "default": "",
+        "label": "Account heading",
+        "placeholder": null,
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12
+        },
+        "settings": {
+          "size": "2",
+          "content": "Want to stay in touch?",
+          "hideLabel": true,
+          "fontWeight": "bold"
+        },
+        "validations": [],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 209218,
+        "dataColumn": null,
+        "parentId": 364583,
+        "position": 1,
+        "type": "html",
+        "stepId": 120176,
+        "default": "",
+        "label": "Account intro - Logged out",
+        "placeholder": null,
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12
+        },
+        "settings": {
+          "content": "<p><span class=\"js-quiz-login quiz-text-link\"><a href=\"#\">Sign in<\/a><\/span> to an existing account or...<\/p>",
+          "hideLabel": true
+        },
+        "validations": [],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 349668,
+        "dataColumn": {
+          "key": "quiz_scores",
+          "label": "Quiz scores",
+          "dataType": "text"
+        },
+        "parentId": 364583,
+        "position": 10,
+        "type": "textarea",
+        "stepId": 120176,
+        "default": "",
+        "label": "Quiz Scores",
+        "placeholder": null,
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12,
+          "cssClass": "hide"
+        },
+        "settings": {
+          "rows": 5
+        },
+        "validations": [],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 479056,
+        "dataColumn": null,
+        "parentId": 364583,
+        "position": 2,
+        "type": "paragraph",
+        "stepId": 120176,
+        "default": "",
+        "label": "Account intro - Logged in",
+        "placeholder": null,
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12
+        },
+        "settings": {
+          "content": "<p>We found the perfect product for you! Hit submit to see our recommendation.<\/p>",
+          "fontSize": 14,
+          "hideLabel": true
+        },
+        "validations": [],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 102061,
+        "dataColumn": {
+          "key": "email",
+          "label": "Email address",
+          "dataType": "email"
+        },
+        "parentId": 364583,
+        "position": 3,
+        "type": "email",
+        "stepId": 120176,
+        "default": "",
+        "label": "Create an account:",
+        "placeholder": "Email",
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12
+        },
+        "settings": {},
+        "validations": [
+          {
+            "operator": "is_valid_email",
+            "comparand": null,
+            "errorMessage": "Please provide a valid email address"
+          }
+        ],
+        "sensitive": null,
+        "preset": "email_address",
+        "autotag": null
+      },
+      {
+        "id": 137388,
+        "dataColumn": {
+          "key": "password",
+          "label": "Password",
+          "dataType": "text"
+        },
+        "parentId": 364583,
+        "position": 4,
+        "type": "password",
+        "stepId": 120176,
+        "default": "",
+        "label": "Password:",
+        "placeholder": "Password",
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12
+        },
+        "settings": {},
+        "validations": [
+          {
+            "operator": "longer_than",
+            "comparand": 5,
+            "errorMessage": "Password is too short",
+            "metadata": {
+              "mandatory": true,
+              "staticOperator": true,
+              "comparandFieldProps": {
+                "min": 5
+              }
+            }
+          }
+        ],
+        "sensitive": true,
+        "preset": "password",
+        "autotag": null
+      },
+      {
+        "id": 308898,
+        "dataColumn": {
+          "key": "accepts_marketing",
+          "label": "Accepts marketing",
+          "dataType": "boolean"
+        },
+        "parentId": 364583,
+        "position": 5,
+        "type": "checkbox",
+        "stepId": 120176,
+        "default": true,
+        "label": "Subscribe to our newsletter",
+        "placeholder": null,
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12,
+          "cssClass": "hide"
+        },
+        "settings": {},
+        "validations": [],
+        "sensitive": null,
+        "preset": "accepts_marketing",
+        "autotag": null
+      },
+      {
+        "id": 427970,
+        "dataColumn": null,
+        "parentId": 364583,
+        "position": 6,
+        "type": "html",
+        "stepId": 120176,
+        "default": "",
+        "label": "Create account button",
+        "placeholder": null,
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12,
+          "cssClass": "hide"
+        },
+        "settings": {
+          "content": "<div>\n  <div class=\"cf-form-actions\">\n      <button type=\"submit\" class=\"cf-submit-form btn button\"><span>Create<\/span><\/button>\n  <\/div>\n<\/div>",
+          "hideLabel": true
+        },
+        "validations": [],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 190924,
+        "dataColumn": null,
+        "parentId": 364583,
+        "position": 7,
+        "type": "link",
+        "stepId": 120176,
+        "default": "",
+        "label": "Skip link",
+        "placeholder": null,
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12,
+          "cssClass": "js-quiz-skip quiz-text-link"
+        },
+        "settings": {
+          "url": "\/pages\/quiz",
+          "content": "Skip this step",
+          "fontSize": 14,
+          "hideLabel": true,
+          "fontWeight": "normal",
+          "openInNewTab": false
+        },
+        "validations": [],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 344011,
+        "dataColumn": {
+          "key": "product_recommendation",
+          "label": "Product recommendation",
+          "dataType": "text"
+        },
+        "parentId": 364583,
+        "position": 8,
+        "type": "text",
+        "stepId": 120176,
+        "default": "",
+        "label": "Product Recommendation",
+        "placeholder": null,
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12,
+          "cssClass": "hide"
+        },
+        "settings": {},
+        "validations": [],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 346933,
+        "dataColumn": {
+          "key": "bundle_recommendation",
+          "label": "Bundle recommendation",
+          "dataType": "text"
+        },
+        "parentId": 364583,
+        "position": 9,
+        "type": "text",
+        "stepId": 120176,
+        "default": "",
+        "label": "Bundle Recommendation",
+        "placeholder": null,
+        "description": "",
+        "enum": [],
+        "appearance": {
+          "width": 12,
+          "cssClass": "hide"
+        },
+        "settings": {},
+        "validations": [],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 191634,
+        "dataColumn": {
+          "key": "extra_care",
+          "label": "Any areas that need extra care?",
+          "dataType": "list"
+        },
+        "parentId": null,
+        "position": 3,
+        "type": "checkbox_list",
+        "stepId": 191400,
+        "default": "",
+        "label": "Any areas that need extra care?",
+        "placeholder": null,
+        "description": "",
+        "enum": [
+          {
+            "value": "Underarms",
+            "label": "Underarms"
+          },
+          {
+            "value": "Face",
+            "label": "Face"
+          },
+          {
+            "value": "Neck",
+            "label": "Neck"
+          },
+          {
+            "value": "Arms",
+            "label": "Arms"
+          },
+          {
+            "value": "Legs",
+            "label": "Legs"
+          },
+          {
+            "value": "Pubic area",
+            "label": "Pubic area"
+          },
+          {
+            "value": "None of the above",
+            "label": "None of the above"
+          }
+        ],
+        "appearance": {
+          "width": 12,
+          "cssClass": "js-quiz-none-of-the-above js-quiz-step quiz-input-block"
+        },
+        "settings": {
+          "end": 10,
+          "start": 1,
+          "enumType": "list",
+          "direction": "column",
+          "separateValues": true
+        },
+        "validations": [
+          {
+            "operator": "not_blank",
+            "comparand": "",
+            "errorMessage": "Must not be blank",
+            "metadata": {
+              "hiddenInApp": true
+            }
+          }
+        ],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 187883,
+        "dataColumn": {
+          "key": "concerns",
+          "label": "Have any of the following concerns?",
+          "dataType": "list"
+        },
+        "parentId": null,
+        "position": 2,
+        "type": "checkbox_list",
+        "stepId": 314099,
+        "default": "",
+        "label": "Have any of the following concerns?",
+        "placeholder": null,
+        "description": "",
+        "enum": [
+          {
+            "value": "{\"ingrown-concentrate\": 2.5, \"ingrown-eliminator\": 1}",
+            "label": "Ingrown hair"
+          },
+          {
+            "value": "{\"fur-oil\": 1}",
+            "label": "Bumps \/ irritation"
+          },
+          {
+            "value": "{\"silk-scrub\": 2, \"stubble-cream\": 1}",
+            "label": "Dry skin"
+          },
+          {
+            "value": "{\"shave-cream\": 1, \"stubble-cream\": 1}",
+            "label": "Razor burn"
+          },
+          {
+            "value": "None of the above",
+            "label": "None of the above"
+          }
+        ],
+        "appearance": {
+          "width": 12,
+          "cssClass": "js-quiz-points js-quiz-none-of-the-above js-quiz-step quiz-input-block"
+        },
+        "settings": {
+          "end": 10,
+          "start": 1,
+          "enumType": "list",
+          "direction": "column",
+          "separateValues": true
+        },
+        "validations": [
+          {
+            "operator": "not_blank",
+            "comparand": "",
+            "errorMessage": "Must not be blank",
+            "metadata": {
+              "hiddenInApp": true
+            }
+          }
+        ],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 368247,
+        "dataColumn": {
+          "key": "brand_merch",
+          "label": "What type of brand merch do you like?",
+          "dataType": "list"
+        },
+        "parentId": null,
+        "position": 0,
+        "type": "checkbox_list",
+        "stepId": 363776,
+        "default": "",
+        "label": "What type of brand merch do you like?",
+        "placeholder": null,
+        "description": "",
+        "enum": [
+          {
+            "value": "T-shirts",
+            "label": "T-shirts"
+          },
+          {
+            "value": "Bandanas",
+            "label": "Bandanas"
+          },
+          {
+            "value": "Bath towels",
+            "label": "Bath towels"
+          },
+          {
+            "value": "Sweatshirts",
+            "label": "Sweatshirts"
+          },
+          {
+            "value": "Premium tote bags",
+            "label": "Premium tote bags"
+          }
+        ],
+        "appearance": {
+          "width": 12,
+          "cssClass": "js-quiz-step quiz-input-block"
+        },
+        "settings": {
+          "end": 10,
+          "start": 1,
+          "enumType": "list",
+          "direction": "column",
+          "separateValues": false
+        },
+        "validations": [
+          {
+            "operator": "not_blank",
+            "comparand": "",
+            "errorMessage": "Must not be blank",
+            "metadata": {
+              "hiddenInApp": true
+            }
+          }
+        ],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 151881,
+        "dataColumn": {
+          "key": "skin_sensitivity",
+          "label": "How sensitive is your skin?",
+          "dataType": "text"
+        },
+        "parentId": null,
+        "position": 4,
+        "type": "radio",
+        "stepId": 696275,
+        "default": "",
+        "label": "How sensitive is your skin?",
+        "placeholder": null,
+        "description": "",
+        "enum": [
+          {
+            "value": "Very sensitive",
+            "label": "Very sensitive"
+          },
+          {
+            "value": "Moderately sensitive",
+            "label": "Moderately sensitive"
+          },
+          {
+            "value": "Normal",
+            "label": "Normal"
+          },
+          {
+            "value": "Good with anything",
+            "label": "Good with anything"
+          }
+        ],
+        "appearance": {
+          "width": 12,
+          "cssClass": "js-quiz-sensitivity js-quiz-step quiz-input-block"
+        },
+        "settings": {
+          "end": 10,
+          "start": 1,
+          "enumType": "list",
+          "direction": "column",
+          "separateValues": false
+        },
+        "validations": [
+          {
+            "operator": "not_blank",
+            "comparand": "",
+            "errorMessage": "Must not be blank",
+            "metadata": {
+              "hiddenInApp": true
+            }
+          }
+        ],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      },
+      {
+        "id": 142487,
+        "dataColumn": {
+          "key": "hair_care_routine",
+          "label": "What is your current hair care routine for anywhere on your body?",
+          "dataType": "list"
+        },
+        "parentId": null,
+        "position": 1,
+        "type": "checkbox_list",
+        "stepId": 819450,
+        "default": "",
+        "label": "What is your current hair care routine for anywhere on your body?",
+        "placeholder": null,
+        "description": "",
+        "enum": [
+          {
+            "value": "{\"shave-cream\": 2.5, \"stubble-cream\": 1}",
+            "label": "Shave"
+          },
+          {
+            "value": "{\"silk-scrub\": 2.5, \"fur-oil\": 1}",
+            "label": "Wax \/ sugar"
+          },
+          {
+            "value": "{\"stubble-cream\": 2.5}",
+            "label": "Laser"
+          },
+          {
+            "value": "{\"fur-oil\": 2.5}",
+            "label": "Trim \/ keep it natural"
+          }
+        ],
+        "appearance": {
+          "width": 12,
+          "cssClass": "js-quiz-points js-quiz-step quiz-input-block"
+        },
+        "settings": {
+          "end": 10,
+          "start": 1,
+          "enumType": "list",
+          "direction": "column",
+          "separateValues": true
+        },
+        "validations": [
+          {
+            "operator": "not_blank",
+            "comparand": "",
+            "errorMessage": "Must not be blank",
+            "metadata": {
+              "hiddenInApp": true
+            }
+          }
+        ],
+        "sensitive": null,
+        "preset": null,
+        "autotag": null
+      }
+    ],
+    "steps": [
+      {
+        "id": 1,
+        "title": "Intro",
+        "description": ""
+      },
+      {
+        "id": 819450,
+        "title": "Q 1",
+        "description": ""
+      },
+      {
+        "id": 314099,
+        "title": "Q 2",
+        "description": ""
+      },
+      {
+        "id": 191400,
+        "title": "Q 3",
+        "description": ""
+      },
+      {
+        "id": 696275,
+        "title": "Q 4",
+        "description": ""
+      },
+      {
+        "id": 363776,
+        "title": "Q 5",
+        "description": ""
+      },
+      {
+        "id": 120176,
+        "title": "Q 6",
+        "description": ""
+      }
+    ],
+    "rules": [
+      {
+        "id": 245429,
+        "title": "Skip account creation",
+        "conditionChaining": "all",
+        "conditions": [
+          {
+            "operand": null,
+            "operator": "is_true",
+            "metadata": {
+              "column": {
+                "id": "72FngM",
+                "key": "skip_account_creation",
+                "label": "Skip this step",
+                "dataType": "boolean",
+                "readOnly": false,
+                "createdAt": "2020-04-13T23:16:46.626Z",
+                "dedicated": false,
+                "archivedAt": null,
+                "expandedLabel": "Skip this step"
+              }
+            }
+          }
+        ],
+        "actions": [
+          {
+            "effect": "disable_field",
+            "metadata": {
+              "fieldId": 102061
+            }
+          },
+          {
+            "effect": "disable_field",
+            "metadata": {
+              "fieldId": 137388
+            }
+          },
+          {
+            "effect": "disable_field",
+            "metadata": {
+              "fieldId": 308898
+            }
+          }
+        ]
+      },
+      {
+        "id": 127834,
+        "title": "Hide skip account creation option if logged in",
+        "conditionChaining": "all",
+        "conditions": [
+          {
+            "operand": "customer",
+            "operator": "not_blank",
+            "metadata": {
+              "preset": "preset:customer_is_logged_in",
+              "column": {
+                "key": "id",
+                "label": "Customer ID",
+                "dataType": "integer"
+              }
+            }
+          }
+        ],
+        "actions": [
+          {
+            "effect": "hide_field",
+            "metadata": {
+              "fieldId": 198666
+            }
+          }
+        ]
+      },
+      {
+        "id": 396556,
+        "title": "None of the above (Concerns)",
+        "conditionChaining": "all",
+        "conditions": [
+          {
+            "operand": null,
+            "operator": "contains",
+            "metadata": {
+              "comparand": "None of the above",
+              "column": {
+                "id": "EPFZpZ",
+                "key": "concerns",
+                "label": "Have any of the following concerns?",
+                "dataType": "list",
+                "readOnly": false,
+                "createdAt": "2020-04-09T20:59:27.636Z",
+                "dedicated": false,
+                "archivedAt": null,
+                "expandedLabel": "Have any of the following concerns?"
+              }
+            }
+          }
+        ],
+        "actions": [
+          {
+            "effect": "set_column_value",
+            "metadata": {
+              "columnKey": "concerns",
+              "value": "None of the above"
+            }
+          }
+        ]
+      },
+      {
+        "id": 545194,
+        "title": "None of the above (Extra care)",
+        "conditionChaining": "all",
+        "conditions": [
+          {
+            "operand": null,
+            "operator": "contains",
+            "metadata": {
+              "comparand": "None of the above",
+              "column": {
+                "id": "BBFAL8",
+                "key": "extra_care",
+                "label": "Any areas that need extra care?",
+                "dataType": "list",
+                "readOnly": false,
+                "createdAt": "2020-04-09T20:59:27.646Z",
+                "dedicated": false,
+                "archivedAt": null,
+                "expandedLabel": "Any areas that need extra care?"
+              }
+            }
+          }
+        ],
+        "actions": [
+          {
+            "effect": "set_column_value",
+            "metadata": {
+              "columnKey": "extra_care",
+              "value": "None of the above"
+            }
+          }
+        ]
+      },
+      {
+        "id": 198163,
+        "title": "If logged in",
+        "conditionChaining": "all",
+        "conditions": [
+          {
+            "operand": "customer",
+            "operator": "not_blank",
+            "metadata": {
+              "preset": "preset:customer_is_logged_in",
+              "column": {
+                "key": "id",
+                "label": "Customer ID",
+                "dataType": "integer"
+              }
+            }
+          }
+        ],
+        "actions": [
+          {
+            "effect": "hide_field",
+            "metadata": {
+              "fieldId": 858764
+            }
+          },
+          {
+            "effect": "hide_field",
+            "metadata": {
+              "fieldId": 209218
+            }
+          },
+          {
+            "effect": "show_field",
+            "metadata": {
+              "fieldId": 479056
+            }
+          },
+          {
+            "effect": "hide_field",
+            "metadata": {
+              "fieldId": 190924
+            }
+          },
+          {
+            "effect": "hide_field",
+            "metadata": {
+              "fieldId": 102061
+            }
+          }
+        ]
+      },
+      {
+        "id": 522548,
+        "title": "Auto tag users who came thru CF",
+        "conditionChaining": "any",
+        "conditions": [],
+        "actions": [
+          {
+            "effect": "tag_customer",
+            "metadata": {
+              "value": "CFquiz"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

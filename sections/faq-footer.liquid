@@ -1,0 +1,29 @@
+<div class="faq-footer">
+  <div class="faq-footer__wrapper faq-wrapper f ais jcb">
+    <div class="faq-footer__hero f x">
+      <h3 class="serif mb05">Other Questions?</h3>
+      <img src="{{ section.settings.icon | img_url: '100x' }}"  alt="{{ section.settings.icon.alt | escape }}"/>
+    </div>
+    <div class="faq-footer__contact f fdc">
+      <div class='faq-footer__contact-info'>{{ section.settings.faq_footer_info }}</div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "FAQ Footer",
+    "settings": [
+      {
+            "type": "image_picker",
+            "id": "icon",
+            "label": "Icon"
+      },
+      {
+            "type": "richtext",
+            "id": "faq_footer_info",
+            "label": "FAQ Footer Info"
+      }
+    ]
+  }
+{% endschema %}

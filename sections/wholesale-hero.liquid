@@ -1,0 +1,30 @@
+{% assign hero = section.settings %}
+
+<div class='hero--new tac f fw jcb aic rel'>
+  <img class="abs fill x y" src="{{ hero.image | img_url: '2000x' }}" alt="{{ hero.image.alt | escape }}"/>
+  <div class="hero__image-overlay"></div>
+  <div class='x'>
+    <h1 class='cw serif container--m mha rel z1'>{{ hero.title }}</h1>
+    <a class="btn mt2 bold visible z1 rel js-apply-jump" role="button" href="#apply">Apply Now</a>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Wholesale Hero",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Wholesale"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,232 @@
+{% comment %}
+	This snippet will render the quiz results contents.
+{% endcomment %}
+
+<div class="hide">{% render "customer-fields", form_id: "oL3tX9" %}</div>
+
+{% assign product = all_products[page.handle] %}
+
+{% if product %}
+  <style>
+    .layout {
+      background: url({{ 'quiz_bg-min.png' | asset_img_url: 'master', format: 'pjpg' }}) 50% no-repeat;
+      background-size: cover;
+    }
+    .quiz__container {
+      padding: 0 1em;
+    }
+    .quiz__wrapper {
+      padding: 80px 15px 30px;
+      background: #fefaf0;
+    }
+    .quiz__wrapper img {
+      width: 100%;
+    }
+    .results__item {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1em;
+      text-align: center;
+    }
+    .results__item button {
+      text-transform: uppercase;
+    }
+    .results__image {
+      position: relative;
+      margin-bottom: 1em;
+    }
+    .results__details h3 {
+      line-height: 1.1;
+    }
+    .results__details p {
+      line-height: 1.4;
+    }
+    .results__item--bundle img {
+      border-radius: 50%;
+    }
+    .quiz__footer {
+      background: url({{ 'blog_footer_mobile.png' | asset_img_url: '600x', format: 'pjpg' }}) 50% no-repeat;
+      background-size: cover;
+    }
+    .quiz__footer-container {
+      background: #fefaf0;
+    }
+    .quiz__footer-heading {
+      margin-bottom: .5rem;
+    }
+    .savings-badge {
+      position: absolute;
+      top: 2%;
+      left: 2%;
+      width: 20%;
+      height: 20%;
+      color: #fff;
+      line-height: 1;
+      background: url({{ 'savings-badge.svg' | asset_url }}) no-repeat;
+      background-size: 100%;
+    }
+    .link-arrow::after {
+      content: "";
+      display: inline-block;
+      width: 20px;
+      height: 16px;
+      margin-left: 5px;
+      background: url({{ 'arrow-gold-right.svg' | asset_url }}) no-repeat;
+      background-size: 100%;
+      vertical-align: middle;
+    }
+    @media (min-width: 56.26em) {
+      .quiz__wrapper {
+        padding: 120px 30px 30px;
+      }
+      .results__item {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        text-align: left;
+      }
+      .results__item--bundle {
+        flex-direction: row;
+      }
+      .results__image {
+        margin-bottom: 0;
+      }
+      .results__item .results__product {
+        width: 40%;
+      }
+      .results__item .results__details {
+        width: 50%;
+      }
+      .results__item--bundle .results__details {
+        padding: 2em 1em 2em 2em;
+      }
+      .results__item--product p {
+        position: relative;
+        margin-right: -30%;
+      }
+      .quiz__footer {
+        background: url({{ 'blog_footer_desktop.png' | asset_img_url: 'master', format: 'pjpg' }}) 50% no-repeat;
+        background-size: cover;
+      }
+    }
+  </style>
+
+<div class="layout">
+  <div class="container--mm mha quiz__container">
+    <div class="content content__wrapper quiz__wrapper mb0">
+      <div class="px1">
+        <h1 class="h2 ac serif pb1">Here are the best products for you<span class="js-quiz-first_name hide">{% if customer.first_name %}{{ customer.first_name | prepend: ', ' }}{% endif %}</span>!</h1>
+        <div class="results__item results__item--product f aic jcc">
+          <div class="results__image">
+            <a href="{{ product.url }}">
+              {% assign results_product_thumb = product.handle | prepend: 'results_' | append: '.png' %}
+              <img src="{{ results_product_thumb | asset_img_url: '700x700', format: 'pjpg' }}" alt="{{ product.title | escape }}" />
+            </a>
+          </div>
+          <div class="results__details line-break">
+            <h3 class="serif">{{ product.title }}</h3>
+            <p class="price p bold mb05">
+              {{ product.price | money_without_trailing_zeros }}
+            </p>
+            {% if product.metafields.quiz.quiz_description %}<p>{{ product.metafields.quiz.quiz_description }}</p>{% endif %}
+            <p><a href="{{ product.url }}" class="bold ttu c-gold link-arrow">Learn More</a></p>
+            {% assign current_variant = product.selected_or_first_available_variant %}
+            <form action="/cart/add" method="post" class="pv1">
+              <input name="id" type="hidden" value="{{ current_variant.id }}">
+              <div itemscope itemtype="http://schema.org/Product" class="">
+                <button itemprop="offers" itemscope itemtype="http://schema.org/Offer" type="submit" class="btn  bold" data-action="add-to-cart">
+                  {{ 'products.product.add_to_cart_html' | t }}&#8212;<span itemprop="price" class="js-product-price">{{ product.price | money_without_trailing_zeros }}</span>
+                </button>
+              </div>
+              {% include 'product-script' %}
+            </form>
+          </div>
+        </div>
+      </div>
+      {% assign product = all_products[template.suffix] %}
+      {% if product != empty %}
+        <div class="tac pv1">
+          <svg width="261" height="38" xmlns="http://www.w3.org/2000/svg"><path d="M18.1 6.3l-2.34 11.74-2.42-3.88 1.55-7.27-2.76.5-.77 3.77-2-3.26-2.69.49 3.9 6.17-.94 4.6L3.22 9.02l-2.9.53L8.67 22.4l2.78-.5 1.02-4.72 2.57 4.06 2.75-.5L21 5.78l-2.9.53zm17.77 12.02l2.98-.39-8-14.03-2.67.35-4.21 15.6 3-.38.87-3.48 6.3-.82 1.73 3.15zm-6.55-5.1l1.34-5.2 2.63 4.7-3.97.5zm13.59 4.02L41.67 2.72l2.42-.2 7.08 8.67L50.4 2l2.7-.23 1.24 14.52-2.46.2-7.08-8.56.78 9.1-2.66.22zM60.95 3.93l.57 12.11 2.78-.14-.57-12.12 4.52-.24-.1-2.4-11.84.63.11 2.4 4.53-.24zm18.62 9.02l-.01-3.79 5.32.02V6.71l-5.33-.02V3l6.58.03V.55L76.83.5l.04 14.94 9.3.04-.01-2.51-6.6-.03zm16.7-1.26l4.03-10.42 2.94.13-5.86 14.67-2.54-.1L90.07.85l2.94.12 3.25 10.72zm12.42 1.96l.28-3.66 5.31.39.19-2.38-5.31-.4.28-3.58 6.58.5.18-2.4-9.28-.68-1.12 14.43 9.28.69.19-2.43-6.58-.48zm10.06 3.46l1.77-14.56 2.48.28 5.35 9.97 1.12-9.22 2.78.31-1.77 14.56-2.52-.29-5.37-9.87-1.1 9.13-2.74-.31zm29.14 1.83l-2.03-7.05-1.65 8.22-2.59-.51 2.8-13.98 2.51.5 2.72 9.61 6.22-7.83 2.51.5-2.8 13.98-2.61-.52 1.64-8.22-4.59 5.73-2.13-.43zm21.7-7.7c4.31 1.09 6.15 4.96 5 9-1.17 4.08-4.83 6.6-9.15 5.52-4.34-1.09-6.2-4.99-5.03-9.07 1.15-4.04 4.83-6.53 9.17-5.44zM166.2 23.9c2.53.67 4.76-1.06 5.5-3.8.71-2.67-.34-5.3-2.88-5.98-2.56-.68-4.82 1.07-5.53 3.74-.74 2.74.35 5.35 2.9 6.04zm21.73 7.57l-2.26-7.33a4.06 4.06 0 003.85-3.1c.49-2-.45-4.38-3.35-5.14l-6.12-1.6-3.44 14.22 2.57.67 1.38-5.71 2.47.64 1.93 6.58 2.97.77zm-3.67-9.67l-3.1-.77.95-3.8 3.3.82c1.38.35 1.8 1.4 1.57 2.33-.24.97-1.27 1.79-2.72 1.42zm10.5 8.18l.65-3.7 5.14 1.01.42-2.4-5.13-1.02.63-3.6 6.36 1.24.42-2.4-8.97-1.77-2.55 14.57 8.97 1.77.43-2.45-6.36-1.25zm18.38-.8l-.58 6.18-2.68-.26 1.37-14.69 9.02.9-.22 2.43-6.34-.63-.34 3.64 5.08.5-.23 2.43-5.08-.5zm21.05-7.09l-2.77-.1-.33 9.13c-.06 1.73-1.03 3.34-3.12 3.27-2.13-.08-2.96-1.76-2.9-3.5l.34-9.12-2.79-.1-.34 9.31c-.12 3.32 1.81 5.93 5.6 6.07 3.73.14 5.85-2.32 5.97-5.64l.34-9.32zm15.67 14.13l-4.24-6.1a4.09 4.09 0 002.98-3.96c-.07-1.99-1.64-3.91-4.73-3.78l-6.5.26.46 14.08 2.73-.11-.19-5.66 2.63-.1 3.71 5.5 3.15-.13zm-6.25-8.28l-3.39.15-.1-3.74 3.6-.17c1.51-.07 2.24.78 2.27 1.7.02.95-.79 1.99-2.38 2.06zm13.51 1.92c-.5.05-.98-.16-1.05-.81-.07-.78.57-1.16 1.58-1.86 1.06-.72 2.2-1.64 2.03-3.44-.21-2.04-1.92-2.9-3.58-2.73a3.6 3.6 0 00-3.37 3.59l2.18.34c0-1 .61-1.55 1.3-1.62.56-.06 1.1.19 1.15.8.08.72-.56 1.18-1.28 1.64-1.06.66-2.5 1.52-2.3 3.5.21 2.01 1.88 2.85 3.41 2.7a3.18 3.18 0 002.92-2.98l-1.76-.48c-.07.9-.65 1.3-1.23 1.35zm-.76 3.16c-.85.08-1.45.77-1.36 1.63a1.5 1.5 0 001.66 1.35c.83-.08 1.4-.81 1.32-1.65a1.45 1.45 0 00-1.62-1.33z" fill="#BEB132" fill-rule="evenodd"/></svg>
+        </div>
+        {% assign current_variant = product.selected_or_first_available_variant %}
+        <div class="px1">
+          <div class="results__item results__item--bundle f aic jcc">
+            <div class="results__image">
+              <a href="{{ product.url }}">
+                {% assign results_bundle_thumb = product.handle | prepend: 'results_' | append: '.png' %}
+                <img src="{{ results_bundle_thumb | asset_img_url: '700x700', format: 'pjpg' }}" alt="{{ product.title | escape }}" />
+              </a>
+              {% if product.metafields.quiz.bundle_savings %}<div class="savings-badge f aic jcc ac caps bold">Save<br>{{ product.metafields.quiz.bundle_savings }}</div>{% endif %}
+            </div>
+            <div class="results__details line-break">
+              <h3 class="serif">{{ product.title }}</h3>
+              <p class="price p bold mb05">
+                {{ product.price | money_without_trailing_zeros }}
+              </p>
+              {% if product.metafields.quiz.quiz_description %}<p>{{ product.metafields.quiz.quiz_description }}</p>{% endif %}
+              <p><a href="{{ product.url }}" class="bold ttu c-gold link-arrow">Learn More</a></p>
+              <form action="/cart/add" method="post" class="pv1">
+                <input name="id" type="hidden" value="{{ current_variant.id }}">
+                <div itemscope itemtype="http://schema.org/Product" class="">
+                  <button itemprop="offers" itemscope itemtype="http://schema.org/Offer" type="submit" class="btn  bold" data-action="add-to-cart">
+                    {{ 'products.product.add_to_cart_html' | t }}&#8212;<span itemprop="price" class="js-product-price">{{ product.price | money_without_trailing_zeros }}</span>
+                  </button>
+                </div>
+                {% include 'product-script' %}
+              </form>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      <a href="/blogs/fur-blog">
+        <div class="mt2 px2 quiz__footer">
+          <div class="quiz__footer-container container container--m mx2">
+            <div class="px2 ac">
+              <h1 class="h2 serif quiz__footer-heading">Find your dream routine</h1>
+              <object><a href="/blogs/fur-blog" class="bold ttu c-gold link-arrow">Read The Blog</a></object>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+{% endif %}
+
+<div class="hide">
+  page.url: {{ page.url }}<br>
+  page.handle: {{ page.handle }}<br>
+  page.template_suffix: {{ page.template_suffix }}<br>
+  template: {{ template }}<br>
+  template.directory: {{ template.directory }}<br>
+  template.name: {{ template.name }}<br>
+  template.suffix: {{ template.suffix }}<br>
+</div>
+</div>
+
+<script>
+	CF.customerReady(function() {
+    var dataFromLocalStorage = localStorage.getItem('customer_data');
+
+		if (dataFromLocalStorage) {
+      var parsedData = JSON.parse(dataFromLocalStorage);
+      
+      // Check if customer came from login and is logged in
+      if (document.referrer.indexOf("/account/login") !== -1 && __st.cid) {
+        // Since customer took the quiz and logged in on step 7,
+        // retain latest quiz data BUT make sure email and password
+        // are not included otherwise those will get overwritten.
+        delete parsedData.email;
+        delete parsedData.password;
+        CF.customer.set(parsedData);
+        CF.customer.save({ formId: 'oL3tX9' });
+      }
+
+			// Now you can read data from the anonymous submission:
+      if (parsedData.first_name !== "") {
+        document.querySelector(".js-quiz-first_name").innerHTML = ", " + parsedData.first_name;
+        document.querySelector(".js-quiz-first_name").classList.remove("hide");
+      };
+      if (parsedData.try_it_on_your && document.querySelector(".js-quiz-extra_care")) document.querySelector(".js-quiz-extra_care").innerHTML = parsedData.try_it_on_your;
+    }
+	});
+</script>

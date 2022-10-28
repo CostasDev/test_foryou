@@ -1,0 +1,21 @@
+{% form 'customer_login' %}
+  <div class="row">
+    <input class="text long{% if form.errors contains 'email' %} error{% endif %}" name="customer[email]" id="customer_email" placeholder="{{ 'customer.login.email' | t }}" type="email" autocorrect="off" autocapitalize="off" autofocus="autofocus">
+    {% include 'form-field-error', field: 'email' %}
+  </div>
+  {% if form.password_needed %}
+    <div class="row">
+      <input class="text long{% if form.errors contains 'password' %} error{% endif %}" name="customer[password]" id="customer_password" placeholder="{{ 'customer.login.password' | t }}" type="password">
+      {% include 'form-field-error', field: 'password' %}
+    </div>
+  {% endif %}
+  {% include 'form-errors' %}
+  <div class="row actions expanded-top">
+    <button class="btn solid {{ settings.button_shape }}" name="commit" type="submit" formnovalidate="formnovalidate">
+      {{ 'customer.login.sign_in' | t }}
+    </button>
+  </div>
+  <div class="row expanded-top back">
+    <a class="underline" data-action="toggle-recover-password">{{ 'customer.login.forgot_password' | t }}</a><br>
+  </div>
+{% endform %}

@@ -1,0 +1,288 @@
+{
+  "general": {
+    "404": {
+      "title_html": "Page<br>Not Found",
+      "subtitle": "The page you requested doesn't exist.",
+      "continue_shopping_html": "Continue<br>Shopping",
+      "open_menu": "Open Menu"
+    },
+    "search": {
+      "title": "Search",
+      "placeholder": "Search...",
+      "no_results_for": "Your search for \"{{ terms }}\" did not yield any results."
+    },
+    "navigation": {
+      "cancel_html": "or {{ link }}",
+      "return_to_store": "Return to Store"
+    },
+    "page_title": {
+      "tagged": "tagged \"{{ tags }}\"",
+      "pagination": "Page {{ current_page }}"
+    },
+    "password_page": {
+      "opening_soon": "Opening Soon",
+      "login_form_heading": "Enter store using password:",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_heading": "Find out when we open:",
+      "signup_form_email_placeholder": "Enter email",
+      "signup_form_submit": "Submit",
+      "signup_form_success": "We will send you an email right before we open!",
+      "social_heading": "Find us as well in:",
+      "admin_link_html": "Are you the store owner? <a href=\"\/admin\" class=\"text-link\">Log in here<\/a>",
+      "password_link_html": "Enter with Password",
+      "back_link_html": "Back to previous page",
+      "powered_by_shopify_html": "This shop will be powered by {{ shopify }}"
+    }
+  },
+  "blogs": {
+    "general": {
+      "no_articles": "Sorry, there are currently no articles."
+    },
+    "article": {
+      "meta_html": "Posted by {{ author }} on {{ date }}",
+      "read_entire_article_html": "read entire article",
+      "next_article_html": "Newer Post &rarr;",
+      "previous_article_html": "&larr; Older Post"
+    },
+    "comment_form": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Send",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated_html": "Your comment was posted successfully.<br>We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!"
+    }
+  },
+  "collections": {
+    "general": {
+      "catalog": "Catalog",
+      "collections": "Collections",
+      "no_collections": "Sorry, there are currently no collections.",
+      "no_products": "Sorry, there are currently no products available at this collection."
+    },
+    "tags": {
+      "all": "all"
+    }
+  },
+  "products": {
+    "product": {
+      "description_html": "description",
+      "buy_html": "Buy<br>now",
+      "on_sale_html": "Sale",
+      "sold_out_html": "Sold<br>Out",
+      "unavailable": "Unavailable",
+      "add_to_cart_html": "Add to bag",
+      "related_products": "Related Products",
+      "share_on": "Share on {{ platform}}"
+    },
+    "zoom": {
+      "next": "Next (Right arrow key)",
+      "prev": "Previous (Left arrow key)",
+      "close": "Close (Esc)"
+    }
+  },
+  "contact": {
+    "form": {
+      "title_html": "Get in<br>touch",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone Number (optional)",
+      "message": "Message",
+      "send": "Send",
+      "post_success_html": "Thanks for contacting us.<br>We'll get back to you as soon as possible."
+    }
+  },
+  "customer": {
+    "account": {
+      "title_html": "Your<br>Account<br>Information",
+      "user_info_html": "Account created by <span class=\"highlight\">{{ name }}<\/span><br>with email <span class=\"highlight\">{{ email }}<\/span>",
+      "address_info_html": "The default address is <span class=\"highlight\">{{ address }}<\/span>.",
+      "add_address_html": "Add Your<br>Address",
+      "edit_addresses_html": "Edit<br>Addresses",
+      "return": "Return"
+    },
+    "orders": {
+      "title_html": "Your<br>Orders",
+      "order_description_html": "On {{ date }} order {{ link }} was placed and it's current status is <span class=\"highlight\">{{ financial_status }}<\/span> and <span class=\"highlight\">{{ fulfillment_status }}<\/span>."
+    },
+    "order": {
+      "title_html": "Order<br>{{ name }}",
+      "title": "Order<br>{{ name }}",
+      "date": "Placed on {{ date }}",
+      "canceled": "Order Canceled on {{ date }}",
+      "canceled_reason": "The reason was: {{ reason }}",
+      "billing_address": "Billing Address",
+      "payment_status": "Payment Status",
+      "shipping_address": "Shipping Address",
+      "shipping": "Shipping",
+      "fulfilled_at": "Fulfilled at",
+      "fulfillment_status": "Fulfillment Status",
+      "discount": "Discount",
+      "subtotal": "Subtotal",
+      "price": "Price",
+      "product": "Product",
+      "quantity": "Quantity",
+      "tax": "Tax",
+      "sku": "SKU",
+      "total": "Total",
+      "return_to_account": "Return to Your Account"
+    },
+    "activate_account": {
+      "title": "Activate Account",
+      "subtitle": "Create your password to activate your account.",
+      "password": "Password",
+      "password_confirm": "Confirm Password",
+      "submit_html": "Activate<br>Account",
+      "cancel": "Decline Invitation"
+    },
+    "addresses": {
+      "title_html": "Your<br>Address<br>Book",
+      "subtitle": "These are the addresses linked to your account.",
+      "empty": "Your Address Book is currently empty.",
+      "default": "default address",
+      "add_new": "new address",
+      "edit_address": "edit address",
+      "recipient": "Recipient",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "company": "Company",
+      "address": "Address",
+      "address1": "Address 1",
+      "address2": "Address 2",
+      "city": "City",
+      "country": "Country",
+      "province": "Province",
+      "zip": "Postal\/Zip Code",
+      "phone": "Phone",
+      "phone_label": "Tel.",
+      "set_default_label": "Set as Default Address?",
+      "set_default_action": "Yes, please.",
+      "add_html": "Add New<br>Address",
+      "update": "Update Address",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "delete_question": "Are you sure you wish to delete this address?",
+      "return": "Return to Your Account"
+    },
+    "login": {
+      "title_html": "Already Registered",
+      "subtitle": "Start a new session.",
+      "email": "Email",
+      "password": "Password",
+      "sign_in": "Sign in",
+      "forgot_password": "Forgot your password?",
+      "register_title_html": "New Client",
+      "register_subtitle": "Create a new account.",
+      "register_action": "Register",
+      "password_title_html": "Reset your password",
+      "password_subtitle": "You will receive an email with instructions.",
+      "password_sent": "We've sent you an email with a link to update your password.",
+      "password_action_html": "Send email",
+      "password_cancel": "Cancel",
+      "guest_title_html": "Don't want to register?",
+      "guest_subtitle": "Continue as a guest.",
+      "guest_action_html": "Skip<br>register"
+    },
+    "reset_password": {
+      "title": "Reset Account Password",
+      "title_html": "Reset Account Password",
+      "subtitle": "Enter a new password for {{ email }}",
+      "password": "Password",
+      "password_confirm": "Confirm Password",
+      "submit_html": "Reset Password",
+      "subtext": "Enter a new password for {{ email }}"
+    },
+    "register": {
+      "title": "Create New Account",
+      "subtitle": "Provide us with your contact information.",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "Email",
+      "password": "Password",
+      "submit_html": "Create my account",
+      "cancel": "Return to store"
+    }
+  },
+  "home_page": {
+    "collections": {
+      "title": "Featured Collections"
+    },
+    "onboarding": {
+      "product_title": "Example Featured Product",
+      "add_products_html": "Add your<br>products",
+      "add_collection": "Add New Collection",
+      "add_product": "Add Your Product"
+    }
+  },
+  "cart": {
+    "general": {
+      "title_html": "Your Cart",
+      "note": "Special instructions for seller:",
+      "subtotal": "Subtotal",
+      "shipping_at_checkout": "Shipping & taxes calculated at checkout.",
+      "currency_conversion_html": "{{ name }} process all orders in {{ currency }}. While the content of your cart is currently displayed in <span class='selected-currency'><\/span>, you will checkout using {{ currency }} at the most current exchange rate.",
+      "update_html": "Update cart",
+      "checkout_html": "Check out",
+      "empty": "Your cart is currently empty.",
+      "continue_browsing_html": "Continue<br>browsing"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "Here's your {{ value }} gift card for {{ shop }}!",
+      "subtext_html": "Here's your<br>gift card!",
+      "amount_left_html": "{{ amount }} <small>left<\/small>",
+      "redeem": "Use this code at checkout to redeem your gift card.",
+      "shop_link_html": "Start<br>Shopping",
+      "print": "Print Gift Card",
+      "disabled": "This gift card has been disabled",
+      "expired": "Expired on {{ expiry }}",
+      "active": "Expires on {{ expiry }}",
+      "add_apple_wallet": "Add To Apple Wallet"
+    }
+  },
+  "layout": {
+    "side_nav": {
+      "account": "Your Account",
+      "logout": "Log Out",
+      "signin": "Sign In",
+      "back": "Back"
+    },
+    "footer": {
+      "contact": "Contact us",
+      "newsletter": "Stay in touch and get 10% off",
+      "newsletter_placeholder": "Enter email",
+      "newsletter_submit": "Submit",
+      "social": "Connect with us",
+      "platform": "{{ name }} on {{ platform }}",
+      "copyright_html": "&copy; Copyright {{ year }}, {{ shop_name }}",
+      "theme_title": "with"
+    }
+  },
+  "date_formats": {
+    "day_month_and_year": "%B %e, %Y",
+    "date_and_time": "%B %e, %Y at %I:%M %P",
+    "month_day_year": "%e %B, %Y"
+  },
+  "shopify": {
+    "checkout": {
+      "shipping_errors": {
+        "shipping_method_not_available": "The Fur Trimmer only ships to the Continental U.S. at this time. Please remove item to continue with checkout!",
+        "shipping_method_not_available_generic": {
+          "one": "The Fur Trimmer only ships to the Continental U.S. at this time. Please remove item to continue with checkout!"
+        },
+        "shipping_method_not_available_updated": {
+          "one": "The Fur Trimmer only ships to the Continental U.S. at this time. Please remove item to continue with checkout!",
+          "other": "The Fur Trimmer only ships to the Continental U.S. at this time. Please remove item to continue with checkout!"
+        }
+      },
+      "field_errors": {
+        "address_country_not_supported": "The Fur Trimmer only ships to the Continental U.S. at this time. Please remove item to continue with checkout!"
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+<div data-section-type="richtext" class="{{section.settings.layout}} text-align--{{section.settings.text_align}}" style="background: {{section.settings.bg_color}};">
+  <div class="richtext-container full-width--{{section.settings.full_width}}">
+    {% if section.settings.title != blank %}
+    <h2>{{section.settings.title}}</h2>
+    {% endif %}
+    
+    {{section.settings.text}}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "richtext",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text align",
+      "options": [
+        {
+          "value": "center",
+          "label": "center"
+        },
+        {
+          "value": "left",
+          "label": "Left"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        {
+          "value": "small--hide",
+          "label": "Desktop"
+        },
+        {
+          "value": "medium-up--hide",
+          "label": "Mobile"
+        },
+        {
+          "value": "all",
+          "label": "Desktop / mobile"
+        }
+      ]
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    }
+  ],
+  "presets": [
+    {
+      "name":"richtext"
+    }
+  ]
+}
+{% endschema %}

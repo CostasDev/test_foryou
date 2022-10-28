@@ -1,0 +1,24 @@
+{% form 'create_customer' %}
+  <div class="row">
+    <input class="text long{% if form.errors contains 'first_name' %} error{% endif %}" name="customer[first_name]" id="first_name" placeholder="{{ 'customer.register.first_name' | t }}" autocapitalize="words" type="text" autofocus="autofocus">
+    {% include 'form-field-error', field: 'first_name' %}
+  </div>
+  <div class="row">
+    <input class="text long{% if form.errors contains 'last_name' %} error{% endif %}" name="customer[last_name]" id="last_name" placeholder="{{ 'customer.register.last_name' | t }}" type="text" autocapitalize="words">
+    {% include 'form-field-error', field: 'last_name' %}
+  </div>
+  <div class="row">
+    <input class="text long{% if form.errors contains 'email' %} error{% endif %}" name="customer[email]" id="email" placeholder="{{ 'customer.register.email' | t }}" type="email" autocorrect="off" autocapitalize="off">
+    {% include 'form-field-error', field: 'email' %}
+  </div>
+  <div class="row">
+    <input class="text long{% if form.errors contains 'password' %} error{% endif %}" name="customer[password]" id="create_password" placeholder="{{ 'customer.register.password' | t }}" type="password">
+    {% include 'form-field-error', field: 'password' %}
+  </div>
+  {% include 'form-errors' %}
+  <div class="row actions expanded-top">
+    <button class="btn solid {{ settings.button_shape }}" name="commit" type="submit" formnovalidate="formnovalidate">
+      {{ 'customer.register.submit_html' | t }}
+    </button>
+  </div>
+{% endform %}

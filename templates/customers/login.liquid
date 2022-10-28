@@ -1,0 +1,124 @@
+<div class='account tac' data-component='accountLogin'>
+  <div class="account__wrapper f jcc aic x y">
+    <div class='account__dialog px2 container--i mxa js-recover-dialog fdc jcc aic' style='display: none;'>
+        
+        <div class="js-password-success">
+        <h3 class='serif mb05'>Forgot your password?</h3>
+        <p class="container--xs mxa pb2">No worries! Enter your email and we will send you a password reset link.</p>
+        </div>
+
+        {% form 'recover_customer_password', class: 'x' %}
+
+          {% if form.posted_successfully? %}
+            <p class='small mb1 js-recover-success'>Success! Check your email for a link to reset your password.</p>
+          {% else %}
+            {%
+            include 'component-input' with
+            label: 'Email',
+            placeholder: 'Email',
+            name: 'email',
+            type: 'email',
+            className: "bg-white"
+            %}
+
+            {% if form.errors %}
+              {% for field in form.errors %}
+                {% if field == 'form' %}
+                  <p class='c-red mt1 small bold'>{{ form.errors.messages[field] }}</p>
+                {% else %}
+                  <p class='c-red mt1 small bold'>{{ form.errors.translated_fields[field] | capitalize }} {{ form.errors.messages[field] }}.</p>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+
+            <div class='mt1'>
+              {%
+              include 'component-button' with
+              tag: 'button',
+              type: 'submit',
+              cta: 'Reset password',
+              className: 'btn btn_chartreuse btn_hover-black remove-default x container--i mxa js-password-btn'
+              %}
+            </div>
+          {% endif %}
+
+        {% endform %}
+
+        <a href='/accounts/login' class='block mt1 small js-recover-cancel underline'>Go Back</a>
+    </div>
+
+
+    <div class='account__dialog x container--m mxa js-login-dialog f jcc aic fdc'>
+
+        <h3 class='serif mb05'>Account Login</h3>
+
+        {% form 'customer_login', class: 'x' %}
+          <input type="hidden" name="checkout_url">
+          <div class='mb1 pb05 container--i mxa'>
+            {%
+            include 'component-input' with
+            label: 'Email',
+            placeholder: 'Email',
+            name: 'customer[email]',
+            className: 'bg-white mb15',
+            type: 'email'
+            %}
+
+            {%
+            include 'component-input' with
+            label: 'Password',
+            placeholder: 'Password',
+            name: 'customer[password]',
+            type: 'password',
+            className: 'bg-white mb1'
+            %}
+          </div>
+
+          {% if form.errors %}
+            {% for field in form.errors %}
+              {% if field == 'form' %}
+                <p class='c-red bold tac mb2'>{{ form.errors.messages[field] }}</p>
+              {% else %}
+                <p class='c-red bold tac mb2'>{{ form.errors.translated_fields[field] | capitalize }} {{ form.errors.messages[field] }}</p>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+
+          <div class=''>
+            {%
+            include 'component-button' with
+            tag: 'button',
+            type: 'submit',
+            cta: 'Sign in',
+            className: 'btn btn_chartreuse btn_hover-black remove-default caps bold x container--i mxa'
+            %}
+          </div>
+        {% endform %}
+
+        <div class='pt1 f aic jcc'>
+          <div class='small'>
+            <span class="c-gray">Forgot password?</span> <a class='mt1 cgm uno-ajax js-recover-trigger c-gold underline' href='#recover'>Click here</a><br />
+            <span class="c-gray">Don't have an account? </span><a class='mt1  no-ajax c-gold underline' href='/account/register'>Sign Up</a> <br />
+            <span class="c-gray">Are you a Fur retail partner?</span> <a class='mt1  no-ajax c-gold underline' href='https://furprofessionals.com/'>Log in here</a> <br />
+          </div>
+        </div>
+
+        {% comment %} {% if shop.checkout.guest_login %}
+          <div class='h1 px1'>
+            <hr class='cgm' />
+          </div>
+
+          {% form 'guest_login' %}
+            {%
+            include 'button' with
+            tag: 'button',
+            type: 'submit',
+            cta: 'Continue as a guest',
+            className: 'btn remove-default ',
+            outline: true
+            %}
+          {% endform %}
+        {% endif %} {% endcomment %}
+      </div>
+    </div>
+</div>  

@@ -1,0 +1,31 @@
+<div class="yotpo-rewards">
+
+<script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/lmKTv4brjzvrXL7sovn6Ug" async></script>
+
+{% include 'loyalty-custom-section' %}
+
+{% if customer %}
+
+	<style>
+		.sign-btn-container{ display: none; }
+	</style>
+
+	<div class="yotpo-widget-instance" data-yotpo-instance-id="36765"></div>
+	<div class="yotpo-widget-instance" data-yotpo-instance-id="36674"></div>
+    <div class="yotpo-widget-instance" data-yotpo-instance-id="36676"></div>
+	<div class="yotpo-widget-instance" data-yotpo-instance-id="117589"></div>
+	<div class="yotpo-widget-instance" data-yotpo-instance-id="36673"></div>
+	<div class="yotpo-widget-instance" data-yotpo-instance-id="36655"></div>
+
+{% else %}
+
+	<div class="yotpo-widget-instance" data-yotpo-instance-id="36765"></div>
+    <div class="yotpo-widget-instance" data-yotpo-instance-id="36673"></div>  
+	<div class="yotpo-widget-instance" data-yotpo-instance-id="36674"></div>
+	<div class="yotpo-widget-instance" data-yotpo-instance-id="117589"></div>
+	<div class="yotpo-widget-instance" data-yotpo-instance-id="36676"></div>
+	<div class="yotpo-widget-instance" data-yotpo-instance-id="36655"></div>
+
+{% endif %}
+
+</div>

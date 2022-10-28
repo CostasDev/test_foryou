@@ -1,0 +1,12 @@
+<div data-component='newsletter'>
+    <label for="newsletterForm" class='js-newsletter-label sans py1'>Stay in touch and get 10% off!</label>
+    <form method="post" name="newsletterForm" id="newsletterForm" class="newsletter js-newsletter df ais jcb contact-form mt05" accept-charset="UTF-8">
+        <input type="hidden" value="contact" name="form_type"><input type="hidden" name="utf8" value="✓">
+        <label for="newsletterEmail" style="opacity: 0; height: 0; width: 0;">Enter your email</label>
+        <input required type="email" id="newsletterEmail" name="newsletterEmail" name="email" class="text footer__newsletter-input js-newsletter-input x y" autocorrect="off" autocapitalize="off" placeholder="{{ 'layout.footer.newsletter_placeholder' | t }}" aria-required="true">
+        <div type="submit" role='button' class="btn footer__newsletter-button js-newsletter-btn" name="subscribe" id="subscribe" aria-label="Subscribe to Newsletter"><span>&nbsp;</span></div>
+    </form>
+    <div class='newsletter__thanks js-newsletter-thanks hidden'>
+        <p>Thanks, you'll be hearing from us!</p>
+    </div>
+</div> 

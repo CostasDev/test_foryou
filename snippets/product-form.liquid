@@ -1,0 +1,111 @@
+{% if product.available %}
+  {% assign sold_out = false %}
+{% else %}
+  {% assign sold_out = true %}
+{% endif %}
+
+{% if product.compare_at_price_min > product.price_min %}
+  {% if sold_out %}
+    {% assign on_sale = false %}
+  {% else %}
+    {% assign on_sale = true %}
+  {% endif %}
+{% else %}
+  {% assign on_sale = false %}
+{% endif %}
+
+
+<form action="/cart/add" method="post" enctype="multipart/form-data" data-productid="{{product.id}}" class="product-form product-form-{{ section.id }} mt1" data-section="{{ section.id }}">
+
+  <select name="id" class="no-js hide js-product-selector" data-product-select>
+    {% for variant in product.variants %}
+      <option
+        {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}
+        {% unless variant.available %}disabled="disabled"{% endunless %}å
+        value="{{ variant.id }}">
+          {{ variant.title }}
+      </option>
+    {% endfor %}
+  </select>
+
+    {% include 'product-price' %}
+
+    <div class="rc-widget-injection-parent mt2"></div>
+   
+
+ {% unless product.metafields.sf_product_metafield.out_of_stock == 1 %}
+  {% unless product.has_only_default_variant %}
+    {% for option in product.options_with_values %}
+      <div class="product__options js-options mt2">
+      <p class=" bold mb05">Select an option</p>
+        <fieldset class='size-selector__fields f jcs aic' id="SingleOptionSelector-{{ section.id }}-{{ forloop.index0 }}" data-single-option-selector data-index="option{{ option.position }}">
+          <div class='f fw'>
+            {% for value in option.values %}
+              <div class='inline mr05'>
+              <label class='product__checkbox rel tac small' for='{{value | escape}}'> 
+                <input type='radio' class='product__checkbox-input f jcs abs aic' id="{{value | escape}}" value="{{ value | escape }}" {% if option.selected_value == value %}checked="checked"{% endif %} name='size' />
+                    <div class="product__checkbox-mark abs"></div>
+                    <span class="product__checkbox-label rel z1">{{value}}</span>
+                </label>
+              </div>
+            {% endfor %}
+          </div>
+        </fieldset>
+      </div>
+    {% endfor %}
+  {% endunless %}
+  {% endunless %}
+
+
+  {% if product.metafields.sf_product_metafield.out_of_stock == 1 %}
+        <p class="product-outstock">Currently out of stock.</p>
+
+
+      {% if product.metafields.sf_klaviyo_form.klaviyo_form %}
+        <p class="product-outstock">Sign up to be notified when this product is available!</p>
+        <div class="{{product.metafields.sf_klaviyo_form.klaviyo_form}} product-outstock__form rel"></div>
+     {% endif %}
+
+ {% else %}
+      {% if product.available %}
+        <div class='f'>
+          <div class='product__quantity f jcb aic' style="display: none;">
+            <span class='js-qty-minus  bold ph1 pv05'>-</span>
+            <input type="number" id="Quantity-{{ section.id }}" name="quantity" class='js-quantity bold' value='1' min="1">
+            <span class='js-qty-plus  bold ph1 pv05'>+</span>
+          </div>
+          <button
+            type="submit"
+            name="add"
+            class='btn product__btn js-submit-cart m0 bold ttu'
+            id="addToCart-klaviyo"
+            data-add-to-cart
+            {% unless product.available %}disabled="disabled"{% endunless %}
+            {% if section_onboarding %}disabled="disabled"{% endif %}>
+              <span class="js-cart-btn-message" data-add-to-cart-text>
+                {% if product.available %}
+                  Add to Bag
+                {% else %} 
+                  Sold Out
+                {% endif %}
+              </span>
+          </button>
+        </div>
+
+        {% unless product.handle contains 'gift' or product.title contains 'Trimmer' or product.handle contains 'test' %}
+        <p class="mt05"><a class="shipping__note" href="https://furyou.com/pages/faqs#shipping">Free domestic shipping & easy returns</a></p>{% endunless %}
+      {% if product.tags contains 'Trimmer-PDP' %} <p class="mt05 mb2 shipping__note">The Trimmer can only be shipped within the continental U.S. and cannot be shipped to PO Boxes.</p> {% endif %} 
+
+        {% else %}
+
+        <p class="product-outstock">Currently out of stock.</p>
+     
+    {% endif %}
+
+  {% endif %}
+
+</form>
+
+
+
+

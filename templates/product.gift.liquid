@@ -1,0 +1,40 @@
+{% assign product_metafield = product.metafields.sf_product_metafield %}
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+
+<section data-component='product' class='product rel' itemscope itemtype="http://schema.org/Product">
+
+   <script class='js-product-json' type='text/template'>
+      {
+        "selectedOrFirstAvailableVariant": {{ current_variant.id | json }},
+        "product": {{ product | json }},
+        "sku": {{ current_variant.sku | json }}
+      }
+    </script>
+
+  <div class="product__wrapper rel mb2">
+    <div class="product__hero f jcs ais fw rel" data-component='productInfo'>
+      {% include 'product-mobile-carousel' %}
+      {% include 'product-desktop-images' %}
+      <div class="product__hero_block product__hero-description f fw ais">
+        <div class="x">
+          <p class='m0 p0 xsmall mb1'>{{ product_metafield.mini_description }}</p>
+          <h2 itemprop="name" class='h2 pt0'>{{ product.title }}</h2>
+
+          {% include 'product-description' %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="product__breadcrumbs tac">
+    <a class="btn" role="button" href="/collections/all"> Back to all products</a>
+  </div>
+ 
+ {% unless product == empty %}
+      <script type="application/json" data-product-json>
+        {{ product | json }}
+      </script>
+    {% endunless %}
+  
+
+</section>

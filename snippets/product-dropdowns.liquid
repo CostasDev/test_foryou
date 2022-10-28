@@ -1,0 +1,106 @@
+{% comment %} {% assign product_metafield = product.metafields.sf_product_metafield %} {% endcomment %}
+
+{% assign details = product_metafield.additional_info_detailed_ingre %}
+
+<div class="product__ingredients">
+ {% if product_metafield.additional_info_header %}
+  <div class='rel'>
+    <div class='product__ingredients-block f jcs fw mha z2 rel'>
+      <div class='bgw fill-h'>
+
+          {% if product_metafield.additional_info_size_chart %}
+           <div class='product__ingredients-single js-ingred x' type="div" aria-label="View Size Chart">
+            <div class="product__ingredients-title f jcc js-plus"><span class='h6 ttu small bold rel z2 x track--s'>Size Chart</span></div>
+            <div class='product__ingredients-details  product__size pv0 js-details inactive line-break'>
+              {{ product_metafield.additional_info_size_chart }}
+            </div>
+          </div>
+        {% endif %}
+
+          {% if product_metafield.additional_info_extra %}
+           <div class='product__ingredients-single js-ingred x' type="div" aria-label="View Key Ingredients">
+            <div class="product__ingredients-title f jcc js-plus"><p class='h6 ttu small bold rel z2 x track--s'>What Makes It Different</p></div>
+            <div class='product__ingredients-details  pv0 js-details inactive line-break'>
+              {{ product_metafield.additional_info_extra }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if product_metafield.additional_info_whats_included %}
+          <div class='product__ingredients-single js-ingred x' type="div" aria-label="View What's Included">
+            <div class="product__ingredients-title f jcc js-plus"><p class='h6 ttu small bold rel z2 x track--s'>What's Included</p></div>
+            <div class='product__ingredients-details  pv0 js-details inactive line-break'>
+              {{ product_metafield.additional_info_whats_included }}
+            </div>
+          </div> 
+
+        {% endif %}
+      
+        {% if product_metafield.additional_info_how_to_use %}
+            <div class='product__ingredients-single js-ingred x' type="div" aria-label="View How to Use">
+            <div class="product__ingredients-title f jcc js-plus"><p class='h6 ttu small bold rel z2 x track--s'>How to Use</p></div>
+            <div class='product__ingredients-details  pv0 js-details inactive line-break'>
+              {{ product_metafield.additional_info_how_to_use }}
+
+            {% if product_metafield.video_embed %}
+              <div class='product__video mt1 mb1'>
+                <div class="div_video plyr__video-wrapper plyr__video-embed plyr--setup" style="position: relative;">
+                  <div class="video__top"></div>
+                  {{ product_metafield.video_embed }}
+                  <div class="video__bottom"></div>
+                </div>
+              </div>
+            {% endif %} 
+            </div>
+          </div>
+        {% endif %}
+
+        {% if product_metafield.additional_info_claims %}
+           <div class='product__ingredients-single js-ingred x' type="div" aria-label="View Trial Results">
+            <div class="product__ingredients-title f jcc js-plus"><p class='h6 ttu small bold rel z2 x track--s'>Trial Results</p></div>
+            <div class='product__ingredients-details  pv0 js-details inactive line-break'>
+              {{ product_metafield.additional_info_claims }}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if product_metafield.additional_info_key_ingredient %}
+           <div class='product__ingredients-single js-ingred x ' type="div" aria-label="View Key Ingredients">
+            <div class="product__ingredients-title f jcc js-plus"><p class='h6 ttu small bold rel z2 x track--s'>Key Ingredients</p></div>
+            <div class='product__ingredients-details pv0 js-details inactive line-break'>
+              {{ product_metafield.additional_info_key_ingredient }}
+              {% if details %}
+                <div class='js-modal-open'><h6 class='mx0 pv1 small c-gold'>See Detailed Ingredients</h6></div>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+
+        {% if product_metafield.additional_info_material_care %}
+           <div class='product__ingredients-single js-ingred x' type="div" aria-label="View Key Ingredients">
+            <div class="product__ingredients-title f jcc js-plus"><p class='h6 ttu small bold rel z2 x track--s'>Materials & Care</p></div>
+            <div class='product__ingredients-details pv0 js-details inactive line-break'>
+              {{ product_metafield.additional_info_material_care }}
+            </div>
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% if details %}
+<div class='product__ingredients-modal fix fit fill-h fill-v z10 f jcc aic js-modal px2'>
+  <div class='abs fill js-modal-close z0'></div>
+
+  <div class='px2 bg-white product__ingredients-modal_inner rel z1'>
+    <div class='product__ingredients_close abs  right top c-gold js-modal-close'>+</div>
+    <div class='small container--mm mha fill-h'>
+      {{details}}
+    </div>
+  </div>
+</div>
+{% endif %}
+</div>
+

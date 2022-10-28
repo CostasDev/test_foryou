@@ -1,0 +1,14 @@
+<div>
+  <a class="" title="{{ item.title }}" href="{{ item.url }}" >
+    <div class="collection-product__image rel" >
+      <div class="collection-product__image-wrapper fill-wrapper">
+        <img class="lazyload fill initial-image" data-src="{{ item.featured_image | img_url: '600x750' | crop: 'center' }}" alt="{{ item.title }}"/>
+       {% if item.images[1] %} <img class=" fill hidden-image" src="{{ item.images[1] | img_url: '600x750' | crop: 'center' }}" alt="{{ product.images[1].alt | escape }}"/>{% endif %}
+      </div>
+    </div>
+
+    <div class="f fdc tac mt05 mb2">
+      <p class="collection-product__title tac bold mx0"> {{ item.title }} </p>
+    </div>
+  </a>
+</div>

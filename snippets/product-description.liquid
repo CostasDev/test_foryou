@@ -1,0 +1,126 @@
+{% if product.description != blank %}
+  <div class="product__description mb1 mt2" itemprop="description">
+
+    <div class="mb2">
+      <p class='h6 ttu small bold rel z2 x mt1 mb05'>Details</p>
+      <div class="product__description-text line-break">{{ product.description }}</div> 
+      {% unless product_metafield.hide_view_more_link %}
+        <a class="product__description-more js-readmore pointer small underline" role="button" href="#" aria-label="View More Information">View More</a>
+      {% endunless %}
+    </div>
+
+
+    {% assign pdp_switch = product.metafields.sf_product_icons.product_description_icons %}
+    {% if pdp_switch == 1 %}
+
+      <div class="product__description-icons mt2 f fdr fw">
+        {% assign pdp_switch1 = product.metafields.sf_product_icons.gynecologically_tested_icon %}
+        {% if pdp_switch1 == 1 %}
+          <div class="product__description-block f fdr aic">
+            <div class="product__description-icon"> {% include 'icon' with 'pdp-gynelogically-icon' %} </div>
+            <p>Gynecologically Tested</p>
+          </div>
+        {% endif %}
+
+        {% assign pdp_switch2 = product.metafields.sf_product_icons.cruelty_free_icon %}
+        {% if pdp_switch2 == 1 %}
+          <div class="product__description-block f fdr aic">
+            <div class="product__description-icon">{% include 'icon' with 'pdp-crueltyfree-icon' %} </div>
+            <p>Cruelty Free</p>
+          </div>
+        {% endif %}
+
+        {% assign pdp_switch3 = product.metafields.sf_product_icons.complete_routine_icon %}
+        {% if pdp_switch3 == 1 %}
+          <div class="product__description-block f fdr aic">
+           <div class="product__description-icon"> {% include 'icon' with 'pdp-routine-icon' %} </div>
+            <p>Complete Routine</p>
+          </div>
+        {% endif %}
+      
+        {% assign pdp_switch4 = product.metafields.sf_product_icons.ingrown_reducing_icon %}
+        {% if pdp_switch4 == 1 %}
+          <div class="product__description-block f fdr aic">
+            <div class="product__description-icon">{% include 'icon' with 'pdp-ingrowns-icon' %}</div>
+            <p>Ingrown Reducing</p>
+          </div>
+        {% endif %}
+      
+        {% assign pdp_switch5 = product.metafields.sf_product_icons.softening_icon %}
+        {% if pdp_switch5 == 1 %}
+          <div class="product__description-block f fdr aic">
+           <div class="product__description-icon"> {% include 'icon' with 'pdp-softening-icon' %} </div>
+            <p>Softening</p>
+          </div>
+        {% endif %}
+
+        {% assign pdp_switch6 = product.metafields.sf_product_icons.brightening_icon %}
+        {% if pdp_switch6 == 1 %}
+          <div class="product__description-block f fdr aic">
+            <div class="product__description-icon">{% include 'icon' with 'pdp-brightening-icon' %} </div>
+            <p>Brightening</p>
+          </div>
+        {% endif %}
+
+        {% assign pdp_switch7 = product.metafields.sf_product_icons.smoothing_icon %}
+        {% if pdp_switch7 == 1 %}
+          <div class="product__description-block f fdr aic">
+           <div class="product__description-icon"> {% include 'icon' with 'pdp-smoothing-icon' %} </div>
+            <p>Smoothing</p>
+          </div>
+        {% endif %}
+
+        {% assign pdp_switch8 = product.metafields.sf_product_icons.hydrating_icon %}
+        {% if pdp_switch8 == 1 %}
+          <div class="product__description-block f fdr aic">
+           <div class="product__description-icon"> {% include 'icon' with 'pdp-hydrating-icon' %} </div>
+            <p>Hydrating</p>
+          </div>
+        {% endif %}
+
+        {% assign pdp_switch9 = product.metafields.sf_product_icons.cleansing_icon %}
+        {% if pdp_switch9 == 1 %}
+          <div class="product__description-block f fdr aic">
+            <div class="product__description-icon">{% include 'icon' with 'pdp-cleansing-icon' %} </div>
+            <p>Cleansing</p>
+          </div>
+        {% endif %}
+
+        {% assign pdp_switch10 = product.metafields.sf_product_icons.renewable_icon %}
+        {% if pdp_switch10 == 1 %}
+          <div class="product__description-block f fdr aic">
+            <div class="product__description-icon">{% include 'icon' with 'pdp-energy' %} </div>
+            <p>100% Renewable Energy<br> Used in Production</p>
+          </div>
+        {% endif %}
+
+          {% assign pdp_switch11 = product.metafields.sf_product_icons.plastic_icon %}
+        {% if pdp_switch11 == 1 %}
+          <div class="product__description-block f fdr aic">
+            <div class="product__description-icon">{% include 'icon' with 'pdp-plastic' %} </div>
+            <p>58% Reduction of plastic</p>
+          </div>
+        {% endif %}
+
+        {% assign pdp_switch12 = product.metafields.sf_product_icons.recycling_icon %}
+        {% if pdp_switch12 == 1 %}
+          <div class="product__description-block f fdr aic">
+            <div class="product__description-icon">{% include 'icon' with 'pdp-recycling' %} </div>
+            <p>100% Recyclable</p>
+          </div>
+        {% endif %}
+
+        {% assign pdp_switch13 = product.metafields.sf_product_icons.pet_icon %}
+        {% if pdp_switch13 == 1 %}
+          <div class="product__description-block f fdr aic">
+            <div class="product__description-icon">{% include 'icon' with 'pdp-pet' %} </div>
+            <p>25% Made from Recycled PET</p>
+          </div>
+        {% endif %}
+
+      </div>
+    {% endif %}
+
+  </div>
+ 
+{% endif %}

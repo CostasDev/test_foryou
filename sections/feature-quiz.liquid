@@ -1,0 +1,51 @@
+<div class='feature-block no-bg padding'>
+  <div class='feature-block__inner f aic fw jcb reverse container--l mxa x'>
+    <div class='z2 rel'>
+      <img class="x px2 lazyload" data-src="{{ section.settings.image | img_url: '1000x' }}" alt="{{ section.settings.image.alt }}"/>
+    </div>
+    <div class='z2 rel px2'>
+      <h3 class='serif pv05 mt0 demi'>{{section.settings.title}}</h3>
+      <div class='container--xs pt0 pb1 mt0'>{{ section.settings.description}}</div>
+      <a href="{{ section.settings.quiz_url}}" class='btn btn_outline mt05 bold' role='button' itemprop="url" aria-label="Link to Take the Quiz page">Take the quiz</a>
+    </div>
+  </div>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Quiz Feature",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Headline",
+        "default": "Feeling unsure?"
+      },
+      {
+        "type": "richtext",
+        "id": "description",
+        "label": "Description",
+        "default": "<p></p>"
+      },
+        {
+        "type": "url",
+        "id": "quiz_url",
+        "label": "Url"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Quiz Feature",
+        "category": "modules"
+      }
+    ]
+  }
+
+{% endschema %}
+

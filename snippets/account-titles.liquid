@@ -1,0 +1,37 @@
+<section class='account__titles pt2 pb1'>
+    <div class='account__titles-wrapper pt1'>
+      <h3 class='h3 mb05'>{{ title }}</h3>
+
+      <nav class='account-titles__links small mb1 pt1 pb1'>
+        <ul class='df'>
+          <li class='account-titles__link mr2'>
+            {% if template contains 'account' %}
+              <span class='bold'>Account Details</span>
+            {% else %}
+              <a class='' href='/account'>Account Details</a>
+            {% endif %}
+          </li>
+
+          <li class='account-titles__link mr2'>
+            {% if template contains 'address' %}
+              <span class="bold underline">Addresses</span>
+            {% else %}
+              <a class='' href='/account/addresses'>Addresses</a>
+            {% endif %}
+          </li>
+
+           <li class='account-titles__link mr2'>
+            {% if template contains 'tools' %}
+              <span class='bold'>Manage Subscriptions</span>
+            {% else %}
+              <a href="/tools/recurring/login/">Manage Subscriptions</a>
+            {% endif %}
+          </li>
+
+          <li class='account-titles__link'>
+            <a class='no-ajax' href='/account/logout'>Logout</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+</section>

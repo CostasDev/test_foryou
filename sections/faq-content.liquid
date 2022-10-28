@@ -1,0 +1,230 @@
+<div class='faqs faq-wrapper' data-component='faq'>
+
+  <p class="faq-topic ttu" id="products">Products</p>
+  <ul>
+     {% for block in section.blocks %}
+     {% if block.type == 'question' %}
+     {% assign faq = block.settings %}
+     {% assign id = faq.question | handle %}
+
+      <li id='{{ id }}' class='faqs__faq rel block rel'>
+        <a href='#{{ id }}' class='faqs__faq__q rel' itemprop="url" aria-label="{{ faq.question }}">{{ faq.question }}</a> 
+        <div class='faqs__faq__a rel  line-break'>{{ faq.answer | raw }}</div>
+     </li>
+      {% endif %}
+      {% endfor %}
+  </ul>
+
+  <p class="faq-topic ttu" id="trimmer">Trimmer</p>
+  <ul>
+     {% for block in section.blocks %}
+     {% if block.type == 'trimmer' %}
+     {% assign faq = block.settings %}
+     {% assign id = faq.question6 | handle %}
+
+      <li id='{{ id }}' class='faqs__faq rel block rel'>
+        <a href='#{{ id }}' class='faqs__faq__q rel' itemprop="url" aria-label="{{ faq.question6 }}">{{ faq.question6 }}</a>
+        <div class='faqs__faq__a rel  line-break'>{{ faq.answer6 | raw }}</div>
+     </li>
+      {% endif %}
+      {% endfor %}
+  </ul>
+
+  <p class="faq-topic ttu" id="shipping">Shipping</p>
+  <ul>
+     {% for block in section.blocks %}
+     {% if block.type == 'shipping' %}
+     {% assign faq = block.settings %}
+     {% assign id = faq.question3 | handle %}
+
+      <li id='{{ id }}' class='faqs__faq rel block rel'>
+        <a href='#{{ id }}' class='faqs__faq__q rel' itemprop="url" aria-label="{{ faq.question3 }}">{{ faq.question3 }}</a>
+        <div class='faqs__faq__a rel  line-break'>{{ faq.answer3 | raw }}</div>
+     </li>
+      {% endif %}
+      {% endfor %}
+  </ul>
+
+  <p class="faq-topic ttu" id="changes">Order Changes</p>
+  <ul>
+     {% for block in section.blocks %}
+     {% if block.type == 'changes' %}
+     {% assign faq = block.settings %}
+     {% assign id = faq.question7 | handle %}
+
+      <li id='{{ id }}' class='faqs__faq rel block rel'>
+        <a href='#{{ id }}' class='faqs__faq__q rel' itemprop="url" aria-label="{{ faq.question7 }}">{{ faq.question7 }}</a>
+        <div class='faqs__faq__a rel  line-break'>{{ faq.answer7 | raw }}</div>
+     </li>
+      {% endif %}
+      {% endfor %}
+  </ul>
+
+  <p class="faq-topic ttu" id="returns">Returns</p>
+  <ul>
+     {% for block in section.blocks %}
+     {% if block.type == 'returns' %}
+     {% assign faq = block.settings %}
+     {% assign id = faq.question4 | handle %}
+
+      <li id='{{ id }}' class='faqs__faq rel block rel'>
+        <a href='#{{ id }}' class='faqs__faq__q rel' itemprop="url" aria-label="{{ faq.question4 }}">{{ faq.question4 }}</a>
+        <div class='faqs__faq__a rel  line-break'>{{ faq.answer4 | raw }}</div>
+     </li>
+      {% endif %}
+      {% endfor %}
+  </ul>
+
+  <p class="faq-topic ttu" id="rewards">Rewards</p>
+  <ul>
+     {% for block in section.blocks %}
+     {% if block.type == 'rewards' %}
+     {% assign faq = block.settings %}
+     {% assign id = faq.question2 | handle %}
+
+      <li id='{{ id }}' class='faqs__faq rel block rel'>
+        <a href='#{{ id }}' class='faqs__faq__q rel' itemprop="url" aria-label="{{ faq.question2 }}">{{ faq.question2 }}</a>
+        <div class='faqs__faq__a rel  line-break'>{{ faq.answer2 | raw }}</div>
+     </li>
+      {% endif %}
+      {% endfor %}
+  </ul>
+
+
+  <p class="faq-topic ttu" id="covid19">COVID-19</p>
+  <ul>
+     {% for block in section.blocks %}
+     {% if block.type == 'covid19' %}
+     {% assign faq = block.settings %}
+     {% assign id = faq.question5 | handle %}
+
+      <li id='{{ id }}' class='faqs__faq rel block rel'>
+        <a href='#{{ id }}' class='faqs__faq__q rel mb05' itemprop="url" aria-label="{{ faq.question5 }}">{{ faq.question5 }}</a>
+        <div class='faqs__faq__a rel  line-break'>{{ faq.answer5 | raw }}</div>
+     </li>
+      {% endif %}
+      {% endfor %}
+  </ul>
+</div>
+
+{% schema %}
+  {
+    "name": "FAQ QA",
+    "settings": [
+    ],
+    "blocks": [
+      {
+        "type": "question",
+        "name": "Product",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question",
+            "label": "Question"
+          },
+          {
+            "type": "richtext",
+            "id": "answer",
+            "label": "Answer"
+          }
+        ]
+      },
+      {
+        "type": "shipping",
+        "name": "Shipping",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question3",
+            "label": "Question"
+          },
+          {
+            "type": "richtext",
+            "id": "answer3",
+            "label": "Answer"
+          }
+        ]
+      },
+      {
+        "type": "changes",
+        "name": "Order Changes",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question7",
+            "label": "Question"
+          },
+          {
+            "type": "richtext",
+            "id": "answer7",
+            "label": "Answer"
+          }
+        ]
+      },
+      {
+        "type": "returns",
+        "name": "Returns",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question4",
+            "label": "Question"
+          },
+          {
+            "type": "richtext",
+            "id": "answer4",
+            "label": "Answer"
+          }
+        ]
+      },
+      {
+        "type": "trimmer",
+        "name": "Trimmer",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question6",
+            "label": "Question"
+          },
+          {
+            "type": "richtext",
+            "id": "answer6",
+            "label": "Answer"
+          }
+        ]
+      },
+      {
+        "type": "covid19",
+        "name": "COVID19",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question5",
+            "label": "Question"
+          },
+          {
+            "type": "richtext",
+            "id": "answer5",
+            "label": "Answer"
+          }
+        ]
+      },
+      {
+        "type": "rewards",
+        "name": "Rewards",
+        "settings": [
+          {
+            "type": "text",
+            "id": "question2",
+            "label": "Question"
+          },
+          {
+            "type": "richtext",
+            "id": "answer2",
+            "label": "Answer"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

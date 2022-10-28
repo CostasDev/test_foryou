@@ -1,0 +1,29 @@
+{% assign number_of_images = 0 %}
+{% for image in product.images %}
+  {% assign number_of_images = number_of_images | plus: 1 %}
+{% endfor %}
+
+{% if product.images.size < 3 %}
+<div class="product__mobile-single fill-wrapper mb1">
+  <img class="fill lazyload" data-src="{{ product.featured_image | product_img_url: '1024x' }}">
+</div>
+
+{% else %}
+  <div class="product__images-carousel rel" data-component="productCarousel">
+    <div class="product__gallery-badge">
+        {% if product.metafields.sf_product_metafield.additional_info_image %}
+          <img class="" src="{{product_metafield.additional_info_image}}">
+        {% endif %}
+      </div> 
+      <div class="product-slider">
+      {% for image in product.images %}
+      <div class="product-thumb rel">
+          <img class="fill" id="{{ image.id }}" src="{{ image.src | product_img_url: '1024x1024' }}" alt="{{ image.alt | escape }}"/>
+          <a class="product-zoom fill" data-fancybox="gallery" href="{{ image.src | product_img_url: '1024x1024' }}" itemprop="contentUrl" data-size="1200x600">
+      </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+

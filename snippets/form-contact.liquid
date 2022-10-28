@@ -1,0 +1,27 @@
+{% form 'contact' %}
+  {% if form.posted_successfully? %}
+    <h3 class="accent">{{ 'contact.form.post_success_html' | t }}</h3>
+  {% endif %}
+  <div class="row">
+    <input class="text long {% if form.errors contains 'name' %} error{% endif %}" type="text" id="contactFormName" name="contact[name]" placeholder="{{ 'contact.form.name' | t }}" autocapitalize="words" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}">
+    {% include 'form-field-error', field: 'name' %}
+  </div>
+  <div class="row">
+    <input class="text long {% if form.errors contains 'email' %} error{% endif %}" type="email" id="contactFormEmail" name="contact[email]" placeholder="{{ 'contact.form.email' | t }}" autocorrect="off" autocapitalize="off" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}">
+    {% include 'form-field-error', field: 'email' %}
+  </div>
+  <div class="row">
+    <input class="text long {% if form.errors contains 'phone' %} error{% endif %}" type="tel" id="contactFormPhone" name="contact[phone]" placeholder="{{ 'contact.form.phone' | t }}" pattern="[0-9]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}">
+    {% include 'form-field-error', field: 'phone' %}
+  </div>
+  <div class="row">
+    <textarea class="text long {% if form.errors contains 'body' %} error{% endif %}" rows="3" id="contactFormMessage" name="contact[body]" placeholder="{{ 'contact.form.message' | t }}">{% if form.body %}{{ form.body }}{% endif %}</textarea>
+    {% include 'form-field-error', field: 'body' %}
+  </div>
+  {% include 'form-errors' %}
+  <div class="row expanded-top actions">
+    <button class="btn solid {{ settings.button_shape }}" name="commit" type="submit" formnovalidate="formnovalidate">
+      {{ 'contact.form.send' | t }}
+    </button>
+  </div>
+{% endform %}  

@@ -1,0 +1,38 @@
+{% assign hero = section.settings %}
+
+<div class='faq-hero tac f fw jcb aic rel x y'>
+  <img class="abs fill x y" src="{{ hero.image | img_url: '2000x' }}" alt="{{ hero.image.alt | escape }}"/>
+  <div class="faq-hero__overlay abs fill x y"></div>
+  <div class="faq-hero__wrapper f fdc jcc aic fill-v fill-h rel">
+    {% include 'icon' with 'icon-faq' %}
+    <p class='faq-subtitle h5 cw container--m mha rel z1'>{{ hero.subtitle }}</p>
+    <div class="faq-list f jcc aic tac rel z1 small">
+        <a class="ttu bold" href="#products">Products</a>
+        <a class="ttu bold" href="#trimmer">Trimmer</a>
+        <a class="ttu bold" href="#shipping">Shipping</a>
+        <a class="ttu bold" href="#changes">Order Changes</a>
+        <a class="ttu bold" href="#returns">Returns</a>
+        <a class="ttu bold" href="#rewards">Rewards</a>
+        <a class="ttu bold scroll" href="#covid19">Covid-19</a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "FAQ Hero",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Subtitle",
+        "default": "We're here to help you figure out the answers to any hairy (or hairless) situation."
+      }
+    ]
+  }
+{% endschema %}

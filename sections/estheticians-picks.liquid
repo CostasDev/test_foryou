@@ -1,0 +1,417 @@
+<div class="esthetician">
+  <div class="hero f fw jcb hero__medium mb2" style="background-image: url({{section.settings.bg_image | img_url: '2000x'}})" alt="{{ section.settings.bg_image | escape }}">
+    <div class="hero__image-overlay"></div>
+     <div class="esthetician__hero container--mm f z6">
+           <div class="esthetician__desktop-headline">{% include 'icon' with 'esthetician-desktop-headline' %}</div>
+           <div class="esthetician__mobile-headline"> {% include 'icon' with 'esthetician-mobile-headline' %}</div>
+           <p class="medium-text cw">{{ section.settings.headline_text }}</p>
+       </div>
+  </div>
+
+
+    {% comment %} Esthetician 1 {% endcomment %}
+    <div class="esthetician__block x y">
+        <div class="container--xl f jcc aie mxa">
+            <div class="esthetician__image rel">
+                <div class="esthetician__image-wrapper archway"><img class="lazyload" data-src="{{ section.settings.esthetician_image1 | img_url: '1200x'}}" alt="{{ section.settings.esthetician_image1 | escape }}"></div>
+            </div>
+            <div class="esthetician__text">
+                <div class="esthetician__text-wrapper">
+                    <h2 class="serif esthetician__name">{{ section.settings.esthetician_name1}}</h2>
+                    <div class="esthetician__location ttu bold"><div class="esthetician__store">{{ section.settings.esthetician_store1}}</div> {{ section.settings.esthetician_location1}}</div>
+                    <div class="esthetician__message"><p>{{ section.settings.esthetician_text1}}</p></div>
+                </div>
+
+                <div class="esthetician__product f aic">
+                    <div class="esthetician__product-image">
+                        <a href="{{section.settings.esthetician_url1}}">
+                        <div class="esthetician__product-wrapper">
+                            <img class="lazyload" data-src="{{ section.settings.esthetician_product_image1 | img_url: '800x'}}" alt="{{ section.settings.esthetician_product_image1 | escape }}">
+                        </div>
+                        </a>
+                    </div>
+                    <div class="esthetician__product-info pl1">
+                        <a href="{{section.settings.esthetician_url1}}"><h2 class="italic-serif c-gold">{{section.settings.esthetician_product_title1}}</h2></a>
+                        <p class="rte">{{section.settings.esthetician_product_info1}}</p>
+                        <a href="{{section.settings.esthetician_url1}}"><div class="esthetician__cta ttu rel bold c-gold shop-now-cta">Shop Now {% include 'icon' with 'esthetician-arrow-right' %}</div></a> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="esthetician__quote rel fill-h fill-w">
+        <div class="container--xxl mxa rel fill-h fill-w">
+        <div class="esthetician__quote-mark leftmark serif c-gold abs">{% include 'icon' with 'esthetician-left-mark' %}</div>
+        <div class="esthetician__quote-mark rightmark serif c-gold abs">{% include 'icon' with 'esthetician-right-mark' %}</div>
+        <div class="esthetician__quote-headline ac"><p>{{ section.settings.quote_text }}</p></div>
+        <p class="esthetician__quote-caption ttu ac bold">— {{ section.settings.quote_credit }}</p>
+        </div>
+    </div>
+
+    {% comment %} Esthetician 2 {% endcomment %}
+    <div class="esthetician__block fill-h fill-w rel z2 bgw">
+        <div class="container--xl f jcc aic mxa reverse">
+            <div class="esthetician__text">
+                <div class="esthetician__text-wrapper">
+                    <h2 class="serif esthetician__name">{{ section.settings.esthetician_name2}}</h2>
+                    <div class="esthetician__location ttu bold"><div class="esthetician__store">{{ section.settings.esthetician_store2}}</div> {{ section.settings.esthetician_location2}}</div>
+                    <div class="esthetician__message"><p>{{ section.settings.esthetician_text2}}</p></div>
+                </div>
+
+                <div class="esthetician__product f aic">
+                       <div class="esthetician__product-image">
+                        <a href="{{section.settings.esthetician_url2}}">
+                        <div class="esthetician__product-wrapper">
+                            <img class="lazyload" data-src="{{ section.settings.esthetician_product_image2 | img_url: '800x'}}" alt="{{ section.settings.esthetician_product_image2 | escape }}">
+                        </div>
+                        </a>
+                    </div>
+                    <div class="esthetician__product-info pl1">
+                        <a href="{{section.settings.esthetician_url2}}"><h2 class="italic-serif c-gold">{{section.settings.esthetician_product_title2}}</h2></a>
+                        <p class="rte">{{section.settings.esthetician_product_info2}}</p>
+                        <a href="{{section.settings.esthetician_url2}}"><div class="esthetician__cta ttu rel bold c-gold shop-now-cta">Shop Now {% include 'icon' with 'esthetician-arrow-right' %}</div></a> 
+                    </div>
+                </div>
+            </div>
+            <div class="esthetician__image rel">
+                <div class="esthetician__image-wrapper"><img class="lazyload" data-src="{{ section.settings.esthetician_image2 | img_url: '1200x'}}" alt="{{ section.settings.esthetician_image2 | escape }}"></div>
+            </div>
+        </div>
+    </div>
+
+    {% comment %} Esthetician 3 {% endcomment %}
+    <div class="esthetician__block fill-h fill-w bgtan rel z1">
+        <div class="container--xl f jcc aic mxa">
+            <div class="esthetician__image rel circle">
+                <div class="esthetician__image-wrapper circle">
+                    <img class="desktop lazyload" data-src="{{ section.settings.esthetician_image3 | img_url: '1200x'}}" alt="{{ section.settings.esthetician_image3 | escape }}">
+                    <img class="mobile lazyload" data-src="{{ section.settings.esthetician_mobile_image3 | img_url: '1200x'}}" alt="{{ section.settings.esthetician_mobile_image3 | escape }}">
+                </div>
+            </div>
+            <div class="esthetician__text">
+                <div class="esthetician__text-wrapper">
+                    <h2 class="serif esthetician__name">{{ section.settings.esthetician_name3}}</h2>
+                    <div class="esthetician__location ttu bold"><div class="esthetician__store">{{ section.settings.esthetician_store3}}</div> {{ section.settings.esthetician_location3}}</div>
+                    <div class="esthetician__message"><p>{{ section.settings.esthetician_text3}}</p></div>
+                </div>
+
+                <div class="esthetician__product f aic">
+                    <div class="esthetician__product-image">
+                        <a href="{{section.settings.esthetician_url3}}">
+                        <div class="esthetician__product-wrapper">
+                            <img class="lazyload" data-src="{{ section.settings.esthetician_product_image3 | img_url: '800x'}}" alt="{{ section.settings.esthetician_product_image3 | escape }}">
+                        </div>
+                        </a>
+                    </div>
+                    <div class="esthetician__product-info pl1">
+                        <a href="{{section.settings.esthetician_url3}}"><h2 class="italic-serif c-gold">{{section.settings.esthetician_product_title3}}</h2></a>
+                        <p class="rte">{{section.settings.esthetician_product_info3}}</p>
+                        <a href="{{section.settings.esthetician_url3}}"><div class="esthetician__cta ttu rel bold c-gold shop-now-cta">Shop Now {% include 'icon' with 'esthetician-arrow-right' %}</div></a> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="esthetician__blog rel f jcc aic" style="background-image: url({{section.settings.locator_image | blog_image: '2000x'}})" alt="{{ section.settings.locator_image | escape }}">
+        <div class="video-wrapper">
+            <video autoplay="true" loop="true" poster="{{ section.settings.blog_image | img_url: '2000x' }}" autoplay muted loop playsinline webkit-playsinline >
+                <source muted autoplay src="{{ section.settings.blog_video }}"  type="video/mp4">
+            </video>
+        </div>
+
+        <h1 class="serif ac rel z2">{{ section.settings.blog_title}}</h1>
+        <a href="{{section.settings.blog_url}}"><h5 class="ttu ac rel z2 bold shop-now-cta">{{ section.settings.blog_subtitle}} {% include 'icon' with 'esthetician-arrow-right' %}</h5></a> 
+    </div>
+
+    {% comment %} Esthetician 4 {% endcomment %}
+    <div class="esthetician__block fill-h fill-w">
+        <div class="container--xl f jcc aic mxa reverse">
+            <div class="esthetician__text">
+                <div class="esthetician__text-wrapper">
+                    <h2 class="serif esthetician__name">{{ section.settings.esthetician_name4}}</h2>
+                    <div class="esthetician__location ttu bold"><div class="esthetician__store">{{ section.settings.esthetician_store4}}</div>{{ section.settings.esthetician_location4}}</div>
+                    <div class="esthetician__message"><p>{{ section.settings.esthetician_text4}}</p></div>
+                </div>
+
+                <div class="esthetician__product f aic">
+                    <div class="esthetician__product-image">
+                        <a href="{{section.settings.esthetician_url4}}">
+                        <div class="esthetician__product-wrapper">
+                            <img class="lazyload" data-src="{{ section.settings.esthetician_product_image4 | img_url: '800x'}}" alt="{{ section.settings.esthetician_product_image4 | escape }}">
+                        </div>
+                        </a>
+                    </div>
+                    <div class="esthetician__product-info pl1">
+                        <a href="{{section.settings.esthetician_url4}}"><h2 class="italic-serif c-gold">{{section.settings.esthetician_product_title4}}</h2></a>
+                        <p class="rte">{{section.settings.esthetician_product_info4}}</p>
+                        <a href="{{section.settings.esthetician_url4}}"><div class="esthetician__cta ttu rel bold c-gold shop-now-cta">Shop Now {% include 'icon' with 'esthetician-arrow-right' %}</div></a> 
+                    </div>
+                </div>
+            </div>
+            <div class="esthetician__image rel">
+                <div class="esthetician__image-wrapper archway"><img class="lazyload" data-src="{{ section.settings.esthetician_image4 | img_url: '1200x'}}" alt="{{ section.settings.esthetician_image4 | escape }}"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% schema %}
+  {
+    "name": "Esthetician's Picks",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "Hero Image"
+      },
+      {
+        "type": "text",
+        "id": "headline_text",
+        "label": "Hero Text",
+        "default":"No one knows body and hair care like estheticians. Check out some of their favorite Fur products to get you started."
+      },
+      {
+        "type": "text",
+        "id": "esthetician_name1",
+        "label": "Esthetician #1 Name",
+        "default": "Aisha"
+      },
+    {
+        "type": "text",
+        "id": "esthetician_store1",
+        "label": "Esthetician #1 Store",
+        "default": "Brow Bandit"
+      },
+     {
+        "type": "text",
+        "id": "esthetician_location1",
+        "label": "Esthetician #1 Location",
+        "default": "New York, NY"
+      },
+      {
+        "type": "richtext",
+        "id": "esthetician_text1",
+        "label": "Esthetician #1 Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "esthetician_product_image1",
+        "label": "Esthetician #1 Product Image"
+      },
+     {
+        "type": "text",
+        "id": "esthetician_product_title1",
+        "label": "Esthetician #1 Product Title",
+        "default": "Ingrown Concentrate"
+      },
+      {
+        "type": "richtext",
+        "id": "esthetician_product_info1",
+        "label": "Esthetician #1 Product Info"
+      },
+      {
+        "type": "url",
+        "id": "esthetician_url1",
+        "label": "Esthetician #1 Product URL"
+      },
+      {
+        "type": "image_picker",
+        "id": "esthetician_image1",
+        "label": "Esthetician #1 Image"
+      },
+      {
+        "type": "richtext",
+        "id": "quote_text",
+        "label": "Large Quote"
+      },
+     {
+        "type": "text",
+        "id": "quote_credit",
+        "label": "Large Quote Credit",
+        "default": "aisha, brow bandit, nyc about ingrown concentrate"
+      },
+     {
+        "type": "text",
+        "id": "esthetician_name2",
+        "label": "Esthetician #2 Name",
+        "default": "Emily"
+      },
+     {
+        "type": "text",
+        "id": "esthetician_store2",
+        "label": "Esthetician #2 Store",
+        "default": "UPROOT WAX"
+      },
+     {
+        "type": "text",
+        "id": "esthetician_location2",
+        "label": "Esthetician #2 Location",
+        "default": "lakewood, colorado"
+      },
+      {
+        "type": "richtext",
+        "id": "esthetician_text2",
+        "label": "Esthetician #2 Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "esthetician_product_image2",
+        "label": "Esthetician #2 Product Image"
+      },
+     {
+        "type": "text",
+        "id": "esthetician_product_title2",
+        "label": "Esthetician #2 Product Title",
+        "default": "Silk Scrub"
+      },
+      {
+        "type": "richtext",
+        "id": "esthetician_product_info2",
+        "label": "Esthetician #2 Product Info"
+      },
+      {
+        "type": "url",
+        "id": "esthetician_url2",
+        "label": "Esthetician #2 Product URL"
+      },
+      {
+        "type": "image_picker",
+        "id": "esthetician_image2",
+        "label": "Esthetician #2 Image"
+      },
+      {
+        "type": "text",
+        "id": "esthetician_name3",
+        "label": "Esthetician #3 Name",
+        "default": "Michelle"
+      },
+      {
+        "type": "text",
+        "id": "esthetician_store3",
+        "label": "Esthetician #3 Store",
+        "default": "The Cheeky Peach Waxing Studio"
+      },
+     {
+        "type": "text",
+        "id": "esthetician_location3",
+        "label": "Esthetician #3 Location",
+        "default": "Edina, Minnesota"
+      },
+      {
+        "type": "richtext",
+        "id": "esthetician_text3",
+        "label": "Esthetician #3 Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "esthetician_product_image3",
+        "label": "Esthetician #3 Product Image"
+      },
+     {
+        "type": "text",
+        "id": "esthetician_product_title3",
+        "label": "Esthetician #3 Product Title",
+        "default": "Fur Oil"
+      },
+      {
+        "type": "richtext",
+        "id": "esthetician_product_info3",
+        "label": "Esthetician #3 Product Info"
+      },
+      {
+        "type": "url",
+        "id": "esthetician_url3",
+        "label": "Esthetician #3 Product URL"
+      },
+      {
+        "type": "image_picker",
+        "id": "esthetician_image3",
+        "label": "Esthetician #3 Image"
+      },
+    {
+        "type": "image_picker",
+        "id": "esthetician_mobile_image3",
+        "label": "Esthetician #3 Mobile Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "blog_image",
+        "label": "Blog Background Image"
+      },
+      {
+        "type": "text",
+        "id": "blog_title",
+        "label": "Blog Title",
+        "default": "How to Use Fur Oil"
+      },
+      {
+        "type": "text",
+        "id": "blog_subtitle",
+        "label": "Blog Subtitle",
+        "default": "Learn more"
+      },
+      {
+        "type": "url",
+        "id": "blog_url",
+        "label": "Blog URL"
+      },
+           {
+        "type": "url",
+        "id": "blog_video",
+        "label": "Blog Video Background URL"
+      },
+           {
+        "type": "text",
+        "id": "esthetician_name4",
+        "label": "Esthetician #4 Name",
+        "default": "Leslie"
+      },
+    {
+        "type": "text",
+        "id": "esthetician_store4",
+        "label": "Esthetician #4 Store",
+        "default": "BARE BEAUTY WAX BAR"
+      },
+     {
+        "type": "text",
+        "id": "esthetician_location4",
+        "label": "Esthetician #4 Location",
+        "default": "BARE BEAUTY WAX BAR, Howell, NJ"
+      },
+      {
+        "type": "richtext",
+        "id": "esthetician_text4",
+        "label": "Esthetician #4 Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "esthetician_product_image4",
+        "label": "Esthetician #4 Product Image"
+      },
+     {
+        "type": "text",
+        "id": "esthetician_product_title4",
+        "label": "Esthetician #4 Product Title",
+        "default": "Fur Oil"
+      },
+      {
+        "type": "richtext",
+        "id": "esthetician_product_info4",
+        "label": "Esthetician #4 Product Info"
+      },
+      {
+        "type": "url",
+        "id": "esthetician_url4",
+        "label": "Esthetician #4 Product URL"
+      },
+      {
+        "type": "image_picker",
+        "id": "esthetician_image4",
+        "label": "Esthetician #4 Image"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,71 @@
+
+  <div class='home-feature rel x y'>
+    <div class='home-feature__inner x y f aic jcb bg-lightivory rel'>
+      <div class='home-feature__text z2 rel x y f jcc aic'>
+        <div class="home-feature__text-inner f jcc aic x y">
+          <div class="container--a">
+          <div class='xxsmall caps bold mx0 px0 p5 ttu mb1 track--s'>{{section.settings.subtitle}}</div>
+          <h2 class='mt0'>{{section.settings.title}}</h2>
+          <div class='pt0 pb1'>{{section.settings.description}}</div>
+          <a href="{{section.settings.link}}" class='btn btn_chartreuse btn_hover-black mt1 bold' role='button' itemprop="url">{{section.settings.cta}}</a>
+          </div>
+        </div>
+      </div>
+      <div class='home-feature__image rel x y'>
+        <img class="abs fill x y" src="{{ section.settings.image | img_url: '1500x' }}" alt="{{ section.settings.image.alt }}"/>
+      </div>
+  </div>
+</div>
+
+
+
+
+{% schema %}
+  {
+    "name": "Home Feature Callout",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+     {
+        "type": "text",
+        "id": "subtitle",
+        "label": "Mini Headline",
+        "default": "Everything you need"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Headline",
+        "default": "The Fuller Frontal"
+      },
+      {
+        "type": "richtext",
+        "id": "description",
+        "label": "Description",
+        "default": "<p>The full set of FUR products for daily hair/skin care and ingrown prevention for the entire body.</p>"
+      },
+      {
+        "type": "text",
+        "id": "cta",
+        "label": "CTA",
+        "default": "Shop the Bundle"
+      },
+      {
+        "type": "url",
+        "id": "link",
+        "label": "URL"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Home Feature Callout",
+        "category": "homepage"
+      }
+    ]
+  }
+
+{% endschema %}
+

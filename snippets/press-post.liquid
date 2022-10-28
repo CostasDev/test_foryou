@@ -1,0 +1,21 @@
+<div class="press__post post px1 f ais jcc tac" itemscope itemtype="http://schema.org/BlogPosting">
+  <meta itemprop="articleSection" content="{{ blog.title }}">
+  <meta itemprop="keywords" content="{{ article.tags | join: ', ' }}">
+  <a target="_blank" href="{{ article.excerpt_or_content | strip_html | truncatewords: 420 }}">
+  {% if article.image %}
+     <img itemprop="image" data-src="{{ article.image | img_url: '1024x1024' }}" class="image lazyload" alt="{{ article.image.alt | escape }}">
+  {% endif %}
+
+  {% if template == 'article' %}
+    <div itemprop="articleBody" id="rte">
+      {{ article.content }}
+    </div>
+  {% else %}
+    <div itemprop="about" id="rte" class="rte-press tac">
+      <p class="press__title">{{ article.content | strip_html | truncatewords: 120 }}</p>
+    </div>
+  
+  {% endif %}
+</a>
+
+</div>

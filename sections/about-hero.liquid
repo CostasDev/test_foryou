@@ -1,0 +1,34 @@
+<div class="hero t f fw jcb hero__about tac line-break" style="background-image: url('{{ section.settings.bg_image | img_url: '2000x' }}')" alt="{{ section.settings.bg_image.alt | escape }}">
+  <div class="hero__image-overlay"></div>
+  <h1 class='cw serif container--m mha rel z1'>{{ section.settings.about_title }}</h1>
+</div>
+<div class='about__intro mha px2 tac'>
+    <p class='container--m mha about__intro rel z1'>{{ section.settings.about_subtitle }}</p>
+</div>
+
+
+{% schema %}
+  {
+    "name": "Hero Headline",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "About Hero Background Image"
+      },
+      {
+        "type": "text",
+        "id": "about_title",
+        "label": "About Hero Headline",
+        "default": "Comfort and care. For all skin and hair."
+      },
+         {
+        "type": "text",
+        "id": "about_subtitle",
+        "label": "About Hero Sub Headline",
+        "default": "Wherever you fall on the spectrum of bare to full, we make clean products that hydrate skin, soften hair, and eradicate ingrowns from head to toe."
+      }
+    ]
+  }
+{% endschema %}
+

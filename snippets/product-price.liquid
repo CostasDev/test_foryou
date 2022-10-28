@@ -1,0 +1,49 @@
+<div class="f fdr" itemprop="price">
+
+    {% if product.price_varies %}
+
+        {% comment %} product prices varies and on sale {% endcomment %}
+        {% if on_sale %}
+            <p class="product__price js-price m0 bold"><span><s>{{ product.compare_at_price_min | money | remove: '.00' | remove: ',' }}-{{ product.compare_at_price_max | money | remove: '.00' | remove: ','}}</s></span> <span class="bold" data-compare-price class="js-compare-price">{{ product.price_min | money_without_trailing_zeros  | remove: ',' }}-{{ product.price_max | money_without_trailing_zeros  | remove: ',' }}</span> </p>
+
+        {% else %}
+
+        {% comment %} product prices varies and not on sale {% endcomment %}
+            <p class="product__price m0 bold"><span class='js-price' data-price>{{ product.price_min | money | remove: '.00' | remove: ',' }} - {{ product.price_max | money | remove: '.00' | remove: ','}}</span></p>
+        {% endif %}
+
+    {% else %}
+
+        {% comment %} single product price and on sale {% endcomment %}
+        {% if on_sale %}
+            <p class="product__price m0 bold">
+            <s data-compare-price class='js-compare-price'>{{ current_variant.compare_at_price | money_without_trailing_zeros | remove: ',' }}</s>
+             <span class='js-price bold' data-price>{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros | remove: ',' }}</span>
+            </p>
+
+        {% else %}
+
+        {% comment %} single product price and not on sale {% endcomment %}
+          <p class="product__price m0 bold">
+               <s data-compare-price style='display: none' class='js-compare-price'>{{ current_variant.compare_at_price | money_without_trailing_zeros | remove: ',' }}</s> <span class='js-price bold' data-price>{{ product.selected_or_first_available_variant.price | money_without_trailing_zeros | remove: ',' }}</span>
+         
+           </p>
+
+        {% endif %}
+
+    {% endif %}
+
+  </div>
+
+
+    {% comment %} <!-- Insert QuadPay Widget --> {% endcomment %}
+    <div class="quadpay-wrapper" style="margin: -8px 0 10px 0; min-height: 20px; font-size: 15px;">
+      <quadpay-widget size="90%"
+                      logoSize="90%"
+                      logoColor="#000" logoTextColor="#fff"
+                      min="25" 
+                      amountSelector=".js-price"
+                      amount={{ product.price | divided_by: 100.00 }}
+                      >
+      </quadpay-widget>
+    </div>

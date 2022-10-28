@@ -1,0 +1,89 @@
+ <div class='bg-lightbeige'>
+    <div class='container--xl mha px2 tac'>
+      <h3 class='mb05 mt05'>{{ section.settings.about_headline }}</h3>
+      <div class='container__resources f jcb fw'>
+        <div class='mb2'>
+          <img class='mb15 lazyload' data-src="{{ section.settings.image_one | img_url: '1000x' }}" alt="{{ section.settings.image_one.alt | escape }}"/>
+          <p class='h6 ttu bold cb pv05'>{{ section.settings.subtitle_one }}</p>
+          <div class="about__caption">{{ section.settings.caption_one }}</div>
+        </div>
+        <div class='mb2'>
+          <img class='mb15 lazyload' data-src="{{ section.settings.image_two | img_url: '1000x' }}" alt="{{ section.settings.image_two.alt | escape }}"/>
+          <p class='h6 ttu bold cb pv05'>{{ section.settings.subtitle_two }}</p>
+          <div class="about__caption">{{ section.settings.caption_two }}</div>
+        </div>
+        <div class='mb2'>
+          <img class='mb15 lazyload' data-src="{{ section.settings.image_three | img_url: '1000x' }}" alt="{{ section.settings.image_three.alt | escape }}"/>
+          <p class='h6 ttu bold cb pv05'>{{ section.settings.subtitle_three }}</p>
+          <div class="about__caption">{{ section.settings.caption_three }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+{% schema %}
+    {
+    "name": "Is Fur For You?",
+    "settings": [
+        {
+            "type": "text",
+            "id": "about_headline",
+            "label": "Headline",
+            "default": "Is Fur for you?"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_one",
+            "label": "Image One"
+        },
+        {
+            "type": "text",
+            "id": "subtitle_one",
+            "label": "Subtitle One",
+            "default": "FOR WAXERS"
+        },
+        {
+            "type": "richtext",
+            "id": "caption_one",
+            "label": "Caption One",
+            "default": "<p>Keep your skin healthy and ingrown free between waxing sessions, and immediately post-wax to soothe red, irritated skin. With daily use, Fur products will prevent ingrowns, smooth skin, and make regrowth appear finer, as well as cause gentler removal of hair in treatment.</p>"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_two",
+            "label": "Image Two"
+        },
+        {
+            "type": "text",
+            "id": "subtitle_two",
+            "label": "Subtitle Two",
+            "default": "FOR AU NATURALE"
+        },
+        {
+            "type": "richtext",
+            "id": "caption_two",
+            "label": "Caption Two",
+            "default": "<p>Care for your head, face, underarms, pubic hair, and legs with equal attention. Our natural, lightweight products are effective enough for your face and gentle enough for your pubic hair and skin. Soften hair and clear pores all over your body for healthy, happy skin and hair.</p>"
+        },
+        {
+            "type": "image_picker",
+            "id": "image_three",
+            "label": "Image Three"
+        },
+        {
+            "type": "text",
+            "id": "subtitle_three",
+            "label": "Subtitle Three",
+            "default": "FOR SHAVERS"
+        },
+        {
+            "type": "richtext",
+            "id": "caption_three",
+            "label": "Caption Three",
+            "default": "<p >Keep skin completely smooth immediately post shave and soften prickly stubble as it grows back. With daily use of Fur products, but especially Stubble Cream, live blissfully free of ingrowns, bumps, and razor burn.</p>"
+        }
+    ]
+    }
+{% endschema %}
+

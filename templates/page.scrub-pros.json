@@ -1,0 +1,338 @@
+{
+  "sections": {
+    "main": {
+      "type": "password-popup",
+      "disabled": true,
+      "settings": {
+        "title": "Enter Password",
+        "text": "<p>You can find this password next to the QR code on your KP Body Scrub postcard<\/p>",
+        "bg_color": "#f1efe2",
+        "password": "shadow"
+      }
+    },
+    "1658945294c5bfe262": {
+      "type": "image-banner",
+      "blocks": {
+        "daf18c45-ae6e-455f-9e62-0a076be95734": {
+          "type": "text",
+          "settings": {
+            "text": "<p>No more rough patches.<\/p>"
+          }
+        },
+        "645e1086-5ec5-4d45-9f0e-3c4885079f83": {
+          "type": "button",
+          "settings": {
+            "scroll_button": true
+          }
+        }
+      },
+      "block_order": [
+        "daf18c45-ae6e-455f-9e62-0a076be95734",
+        "645e1086-5ec5-4d45-9f0e-3c4885079f83"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/image_75.png",
+        "mobile_image": "shopify:\/\/shop_images\/image_85.png",
+        "title": "KP BODY  SCRUB",
+        "caption_image": "shopify:\/\/shop_images\/smoothitover_circle_white_larger_1_c606a74b-eba6-492f-8d73-04b6b8af99bd.png"
+      }
+    },
+    "1658949983ebeaaf11": {
+      "type": "image-text",
+      "blocks": {
+        "6b07ecd4-1d00-443d-b7cd-ca56982f0632": {
+          "type": "title",
+          "settings": {
+            "title": "<span>What is<\/span> \nKP Body Scrub?",
+            "upprecase": false,
+            "title_color": "#000000"
+          }
+        },
+        "a01e642b-3e69-43c3-a810-7c934e40c6d5": {
+          "type": "text",
+          "settings": {
+            "text": "<p>KP Body Scrub is an exfoliating treatment that combines lactic acid, sunflower seed oil, perlite, and licorice root extract to minimize the appearance of KP and buff away rough patches while restoring glow and softening the skin. <br\/><br\/>Its formula contains 14% AHAs — the highest percentage of AHAs on the market.<br\/><\/p>",
+            "mobile_text": "",
+            "large_text": false,
+            "bold": false
+          }
+        }
+      },
+      "block_order": [
+        "6b07ecd4-1d00-443d-b7cd-ca56982f0632",
+        "a01e642b-3e69-43c3-a810-7c934e40c6d5"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/image_76_2.png",
+        "mobile_image": "shopify:\/\/shop_images\/image_73_1.png",
+        "video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/9a0568d0c13243cb9c0b4871340a5071.mp4",
+        "mobile_video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/fca70b580d5f45908eb49fb206a7133e.mp4",
+        "image_align": "right",
+        "image_width": "medium",
+        "full_width": true,
+        "mobile_bottom": false,
+        "mobile_half": false,
+        "content_type": "normal",
+        "bg_color": "",
+        "mobile_color": ""
+      }
+    },
+    "16589651232615c136": {
+      "type": "ingredients",
+      "blocks": {
+        "796ac194-c2b9-4fdd-b44e-eda5802ecf9c": {
+          "type": "text",
+          "settings": {
+            "title": "PERLITE",
+            "text": "<p>A mineral derived from naturally occurring volcanic rock, that acts as a powerful physical exfoliant to buff away roughness and bumps for a microdermabrasion effect.<\/p>"
+          }
+        },
+        "42a7198e-b861-4098-92eb-39a981e07a71": {
+          "type": "text",
+          "settings": {
+            "title": "LICORICE ROOT EXTRACT",
+            "text": "<p>Derived from the licorice plant, it brightens skin discoloration and soothes redness, puffiness, and itchiness.<br\/><\/p>"
+          }
+        },
+        "766a54da-cbdb-4c0c-9a5f-b485985fc0e8": {
+          "type": "text",
+          "settings": {
+            "title": "LACTIC ACID",
+            "text": "<p>Making up our 14% active alpha-hydroxy acids (AHAs), this chemical exfoliant dissolves excess keratin build up in the pores that causes the appearance of KP.<\/p>"
+          }
+        },
+        "59991f11-c2cd-4f81-bed9-564e26cc8f4a": {
+          "type": "text",
+          "settings": {
+            "title": "SUNFLOWER SEED OIL",
+            "text": "<p>A non-comedogenic oil derived from sunflower seeds, rich in vitamin E, A, and C, which deeply hydrate and protect the skin’s moisture barrier.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "796ac194-c2b9-4fdd-b44e-eda5802ecf9c",
+        "42a7198e-b861-4098-92eb-39a981e07a71",
+        "766a54da-cbdb-4c0c-9a5f-b485985fc0e8",
+        "59991f11-c2cd-4f81-bed9-564e26cc8f4a"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/072222_KP_Body_Scrub_Ingredients1828_unedited-Edit-Recovered_ROUGH_1_1.png",
+        "title": "KEY INGREDIENTS"
+      }
+    },
+    "1658974826bc9a6346": {
+      "type": "video-text-bar",
+      "settings": {
+        "title": "Welcome to a <span>softer you<\/span>",
+        "text_align": "center",
+        "image": "shopify:\/\/shop_images\/image_91.png",
+        "mobile_image": "shopify:\/\/shop_images\/image_91_1.png",
+        "video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/591e15b3b7284ad6beac68c98da8c0cc.mp4",
+        "mobile_video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/8226b1e4ff1042d4a1f20bb25bd0da64.mp4",
+        "color": "#ffffff"
+      }
+    },
+    "1658970132b19d12db": {
+      "type": "image-text",
+      "blocks": {
+        "413ba64b-1673-4794-8b57-51eac26d90b9": {
+          "type": "title",
+          "settings": {
+            "title": "<span>How to Use<\/span>\nKP Body Scrub",
+            "upprecase": false,
+            "title_color": "#000000"
+          }
+        },
+        "34d47b14-bb5d-42aa-a608-6d2e81e825a5": {
+          "type": "icons",
+          "settings": {
+            "icon_1": "<svg width=\"41\" height=\"41\" viewbox=\"0 0 41 41\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M20.0626 29.2914C25.1595 29.2914 29.2913 25.1596 29.2913 20.0628C29.2913 14.9659 25.1595 10.8341 20.0626 10.8341C14.9658 10.8341 10.834 14.9659 10.834 20.0628C10.834 25.1596 14.9658 29.2914 20.0626 29.2914Z\" stroke=\"#BEB132\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M20.0625 1V5.83182\" stroke=\"#BEB132\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M1 19.7159H5.83182\" stroke=\"#BEB132\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M6.57861 6.57837L9.99968 9.99944\" stroke=\"#BEB132\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M6.3374 33.2945L9.75847 29.8793\" stroke=\"#BEB132\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M29.8799 9.75247L33.2951 6.33728\" stroke=\"#BEB132\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M15.1255 32.6244C17.5659 34.0399 20.4023 34.6184 23.2022 34.2719C26.002 33.9253 28.6118 32.6727 30.6335 30.7049C32.6552 28.7372 33.9779 26.1623 34.4 23.3728C34.8221 20.5833 34.3205 17.7323 32.9715 15.2545C34.6982 16.256 36.1697 17.6437 37.2706 19.3089C38.3715 20.974 39.072 22.8714 39.3172 24.8525C39.5624 26.8335 39.3456 28.8445 38.6839 30.7278C38.0222 32.6111 36.9335 34.3156 35.503 35.7079C34.0725 37.1002 32.3392 38.1425 30.4387 38.7531C28.5382 39.3636 26.5221 39.5259 24.5484 39.2273C22.5747 38.9286 20.6969 38.1771 19.0621 37.0315C17.4274 35.886 16.08 34.3776 15.1255 32.6244V32.6244Z\" stroke=\"#BEB132\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<\/svg>",
+            "title_1": "MORNING OR NIGHT",
+            "icon_2": "<svg width=\"38\" height=\"30\" viewbox=\"0 0 38 30\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M14.9316 2.55649C14.9167 2.53686 14.9001 2.51849 14.8822 2.5016L14.0038 1.70012C13.5447 1.27462 12.9356 1.04843 12.3101 1.07106C11.6845 1.0937 11.0934 1.36332 10.6662 1.82089L8.96441 3.64892C8.75305 3.87593 8.58851 4.14237 8.48018 4.43302C8.37185 4.72366 8.32187 5.0328 8.33309 5.34277C8.3443 5.65274 8.4165 5.95747 8.54555 6.23952C8.6746 6.52157 8.85797 6.77543 9.08518 6.98657L9.94155 7.78805L9.99096 7.84843C9.27753 9.34807 8.88194 10.979 8.82904 12.6389C8.77613 14.2987 9.06706 15.9516 9.68354 17.4936C9.73165 17.6121 9.80876 17.7166 9.9078 17.7975C10.0068 17.8784 10.1246 17.9332 10.2503 17.9567C10.376 17.9802 10.5057 17.9717 10.6272 17.932C10.7488 17.8924 10.8585 17.8228 10.9461 17.7296L24.8128 2.80352C24.8989 2.709 24.96 2.59449 24.9907 2.47038C25.0213 2.34626 25.0205 2.21646 24.9884 2.09273C24.9562 1.96899 24.8937 1.85523 24.8065 1.76176C24.7193 1.66828 24.6101 1.59804 24.4889 1.55739C22.9123 1.06103 21.2505 0.893599 19.6066 1.06545C17.9626 1.23731 16.3715 1.7448 14.9316 2.55649Z\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M16.3813 18.6078L17.084 19.2556\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M19.0601 21.0947L21.8597 23.7023L24.6594 26.3098\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"3.28 4.92\"><\/path>\n<path d=\"M26.1963 27.7758L26.899 28.429\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M18.3516 16.4945L19.0487 17.1423\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M21.0254 18.9812L23.8251 21.5887L26.6247 24.1963\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"3.28 4.92\"><\/path>\n<path d=\"M28.167 25.6621L28.8642 26.3154\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M20.3169 14.381L21.0141 15.0288\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M22.9907 16.8679L25.7931 19.4755L28.5956 22.083\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"3.28 4.92\"><\/path>\n<path d=\"M30.1328 23.5485L30.83 24.2017\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M22.2827 12.2675L22.9799 12.9152\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M24.9556 14.7543L27.758 17.3618L30.5604 19.9694\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"3.28 4.92\"><\/path>\n<path d=\"M32.0977 21.4352L32.7948 22.0884\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M24.248 10.1541L24.9452 10.8018\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M26.9263 12.6462L29.7259 15.251L32.5256 17.8558\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"3.28 4.92\"><\/path>\n<path d=\"M34.0625 19.3273L34.7597 19.975\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M26.2129 8.04053L26.9156 8.6883\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M28.8921 10.533L31.6918 13.1378L34.4914 15.7426\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-dasharray=\"3.28 4.92\"><\/path>\n<path d=\"M36.0283 17.2136L36.731 17.8614\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M9.74975 2.6718C9.09312 1.95537 8.23546 1.4539 7.28906 1.23306C6.34266 1.01221 5.35163 1.08228 4.44572 1.43408C3.53981 1.78589 2.76124 2.40303 2.21193 3.20473C1.66263 4.00642 1.3682 4.95529 1.36719 5.92711V26.6447\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<\/svg>",
+            "title_2": "IN THE SHOWER",
+            "icon_3": "<svg width=\"35\" height=\"36\" viewbox=\"0 0 35 36\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M28.3763 5.75488H6.32611C3.38458 5.75488 1 8.13946 1 11.081V29.3912C1 32.3327 3.38458 34.7173 6.32611 34.7173H28.3763C31.3178 34.7173 33.7024 32.3327 33.7024 29.3912V11.081C33.7024 8.13946 31.3178 5.75488 28.3763 5.75488Z\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M1 13.0903H33.7024\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M15.0031 4.10208C14.5133 2.58272 13.3724 1.51416 12.0423 1.51416C10.2669 1.51416 8.83105 3.41197 8.83105 5.75501C8.83105 8.09805 10.2669 10.0014 12.0423 10.0014\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M25.8722 4.10208C25.3825 2.58272 24.2416 1.51416 22.9114 1.51416C21.1361 1.51416 19.7002 3.41197 19.7002 5.75501C19.7002 8.09805 21.1361 10.0014 22.917 10.0014\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M5.10742 23.0078C5.10742 23.1303 5.10742 23.2527 5.10742 23.3807C5.10742 24.1704 5.42112 24.9277 5.97951 25.4861C6.5379 26.0445 7.29524 26.3582 8.08492 26.3582C8.8746 26.3582 9.63194 26.0445 10.1903 25.4861C10.7487 24.9277 11.0624 24.1704 11.0624 23.3807\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M5.21306 22.4736C5.15853 22.6555 5.11944 22.8417 5.09619 23.0302\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M26.6513 26.3581C28.2958 26.3581 29.6288 25.025 29.6288 23.3806C29.6288 21.7361 28.2958 20.4031 26.6513 20.4031C25.0069 20.4031 23.6738 21.7361 23.6738 23.3806C23.6738 25.025 25.0069 26.3581 26.6513 26.3581Z\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M6.46484 20.9931L8.44613 23.3807L11.919 19.2178\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M14.396 23.2306C14.3875 23.3529 14.3875 23.4756 14.396 23.5979C14.396 24.3876 14.7097 25.1449 15.2681 25.7033C15.8265 26.2617 16.5838 26.5754 17.3735 26.5754C18.1632 26.5754 18.9205 26.2617 19.4789 25.7033C20.0373 25.1449 20.351 24.3876 20.351 23.5979\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M15.7598 21.2159L17.7466 23.6034L21.2139 19.4349\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<\/svg>",
+            "title_3": "2–3 TIMES A WEEK",
+            "icon_4": "<svg width=\"41\" height=\"34\" viewbox=\"0 0 41 34\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M21.6079 1.80347C22.0811 8.52243 15.5403 5.4218 12.2615 8.4445C12.1795 8.51631 12.1015 8.5925 12.0277 8.67273V8.67273C11.3851 9.36154 11.0289 10.2691 11.0313 11.2111L12.3951 31.4738\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M38.6304 31.4736L39.9776 11.1998C39.9782 10.6658 39.863 10.1379 39.6401 9.65263C39.4171 9.16733 39.0917 8.73612 38.6861 8.38866V8.38866L38.6026 8.31629C35.2626 5.53296 28.9611 8.42762 29.4399 1.82556\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M15.7183 14.4286C15.7183 14.4286 17.1545 20.2402 17.4439 22.9567C17.7832 26.056 17.6329 29.1893 16.9986 32.2419\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M35.2962 14.4286C35.2962 14.4286 33.8545 20.2402 33.5706 22.9567C33.2314 26.056 33.3816 29.1893 34.0159 32.2419\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M25.5039 10.276C25.5039 10.276 26.8844 17.1119 25.5039 22.7565\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M6.95076 29.3918L4.02826 32.4201L1 29.492\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M4.00635 5.39404V32.4202\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M1.64014 5.39404H6.33283\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<\/svg>",
+            "title_4": "BELOW THE NECK",
+            "icon_5": "<svg width=\"41\" height=\"41\" viewbox=\"0 0 41 41\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\">\n<path d=\"M9.59894 31.6034C7.87845 29.9595 6.33473 28.3804 5.09739 27.0076L1.89799 30.3602C1.13202 31.1674 0.896341 32.1808 1.8214 33.0587L8.54426 39.4399C9.46342 40.3178 10.4651 40.0291 11.231 39.2336L14.4363 35.8751C12.9751 34.7026 11.3194 33.2414 9.59894 31.6034Z\" stroke=\"#BCB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M14.4066 35.8752L37.1206 17.1561L38.2224 16.5079L39.4362 15.2353L31.965 8.11763L24.488 1L23.2801 2.27269L22.685 3.40397L5.09717 27.0076\" stroke=\"#BCB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M20.1809 22.2939C21.1767 22.2939 21.9839 21.4867 21.9839 20.491C21.9839 19.4952 21.1767 18.688 20.1809 18.688C19.1851 18.688 18.3779 19.4952 18.3779 20.491C18.3779 21.4867 19.1851 22.2939 20.1809 22.2939Z\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M23.4098 17.0206L22.5908 17.9044\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M17.7775 23.0776L16.9585 23.9556\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M16.7759 17.2032L17.6538 18.0222\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M22.8267 22.8361L23.7046 23.6551\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M20.0107 15.7595L20.0579 16.9556\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M20.311 24.0205L20.3523 25.2225\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M15.4497 20.5735L16.6458 20.5322\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M23.7104 20.2789L24.9124 20.2318\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<path d=\"M24.3584 4.91821L35.4767 15.5004\" stroke=\"#BDB24A\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><\/path>\n<\/svg>",
+            "title_5": "IF A.M., FOLLOW WITH SUNSCREEN"
+          }
+        },
+        "5a46f684-b055-4524-b518-a106d3a6b986": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Designed for both those with KP and those looking for a total skin reset, KP Body Scrub is for all skin and every body. As you massage it on, perlite smooths the top layer of your skin, while the AHAs burrow deep into your pores and remove the buildup of keratin that causes bumps.<\/p>",
+            "mobile_text": "",
+            "large_text": false,
+            "bold": false
+          }
+        }
+      },
+      "block_order": [
+        "413ba64b-1673-4794-8b57-51eac26d90b9",
+        "34d47b14-bb5d-42aa-a608-6d2e81e825a5",
+        "5a46f684-b055-4524-b518-a106d3a6b986"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/image_78.png",
+        "mobile_image": "shopify:\/\/shop_images\/image_88_1.png",
+        "video": "",
+        "mobile_video": "",
+        "image_align": "left",
+        "image_width": "medium",
+        "full_width": true,
+        "mobile_bottom": true,
+        "mobile_half": false,
+        "content_type": "normal",
+        "bg_color": "",
+        "mobile_color": ""
+      }
+    },
+    "1658973359303e12c2": {
+      "type": "video-tips",
+      "blocks": {
+        "d4c9e75e-e70a-4a09-bc1f-1a9f985db588": {
+          "type": "tip",
+          "settings": {
+            "title": "Ask About Their Ritual",
+            "text": "<p>How do your clients take care of their body hair and skin? KP Body Scrub is an effective solution for KP, making a wonderful addition to any skincare or grooming routine.<\/p>"
+          }
+        },
+        "bcb97d42-e5ee-466c-86dc-fcc886dc7a7b": {
+          "type": "tip",
+          "settings": {
+            "title": "Evaluate Their Browsing Context",
+            "text": "<p>If they’re looking at exfoliating or resurfacing treatments for their body, KP Body Scrub offers full body smoothing and polishing for rough  dry patches and bumps.<\/p>"
+          }
+        },
+        "66e519b3-d19c-4db1-806d-3f884bfc8d82": {
+          "type": "tip",
+          "settings": {
+            "title": "Ask About Their Concerns",
+            "text": "<p>KP Body Scrub addresses a variety of skin and body hair concerns by effectively exfoliating dead skin cells, clarifying pores for a smoother and more even complexion, and soothing redness and irritation.<\/p>"
+          }
+        },
+        "a8a3b91a-7fe3-4b59-b331-708d0d07b637": {
+          "type": "tip",
+          "settings": {
+            "title": "Body Hair Is Relatable",
+            "text": "<p>Share your experiences with skincare and body hair to build relationships with your clients. <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "d4c9e75e-e70a-4a09-bc1f-1a9f985db588",
+        "bcb97d42-e5ee-466c-86dc-fcc886dc7a7b",
+        "66e519b3-d19c-4db1-806d-3f884bfc8d82",
+        "a8a3b91a-7fe3-4b59-b331-708d0d07b637"
+      ],
+      "settings": {
+        "title": "<span>How to Retail<\/span> KP Body Scrub to Your Clients",
+        "video": "https:\/\/cdn.shopify.com\/videos\/c\/o\/v\/9959d4050d8e4f11a6ecb86e2d772627.mp4",
+        "image": "shopify:\/\/shop_images\/image_80_1.png"
+      }
+    },
+    "165897521292e70e7a": {
+      "type": "video-text-bar",
+      "blocks": {
+        "ce769349-fe12-40a0-b538-98ba1f6445b9": {
+          "type": "pricing",
+          "settings": {
+            "title": "WHOLESALE <br>\nPRICE",
+            "price": "$19"
+          }
+        },
+        "0826547f-c609-4658-88ee-1efe0da39504": {
+          "type": "pricing",
+          "settings": {
+            "title": "RETAIL <br>\nPRICE",
+            "price": "$38"
+          }
+        }
+      },
+      "block_order": [
+        "ce769349-fe12-40a0-b538-98ba1f6445b9",
+        "0826547f-c609-4658-88ee-1efe0da39504"
+      ],
+      "settings": {
+        "title": "<span>PRICING<\/span>",
+        "text_align": "left",
+        "image": "shopify:\/\/shop_images\/image_81.png",
+        "mobile_image": "shopify:\/\/shop_images\/image_81_1.png",
+        "video": "",
+        "mobile_video": "",
+        "color": ""
+      }
+    },
+    "1658995154bad1498e": {
+      "type": "image-text",
+      "blocks": {
+        "909b80da-9845-4f6e-9081-e6ee258e1427": {
+          "type": "title",
+          "settings": {
+            "title": "Stock your studio with Fur’s \n<span>KP Body Scrub<\/span>",
+            "upprecase": true,
+            "title_color": "#beb132"
+          }
+        },
+        "717d5056-7258-4457-8310-3a8f057c4300": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Beginning September 1 on <strong>furprofessionals.com<\/strong>.<\/p>",
+            "mobile_text": "",
+            "large_text": true,
+            "bold": false
+          }
+        },
+        "7806c988-8493-4621-98b6-0141c4a4021d": {
+          "type": "button",
+          "settings": {
+            "button_title": "Shop Now*",
+            "button_link": "https:\/\/furprofessionals.com\/pages\/apply",
+            "arrow_button": false,
+            "login_url": ""
+          }
+        },
+        "7d0c1d1d-5e06-4fcf-9f3c-68fd7099d371": {
+          "type": "text",
+          "settings": {
+            "text": "<p>*Must be logged into your registered<strong> furprofessionals.com<\/strong> wholesale account to purchase. <\/p>",
+            "mobile_text": "",
+            "large_text": false,
+            "bold": false
+          }
+        }
+      },
+      "block_order": [
+        "909b80da-9845-4f6e-9081-e6ee258e1427",
+        "717d5056-7258-4457-8310-3a8f057c4300",
+        "7806c988-8493-4621-98b6-0141c4a4021d",
+        "7d0c1d1d-5e06-4fcf-9f3c-68fd7099d371"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/image_84_2.png",
+        "video": "",
+        "mobile_video": "",
+        "image_align": "left",
+        "image_width": "small",
+        "full_width": false,
+        "mobile_bottom": true,
+        "mobile_half": false,
+        "content_type": "normal",
+        "bg_color": "",
+        "mobile_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1658945294c5bfe262",
+    "1658949983ebeaaf11",
+    "16589651232615c136",
+    "1658974826bc9a6346",
+    "1658970132b19d12db",
+    "1658973359303e12c2",
+    "165897521292e70e7a",
+    "1658995154bad1498e"
+  ]
+}

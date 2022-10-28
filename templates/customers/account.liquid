@@ -1,0 +1,57 @@
+<div class='account'>
+      {% include 'account-titles' with title: 'My Account' %}
+
+  <div class="account__wrapper">
+      <section class='account__info mt1'>
+        <div class=''>
+          <h2 class='h5'>Order History</h2>
+
+          <hr class='cgm mb1 mt025'>
+
+          {% paginate customer.orders by 99 %}
+
+            {% if customer.orders.size != 0 %}
+
+              <ul class='account-home__orders'>
+                {% for order in customer.orders %}
+                  <li class='account-home__order block mt2 mb2 pb2'>
+                    <div class='x f aic jcb h5 mb05'>
+                      <a href='{{ order.customer_url }}' class='link--underline mr1 medium'>
+                        {{order.name}}
+                      </a>
+
+                      <span class='cg small'>{{order.created_at | date: '%b %d, %Y'}}</span>
+                    </div>
+
+                    <div class='h6'>
+                      <div>
+                        <span class='medium mr05'>Payment:</span><span>{{order.financial_status_label}}</span>
+                      </div>
+                      <div>
+                        <span class='medium mr05'>Shipping:</span><span>{{order.fulfillment_status_label}}</span>
+                      </div>
+                    </div>
+
+                    <div class='h6mt05'>
+                      <span>Total:</span><span class="bold">{{order.total_price | money}}</span>
+                    </div>
+
+                    <a class="small" target="_blank" href="https://shopify-order-edit.herokuapp.com/order-editor/furyou.myshopify.com/{{order.id}}">Cancel/Edit</a>
+                  </li>
+
+                {% endfor %}
+              </ul>
+
+            {% else %}
+              <div class='ac'>
+                <p class='align-c px2 bg-cg1'>You don't have any orders yet!<br /><a class='underline' href='/'>Visit our shop page to get started.</a></p>
+              </div>
+            {% endif %}
+
+            {% include 'pagination' %}
+          {% endpaginate %}
+        </div>
+      </section>
+
+  </div>
+</div>

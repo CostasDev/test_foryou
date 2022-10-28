@@ -1,0 +1,24 @@
+<div class="search__overlay" id="search-header">
+  <div class="search__overlay-wrapper tac">
+    <label for="searchinput" class="">Looking for something?</label>
+    <form action="/search" method="get" class="searchbar-form" role="search"  id="searchform" _lpchecked="1">
+      <input type="hidden" name="type">
+      <input type="search" name="q" id="searchinput" class="searchbar-input" placeholder="" value="{{ search.terms }}" autocomplete="off">
+      <input type="hidden" class="btn" value="Search">
+
+      <div class="search-btn">
+        <button type="submit" aria-label="Submit Search Query"> 
+          {% include 'icon' with 'search-arrow-right' %}
+        </button>
+      </div>
+    </form>
+    <p class="">Search by product name, type, routine, or concern.</p>
+    <p class="search-popular">Most popular searches: <a class="c-gold tda" href="/search?type=&q=razor+burn" itemprop="url" aria-label="Search razor burn">razor burn,</a> <a class="c-gold tda" href="/search?type=&q=ingrowns" itemprop="url" aria-label="Search Ingrowns">ingrowns,</a> <a class="c-gold tda" href="/search?type=&q=fur+oil" itemprop="url" aria-label="Search fur oil">fur oil</a></p>
+  </div>
+    <a href="/" class="search__overlay-close js-close-search" data-action="toggle-search" itemprop="url" aria-label="Close Search Overlay">
+      {% include 'icon' with 'search-close' %}
+    </a> 
+</div> 
+
+
+

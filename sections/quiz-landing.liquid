@@ -1,0 +1,226 @@
+{% comment %}
+  Render quiz intro (landing page)
+{% endcomment %}
+<style>
+  .quiz__wrapper {
+    background: #fefaf0;
+  }
+  .quiz__hero {
+    line-height: 1;
+  }
+  .quiz__hero > .content {
+    min-height: 0;
+    padding: 0;
+  }
+  .quiz__hero .button {
+    font-family: "Cadiz Web" ,Helvetica;
+    display: inline-block;
+    font-size: 15px;
+    font-size: .9375rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 20px 18px;
+    text-align: center;
+    outline: none;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    color: #fff;
+    background-color: #BEB132;
+  }
+  .quiz__hero-container {
+    text-align: center;
+  }
+  .quiz__hero-container > p {
+    margin: 1rem;
+    padding: 0 2rem;
+  }
+  .quiz__hero-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 530px;
+    padding: 1rem 2rem;
+    background: url({{ section.settings.hero_background_image_mobile | img_url: '800x', format: 'pjpg' }}) 50% no-repeat;
+    background-size: cover;
+  }
+  .quiz__footer {
+    background: url({{ section.settings.footer_background_image_mobile | img_url: '600x', format: 'pjpg' }}) 50% no-repeat;
+    background-size: cover;
+  }
+  .quiz__footer-container {
+    background: #fefaf0;
+  }
+  .quiz__content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .quiz__content-details {
+    padding: 1rem 2rem;
+  }
+  .quiz__content-details h3 {
+    line-height: 1;
+    margin: 1rem 0;
+  }
+  .quiz__content-image img {
+    width: 100%;
+  }
+  .link-arrow::after {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 16px;
+    margin-left: 5px;
+    background: url({{ 'arrow-gold-right.svg' | asset_url }}) no-repeat;
+    background-size: 100%;
+    vertical-align: middle;
+  }
+  @media (min-width: 56.26em) {
+    .quiz__hero {
+      background: url({{ section.settings.hero_background_image_desktop | img_url: 'master', format: 'pjpg' }}) 50% no-repeat;
+      background-size: cover;
+      min-height: 800px;
+    }
+    .quiz__hero > .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-top: 180px;
+    }
+    .quiz__hero-container {
+      width: 50%;
+      padding: 0 1rem;
+      text-align: left;
+    }
+    .quiz__hero-container > p {
+      margin: 0 0 2rem;
+      padding: 0;
+    }
+    .quiz__hero-header {
+      display: block;
+      min-height: auto;
+      padding: 0;
+      background: none;
+    }
+    .quiz__hero-header .h0 {
+      font-size: 3rem;
+      line-height: 1.1;
+    }
+    .quiz__content {
+      flex-direction: row-reverse;
+      text-align: left;
+    }
+    .quiz__content:nth-child(even) {
+      flex-direction: row;
+    }
+    .quiz__content-image {
+      width: 60%;
+    }
+    .quiz__content-details {
+      position: relative;
+      width: 40%;
+    }
+    .quiz__footer {
+      background: url({{ section.settings.footer_background_image_desktop | img_url: 'master', format: 'pjpg' }}) 50% no-repeat;
+      background-size: cover;
+    }
+  }
+</style>
+
+<div class="mha quiz__wrapper">
+  <div class="pv2 quiz__hero">
+    <div class="content content__wrapper container container--mm mxa">
+      <div class="quiz__hero-container">
+        <div class="quiz__hero-header">
+          <h1 class="h0 serif">{{ section.settings.hero_heading }}</h1>
+          <p class="bold caps">{{ section.settings.hero_subheading }}</p>
+        </div>
+        <p>{{ section.settings.hero_copy }}</p>
+        <a href="{{ section.settings.hero_cta_url }}" class="button bold caps cchar">{{ section.settings.hero_cta }}</a>
+      </div>
+    </div>
+  </div>
+  {% comment %} <div class="container container--mm pv1">
+    <div class="container container--m ac px2">
+      <h2 class="h2 serif">{{ section.settings.content_section_heading }}</h2>
+      <p>{{ section.settings.content_section_copy }}</p>
+    </div>
+    {% for block in section.blocks %}
+      <div class="quiz__content f aic pv1">
+        <div class="quiz__content-image">
+          <a href="{{ block.settings.content_module_cta_url }}"><img src="{{ block.settings.content_module_image | img_url: '600x', format: 'pjpg' }}" loading="lazy"></a>
+        </div>
+        <div class="quiz__content-details">
+          <h3 class="serif">{{ block.settings.content_module_heading }}</h3>
+          <a href="{{ block.settings.content_module_cta_url }}" class="bold caps cchar link-arrow">{{ block.settings.content_module_cta }}</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div> {% endcomment %}
+  {% comment %} <a href="{{ section.settings.footer_cta_url }}">
+    <div class="mt2 px2 quiz__footer">
+      <div class="quiz__footer-container container container--m mx2">
+        <div class="px2 ac">
+          <h1 class="h2 serif">{{ section.settings.footer_heading }}</h1>
+          <p>{{ section.settings.footer_copy }}</p>
+          <object><a href="{{ section.settings.footer_cta_url }}" class="bold caps cchar link-arrow">{{ section.settings.footer_cta }}</a></object>
+        </div>
+      </div>
+    </div>
+  </a> {% endcomment %}
+</div>
+<div class="hide">
+  page.url: {{ page.url }}<br>
+  page.handle: {{ page.handle }}<br>
+  page.template_suffix: {{ page.template_suffix }}<br>
+  template: {{ template }}<br>
+  template.directory: {{ template.directory }}<br>
+  template.name: {{ template.name }}<br>
+  template.suffix: {{ template.suffix }}<br>
+</div>
+
+{% schema %}
+  {
+    "name": "Quiz Landing Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Hero"
+      },
+      {
+        "type": "text",
+        "id": "hero_heading",
+        "label": "Hero Heading"
+      },
+      {
+        "type": "text",
+        "id": "hero_subheading",
+        "label": "Hero Sub-heading"
+      },
+      {
+        "type": "textarea",
+        "id": "hero_copy",
+        "label": "Hero Copy"
+      },
+      {
+        "type": "text",
+        "id": "hero_cta",
+        "label": "Hero CTA"
+      },
+      {
+        "type": "url",
+        "id": "hero_cta_url",
+        "label": "Hero CTA Link"
+      },
+      {
+        "type": "image_picker",
+        "id": "hero_background_image_mobile",
+        "label": "Hero Background Image (Mobile)"
+      },
+      {
+        "type": "image_picker",
+        "id": "hero_background_image_desktop",
+        "label": "Hero Background Image (Desktop)"
+      }
+    ]
+  }
+{% endschema %}

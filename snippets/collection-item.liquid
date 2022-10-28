@@ -1,0 +1,40 @@
+
+<div data-component='collectionItem' class="collection__item">
+    {%- assign current_variant = product.selected_or_first_available_variant -%}
+    <script class='js-product-json' type='text/template'>
+      {
+        "selectedOrFirstAvailableVariant": {{ current_variant.id | json }},
+        "product": {{ product | json }}
+      }
+    </script>
+    
+    <a class="collection__item-link" title="{{ product.title }}" href="{{ product.url }}">
+    <div class="collection-product__image rel bg-lightgray">
+      <div class="collection-product__image-wrapper fill-wrapper">
+         <div class="collection__badge">{% include 'product-badges' %}</div>
+        <img class="lazyload fill initial-image" data-src="{{ product.featured_image | img_url: '1000x' | crop: 'center' }}" alt="{{ product.title }}"/>
+         {% if product.metafields.sf_product_videos.video_one %}
+           {% if product.images[1] %}<img class=" fill hidden-image" src="{{ product.images[1] | img_url: '1000x' | crop: 'center' }}" alt="{{ product.images[1].alt | escape }}"/> {% endif %} 
+          <video class="fill hidden-image hide-mobile" src="{{ product.metafields.sf_product_videos.video_one }}" preload="auto" autoplay loop playsinline webkit-playsinline x5-playsinline muted></video>
+         
+         {% else %}
+        {% if product.images[1] %}<img class=" fill hidden-image" src="{{ product.images[1] | img_url: '1000x' | crop: 'center' }}" alt="{{ product.images[1].alt | escape }}"/> {% endif %}
+        {% endif %}
+      </div>
+    </div>
+    </a>
+
+    <div class="collection-product__content f fdc jcb tac bg-lightgray">
+ 
+      <div class="collection-item__top">
+        <a class="collection-product__title" title="{{ product.title }}" href="{{ product.url }}"><p class="collection-product__title tac bold mx0"> {{ product.title }} </p></a>
+        <p class='block collection-product__caption mb05'>{{product.metafields.sf_product_metafield.mini_description}}</p>
+       {% include 'collection-item-price' %}
+      </div>
+
+      {% include 'collection-item-form' %}
+     
+
+    </div> 
+
+</div>

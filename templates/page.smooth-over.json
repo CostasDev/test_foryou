@@ -1,0 +1,59 @@
+{
+  "sections": {
+    "main": {
+      "type": "password-popup",
+      "disabled": true,
+      "settings": {
+        "title": "Enter Password",
+        "text": "<p>You can find this password next to the QR code on your KP Body Scrub postcard<\/p>",
+        "bg_color": "#f1efe2",
+        "password": "shadow"
+      }
+    },
+    "16590933567ffed4fc": {
+      "type": "smooth-over-banner",
+      "settings": {
+        "title": "Smooth it <br>\nover \n<span>1 on 1<\/span>",
+        "mobile_title": "Smooth it over \n<span>One on One<\/span>",
+        "image_1": "shopify:\/\/shop_images\/061622_JC_2_059_1.png",
+        "image_2": "shopify:\/\/shop_images\/DSC_0486_1_1.png",
+        "text_1": "<p><strong>Learn to take care, everywhere with Fur estheticians.<\/strong><br\/><br\/>In celebration of our newest product, KP Body Scrub, we invite you to design a personalized skin care and body hair routine with a Fur esthetician.<br\/><\/p>",
+        "text_2": "<p><strong>Take this quiz<\/strong> so our licensed professionals can learn more about your specific concerns.<\/p><p><strong>Schedule<\/strong> your complimentary fifteen minute digital session. You will receive an email confirmation.<\/p><p><strong>Craft<\/strong> your routine to address all of your body hair and skin concerns with a Fur esthetician.<\/p>",
+        "bg_color": "#f1efe2"
+      }
+    },
+    "165963027251f537e1": {
+      "type": "full-image",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Group_4_cb982f83-7e2a-4cdb-b0c4-011c75d71d29.png",
+        "mobile_imag": "shopify:\/\/shop_images\/Group_4_2.png",
+        "arrow": true,
+        "link": "#shopify-section-template--15745670283455__16591079577c410222"
+      }
+    },
+    "16591079577c410222": {
+      "type": "custom-code",
+      "settings": {
+        "code": "<div class=\"octane-ai-quiz \" data-quiz-id=\"tw6bYfDH6d2hfg01\" data-embed-type=\"fullpage\" data-mobile-height=\"match_browser\" data-desktop-height=\"match_browser\"><\/div><script src=\"https:\/\/app.octaneai.com\/anuwyt3a6vr3oh1a\/quiz.js\" async=\"\" defer><\/script>"
+      }
+    },
+    "1659105475549e6338": {
+      "type": "richtext",
+      "settings": {
+        "full_width": true,
+        "title": "",
+        "text": "<p><strong>Introducing<\/strong> A skin-smoothing scrub that combines a powerful percentage of resurfacing AHAs, and a physical perlite exfoliant, to banish bumps and minimize keratin overproduction, with soothing sunflower seed oil to reduce redness and sensitivity. <br\/><br\/>We formulated KP Body Scrub to smooth skin and reduce the appearance of Keratosis Pilaris (KP): a common, often overlooked skin concern that causes rough, red bumps. KP Body Scrub’s nourishing ingredients buff away keratin buildup leaving skin smooth and glowing. KP Body Scrub is vegan, highly effective, and safe for the whole body. <br\/><\/p>",
+        "text_align": "left",
+        "layout": "all",
+        "bg_color": "#f1efe2"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "16590933567ffed4fc",
+    "165963027251f537e1",
+    "16591079577c410222",
+    "1659105475549e6338"
+  ]
+}

@@ -1,0 +1,404 @@
+{% comment %}
+	This page renders the quiz form (powered by Customer Fields app).
+	There is custom javascript to handle the quiz results logic.
+{% endcomment %}
+
+<style>
+  .layout {
+    background: url({{ 'quiz_bg-min.png' | asset_img_url: '600x' }}) 50% no-repeat;
+    background-size: cover;
+    min-height: 500px;
+  }
+  .quiz__wrapper {
+    padding: 80px 15px 30px;
+    margin: 0 15px;
+    min-height: 80vh;
+    background: #fefaf0;
+  }
+  @media (min-width: 56.26em) {
+    .layout {
+      min-height: 90vh;
+      background: url({{ 'quiz_bg-min.png' | asset_img_url: '1200x' }}) 50% no-repeat;
+      background-size: cover;
+    }
+    .quiz__wrapper {
+      padding: 120px 30px 30px;
+      margin: 0;
+    }
+  }
+  .cf-preload {
+    display: none !important;
+  }
+
+  .cf-form-inner {
+    animation: none !important;
+  }
+</style>
+<div class="layout f jcc aic">
+  <div class="container--mm mha">
+    <div class="quiz__wrapper">
+      {% render "customer-fields", form_id: "oL3tX9" %}
+    </div>
+  </div>
+</div>
+
+<script>
+  var quizScores = [
+    {
+      name: "fur-oil",
+      score: 0
+    },
+    {
+      name: "ingrown-concentrate",
+      score: 0
+    },
+    {
+      name: "stubble-cream",
+      score: 0
+    },
+    {
+      name: "silk-scrub",
+      score: 0
+    },
+    {
+      name: "shave-cream",
+      score: 0
+    },
+    {
+      name: "ingrown-eliminator",
+      score: 0
+    }
+  ];
+
+  var quizBundles = [
+    {
+      products: [
+        "fur-oil",
+        "ingrown-concentrate"
+      ],
+      bundle: "bare-necessities"
+    },
+    {
+      products: [
+        "fur-oil",
+        "silk-scrub"
+      ],
+      bundle: "smooth-move"
+    },
+    {
+      products: [
+        "stubble-cream",
+        "ingrown-concentrate"
+      ],
+      bundle: "stubble-bundle"
+    },
+    {
+      products: [
+        "stubble-cream",
+        "silk-scrub"
+      ],
+      bundle: "body-bundle"
+    },
+    {
+      products: [
+        "shave-cream",
+        "stubble-cream"
+      ],
+      bundle: "shave-essentials"
+    },
+    {
+      products: [
+        "ingrown-concentrate",
+        "ingrown-eliminator"
+      ],
+      bundle: "ingrown-duo"
+    }
+  ]
+
+  var silkScrubSensitivity = [
+    {
+      key: "Very sensitive",
+      value: "For very sensitive skin, use this as a quick scrub once a week."
+    },
+    {
+      key: "Moderately sensitive",
+      value: "For moderately sensitive skin, use this as a quick scrub 2-3x a week."
+    },
+    {
+      key: "Normal",
+      value: "For normal skin, leave on for 5-10 minutes as a mask 2-3x a week."
+    },
+    {
+      key: "Good with anything",
+      value: "For skin that’s good with anything, leave on for 5-10 minutes as a mask 2-3x a week."
+    }
+  ]
+
+  // Init things
+  var quizSaveActive = false;
+  var quizRedirectActive = false;
+  var quizSkipLinkEvent = false;
+  var quizLoginLinkEvent = false;
+  var productRec = null;
+  var bundleRec = null;
+  localStorage.removeItem('customer_data');
+
+  var calculateResults = function() {
+    console.debug('calculateResults', quizSaveActive);
+    // Prevent multiple
+    if (quizSaveActive == true) return false;
+    quizSaveActive = true;
+
+    // RESET: Clear existing recommendation before saving new rec.
+    CF.customer.set("product_recommendation", null);
+    CF.customer.set("bundle_recommendation", null);
+    CF.customer.set("quiz_scores", null);
+
+    // Sanitize "None of the above" when it is selected, and then other 
+    // options are subsequently selected which deselects "None of the above" 
+    // but does not clear that value when deselected. In other words,
+    // this is to avoid "N", "o", "n", "e", " ", "o", "f", " ", "t", "h", "e", " ", "a", "b", "o", "v", "e"
+    if (CF.customer.get("concerns") && typeof CF.customer.get("concerns") == "object") CF.customer.set("concerns", (CF.customer.data.concerns).filter((thing) => thing.length > 1));
+    if (CF.customer.get("extra_care") && typeof CF.customer.get("extra_care") == "object") CF.customer.set("extra_care", (CF.customer.data.extra_care).filter((thing) => thing.length > 1));
+
+    // PRODUCT REC SCORE LOGIC: Loop through unsaved changes and add up each product's score
+    var unsavedChanges = [CF.customer.unsavedChanges.hair_care_routine, CF.customer.unsavedChanges.concerns];
+
+    unsavedChanges.forEach(function(el) {
+      console.debug('forEach:', el);
+      console.debug('el typepof:', typeof el);
+      if (typeof el == "object") {
+        el.forEach(function(obj) {
+          console.debug('el.forEach:', obj);
+          if (obj !== "None of the above") {
+            obj = JSON.parse(obj);
+            for (let key in obj) {
+              console.debug('for key in obj:', key);
+              var currScore = quizScores.find(f=>f.name==key) ? quizScores.find(f=>f.name==key).score : 0;
+              var newScore = parseFloat(currScore) + parseFloat(obj[key]);
+              quizScores.find(f=>f.name==key).score = newScore;
+            }
+          }
+        });
+      }
+    });
+
+    // OVERRIDE: If Q4 = A, set "ingrown elminator" to 0
+    if (CF.customer.unsavedChanges.extra_care.includes("Underarms")) {
+      quizScores.find(f=>f.name=="ingrown-eliminator").score = 0;
+      console.debug("OVERRIDE: ingrown eliminator = 0");
+    }
+
+    // SORT PRODUCT REC SCORES HI TO LOW: Now that scores are adjusted, sort the array of objects from highest to lowest
+    quizScores = quizScores.sort(function(a, b){
+      return b.score - a.score;
+    });
+
+    // SET: Set recommendation results to highest scoring product or by order of the object in case of a tie.
+    CF.customer.set("quiz_scores", quizScores);
+    console.debug("PRODUCT SCORES:", CF.customer.get("quiz_scores"));
+    CF.customer.set("product_recommendation", quizScores[0].name);
+    console.debug("PRODUCT REC:", quizScores[0].name);
+
+    // BUNDLE LOGIC
+    var quizScoresNonZero = quizScores.filter(thing => thing.score > 0);
+    var quizScoresExceptFirst = quizScoresNonZero.filter(thing => thing.name != quizScoresNonZero[0].name);
+    var bundleMatchesFirstPlace = quizBundles.filter(thing => thing.products.includes(quizScoresNonZero[0].name));
+    console.debug("BUNDLES that contain '" + quizScoresNonZero[0].name + "':", bundleMatchesFirstPlace);
+    var bundleMatchesSecondPlace = quizBundles.filter(thing => thing.products.includes(quizScores[1].name));
+    // var bundleRec = null;
+
+    if (quizScoresExceptFirst.length > 0) {
+      try {
+        // Main bundle calculation
+        quizScoresExceptFirst.forEach(function (el, i) {
+          if (el.name !== quizScores[0].name) {
+            // console.debug('quizScoresExceptFirst[i].name',quizScoresExceptFirst[i].name);
+            bundleRec = quizScoresExceptFirst.find((f) => bundleMatchesFirstPlace.find(thing => thing.products.includes(f.name))).name;
+            bundleRec = bundleMatchesFirstPlace.filter(thing => thing.products.includes(bundleRec))[0].bundle;
+            // console.debug('bundleRec', bundleRec);
+          }
+        });
+        console.debug("BUNDLE REC [TRY]:", bundleRec);
+      } catch (e) {
+        if (quizScores[0].name == 'fur-oil') {
+          // This exception has no second product recommendation
+          // in place of a bundle recommendation
+          bundleRec = "stubble-cream";
+          console.debug("BUNDLE REC [NO 2ND PLACE]:", bundleRec);
+        } else if (quizScoresNonZero.length == 2) {
+          // Show the second highest scoring product if no bundle match
+          bundleRec = quizScores[1].name;
+          console.debug("BUNDLE REC [2 MATCHES EXACTLY]:", bundleRec);
+        } else {
+          // There are no matches, fall back.
+          bundleRec = bundleMatchesSecondPlace[0].bundle;
+          console.debug("BUNDLE REC [CATCH/NO MATCHES]:", bundleRec);
+        }
+      }
+    } else if (quizScores[0].name == "fur-oil") {
+      // When only a single product has a non-zero score
+      bundleRec = "smooth-move";
+      console.debug("BUNDLE REC [ELSE/FUR OIL EXCEPTION]:", bundleRec);
+    } else if (quizScores[0].name == "stubble-cream") {
+      // When only a single product has a non-zero score
+      bundleRec = "body-bundle";
+      console.debug("BUNDLE REC [ELSE/FUR OIL EXCEPTION]:", bundleRec);
+    } else {
+      // When no other matches for single non-zero scores
+      bundleRec = bundleMatchesSecondPlace[0].bundle;
+      console.debug("BUNDLE REC [ELSE/NO MATCHES]:", bundleRec);
+    }
+
+    console.debug("BUNDLE REC:", bundleRec);
+    CF.customer.set("bundle_recommendation", bundleRec);
+
+    // PERSONALIZATION COPY: Try it on your
+    if (quizScores[0].name !== "silk-scrub") {
+      var extraCareArray = (typeof CF.customer.get("extra_care") == "object") ? CF.customer.get("extra_care").map(v => v.toLowerCase()) : null;
+      if (extraCareArray && extraCareArray[0] !== "none of the above") {
+        var extraCareRec = "";
+        if (extraCareArray.length > 2) {
+          var extraCareLast = extraCareArray.pop();
+          extraCareRec += extraCareArray.join(", ") + ", and " + extraCareLast + ".";
+        } else if (extraCareArray.length > 1) {
+          extraCareRec += extraCareArray.join(" and ") + ".";
+        } else {
+          extraCareRec += extraCareArray[0] + ".";
+        }
+        CF.customer.set("try_it_on_your", "Try it on your " + extraCareRec);
+      }
+    }
+
+    // PERSONALIZATION COPY: Sensitivity (Silk Scrub only)
+    if (quizScores[0].name == "silk-scrub") {
+      CF.customer.set("try_it_on_your", silkScrubSensitivity.filter(thing => thing.key == CF.customer.data.skin_sensitivity)[0].value);
+    }
+
+    // Store customer data in localStorage so that data from
+    // anonymous submissions can be retreived and rendered.
+    // Clone the CF.customer.data object so we don't mutate it directly
+    var customerData = Object.assign({}, CF.customer.data);
+    // Delete the password
+    delete customerData.password;
+
+    localStorage.setItem('customer_data', JSON.stringify(customerData));
+  }
+
+  CF.customerReady(function() {
+    document.addEventListener("cf:customer_saved", function(e) {
+      e.preventDefault();
+
+      calculateResults();
+
+      // SAVE: Save data and then redirect
+      console.debug('save and redirect', quizSaveActive);
+
+      // Prevent multiple
+      if (quizRedirectActive == true) return false;
+      quizRedirectActive = true;
+      
+      CF.customer
+        .save({ formId: 'oL3tX9' })
+        .then(function(errorObj) {
+          console.debug("SAVING TO CF...");
+          console.debug("REDIRECTING...", quizScores[0].name, bundleRec);
+          location.href = "/pages/"  + quizScores[0].name + "?view=" + bundleRec;
+        })
+        .catch(function(err) {
+          // Something wrong happened :(
+          console.error("Could not save customer", err);
+          quizRedirectActive = false;
+        });
+    });
+  });
+
+  CF.ready(function() {
+    
+    // Select the node that will be observed for mutations
+    const cfFormStep = document.querySelector('.cf-form-step');
+
+    // Options for the observer (which mutations to observe)
+    const config = { attributes: true, childList: true, subtree: true };
+
+    // Callback function to execute when mutations are observed
+    const callback = function(mutationsList, observer) {
+      // Use traditional 'for loops' for IE 11
+      for(let mutation of mutationsList) {
+        if (mutation.type === 'attributes') {
+          console.debug('The ' + mutation.attributeName + ' attribute was modified.', document.querySelector("[" + mutation.attributeName + "]").dataset.cfStepId);
+
+          // DO STUFF ON THE LAST STEP
+
+          // Personalize copy
+          if (document.querySelector("[" + mutation.attributeName + "]").dataset.cfStepId == "120176") {
+            if (CF.customer.isLoggedIn) {
+              document.querySelector('[data-cf-field-id="447544"] h2').innerText = "Ready, " + CF.customer.data.first_name + "?";
+            } else {
+              document.querySelector('[data-cf-field-id="447544"] h2').innerText = "Want to stay in touch, " + CF.customer.data.first_name + "?";
+            }
+          }
+
+          // Check for "skip this step" link
+          if (document.querySelector(".js-quiz-skip > a") && !quizSkipLinkEvent) {
+            console.debug("skip link found");
+            document.querySelector(".js-quiz-skip > a").addEventListener("click", function(e) {
+              e.preventDefault();
+
+              calculateResults();
+              delete CF.customer.data.password;
+
+              CF.customer
+                .save({ formId: 'oL3tX9' })
+                .then(function(errorObj) {
+                  console.debug("SAVING TO CF...");
+                  console.debug("REDIRECTING...", quizScores[0].name, bundleRec);
+                  location.href = "/pages/"  + quizScores[0].name + "?view=" + bundleRec;
+                })
+                .catch(function(err) {
+                  // Something wrong happened :(
+                  console.error("Could not save customer", err);
+                  quizSkipLinkEvent = false;
+                });
+            });
+            
+            quizSkipLinkEvent = true;
+          }
+
+          // Check for "sign in" link
+          if (document.querySelector(".js-quiz-login > a") && !quizLoginLinkEvent) {
+            console.debug("login link found");
+            document.querySelector(".js-quiz-login > a").addEventListener("click", function(e) {
+              e.preventDefault();
+
+              calculateResults();
+
+              var customerData = Object.assign({}, CF.customer.data);
+              // Delete the password
+              delete customerData.password;
+              // If the user chooses to sign in, delete the email
+              // to prevent an empty email field from wiping out
+              // their existing email.
+              delete customerData.email;
+
+              localStorage.setItem('customer_data', JSON.stringify(customerData));
+
+              console.debug("SKIPPING SAVE AND REDIRECTING...", quizScores[0].name, bundleRec);
+              location.href = "/account/login?return_url=" + encodeURIComponent("/pages/"  + quizScores[0].name + "?view=" + bundleRec);
+            });
+            
+            quizLoginLinkEvent = true;
+          }
+        }
+      }
+    };
+
+    // Create an observer instance linked to the callback function
+    const observer = new MutationObserver(callback);
+
+    // Start observing the target node for configured mutations
+    observer.observe(cfFormStep, config);
+  });
+</script>
+
+

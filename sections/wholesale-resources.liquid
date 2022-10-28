@@ -1,0 +1,92 @@
+<div class='bg-lightbeige'>
+  <div class='container--xl mha px2 tac g_padding'>
+    <h2 class='h3 mb15'>{{section.settings.title}}</h2>
+    <div class='container__resources f jcb fw'>
+      <div class='mb2'>
+        <img class='mb15' src="{{ section.settings.image1 | img_url: '800x' }}" alt="{{ section.settings.image1.alt }}"/>
+        <p class='h6 cb pv05'>{{ section.settings.caption1 }}</p>
+        <p class='small'>{{ section.settings.description1}}</p>
+      </div>
+      <div class='mb2'>
+        <img class='mb15' src="{{ section.settings.image2 | img_url: '800x' }}" alt="{{ section.settings.image2.alt }}"/>
+        <p class='h6 cb pv05'>{{ section.settings.caption2 }}</p>
+        <p class='small'>{{ section.settings.description2}}</p>
+      </div>
+      <div class='mb2'>
+        <img class='mb15' src="{{ section.settings.image3 | img_url: '800x' }}" alt="{{ section.settings.image3.alt }}"/>
+        <p class='h6 cb pv05'>{{ section.settings.caption3 }}</p>
+        <p class='small'>{{ section.settings.description3}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Wholesale Resources",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "The Wholesale Advantage"
+      },
+      {
+        "type": "image_picker",
+        "id": "image1",
+        "label": "Image (Pricing)"
+      },
+      {
+        "type": "text",
+        "id": "caption1",
+        "label": "Caption (Pricing)",
+        "default": "Pricing"
+      },
+      {
+        "type": "text",
+        "id": "description1",
+        "label": "Description (Pricing)",
+        "default": "We offer special pricing and discounted rates to those in our wholesale family. We want to make it easy for you to buy products for your business."
+      },
+      {
+        "type": "image_picker",
+        "id": "image2",
+        "label": "Image (Assets)"
+      },
+      {
+        "type": "text",
+        "id": "caption2",
+        "label": "Caption (Assets)",
+        "default": "Assets"
+      },
+      {
+        "type": "text",
+        "id": "description2",
+        "label": "Description (Assets)",
+        "default": "We’ve curated our best in class marketing assets for you to use in store, on your site, and to post on social media."
+      },
+     {
+        "type": "image_picker",
+        "id": "image3",
+        "label": "Image (Training)"
+      },
+      {
+        "type": "text",
+        "id": "caption3",
+        "label": "Caption (Training)",
+        "default": "Training"
+      },
+      {
+        "type": "text",
+        "id": "description3",
+        "label": "Description (Training)",
+        "default": "We've gathered educational tips, tricks, and videos to give you and your staff the tools to make our partnership successful"
+      }
+
+    ],
+    "presets": [{
+      "name": "Resources",
+      "category": "sections"
+    }]
+  }
+{% endschema %}

@@ -1,0 +1,84 @@
+{% assign hero = section.settings %}
+
+<div class="hero t f fw jcb hero__about tac line-break" style="background-image: url('{{ section.settings.bg_image | img_url: '2000x' }}')" alt="{{ section.settings.bg_image.alt | escape }}">
+  <div class="hero__image-overlay"></div>
+        <div class=" z1 rel">
+          <h2 class='h2 cw serif container--m mha rel z1'>{{ section.settings.notfound_title }}</h2>
+          <p class='hero__text h5 cw tac container--m mha mt05'>{{ hero.notfound_subtitle }}</p> 
+           <a class='btn btn_chartreuse mt2' role='button' href="{{ hero.cta_url }}" itemprop="url" aria-label="{{ hero.cta }}">{{ hero.cta }}</a>
+        </div>
+</div>
+
+{% assign collection = collections[section.settings.collection] %}
+
+<div class='collection mt3 pb2 x y tac section-{{ section_number }}'>
+  <h3 class='serif px05'>{{section.settings.collection_title}}</h3>
+  <div class="collection__wrapper container--l x mxa y f fw fdr jcc">     
+    {% for product in collection.products %}
+        {% include 'collection-item' %}
+    {% endfor %}
+  </div>
+</div>
+
+
+
+
+{% schema %}
+  {
+    "name": "404 Hero",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "Desktop Image"
+      },
+      {
+        "type": "text",
+        "id": "notfound_title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "notfound_subtitle",
+        "label": "Subtitle (optional)"
+      },
+      {
+        "type": "text",
+        "id": "cta",
+        "label": "CTA"
+      },
+      {
+        "type": "url",
+        "id": "cta_url",
+        "label": "CTA URL"
+      },
+       {
+        "type": "text",
+        "id": "collection_title",
+        "label": "Heading",
+        "default": "Featured collectio headline"
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      }
+    ]
+  }
+{% endschema %}
+
+
+
+
+
+
+{% comment %} <div class='ph2'>
+  <div class='f aic jcc' style='min-height: 500px'>
+    <div class='ac' style='max-width: 380px; margin: auto'>
+      <h1 class='h3 mb05'>404 Not Found</h1>
+      <p>We're sorry! The page you requested could not be found or is currently unavailable.</p>
+      <a class='btn mt1' role='button' href='/'>Go Home</a>
+    </div>
+  </div>
+</div> {% endcomment %}
+

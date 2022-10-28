@@ -1,0 +1,247 @@
+{
+  "sections": {
+    "main": {
+      "type": "password-popup",
+      "disabled": true,
+      "settings": {
+        "title": "Enter Password",
+        "text": "<p>You can find this password next to the QR code on your KP Body Scrub postcard<\/p>",
+        "bg_color": "#f1efe2",
+        "password": "shadow"
+      }
+    },
+    "165899747864f80782": {
+      "type": "image-text-grid",
+      "blocks": {
+        "c1790944-8f69-4a51-a3b0-7d044bbd14b1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC_0480-2_2.png",
+            "round_image": true,
+            "title": "Smooth Skin for Every Body",
+            "enlarge_text": true,
+            "text": "",
+            "image_status": "half",
+            "mobile_text_left": false
+          }
+        },
+        "f014e6d9-790d-45a4-a7fa-304d356577b8": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC_8575_1.png",
+            "round_image": true,
+            "title": "What is KP?",
+            "enlarge_text": false,
+            "text": "<p>Keratosis Pilaris, known as KP, is a common skin condition that occurs when the skin produces too much keratin— the protective protein that builds skin and hair. In excess, keratin can block hair follicles from growing properly. These blockages create small bumps that can be red, dark, or white and give skin a rough, textured appearance. Despite not causing pain or itching, the condition can still feel uncomfortable.<\/p>",
+            "image_status": "bottom",
+            "mobile_text_left": false
+          }
+        },
+        "a5040a02-3568-47b2-84e1-1e47075949fb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC_8575_2.png",
+            "round_image": false,
+            "title": "What causes KP?",
+            "enlarge_text": false,
+            "text": "<p>What causes KP?: KP is known to be genetic and found in people with other skin conditions such as atopic dermatitis. Weather and climate also cause KP symptoms to fluctuate. Minimizing KP can help relieve discomfort and restore skin to its smoothest state.<\/p>",
+            "image_status": "hide",
+            "mobile_text_left": false
+          }
+        }
+      },
+      "block_order": [
+        "c1790944-8f69-4a51-a3b0-7d044bbd14b1",
+        "f014e6d9-790d-45a4-a7fa-304d356577b8",
+        "a5040a02-3568-47b2-84e1-1e47075949fb"
+      ],
+      "settings": {
+        "image_align": "right",
+        "image_bg_color": "#d6c827",
+        "bg_color": "#e7e3d9",
+        "layout": "all"
+      }
+    },
+    "1659001874254232e4": {
+      "type": "image-text-block",
+      "blocks": {
+        "0fc7cbba-faf5-4ca0-a2c2-4a5c053c8c33": {
+          "type": "text",
+          "settings": {
+            "title": "Is there a <br>\ncure for KP?",
+            "text": "<p>While KP is not curable, you can significantly minimize the appearance by exfoliating and moisturizing.<\/p>"
+          }
+        },
+        "cb76adab-72e1-4a7d-8b27-a1f6e9f41fd1": {
+          "type": "text",
+          "settings": {
+            "title": "Why is KP Body <br>\nScrub effective?",
+            "text": "<p>KP Body Scrub is a powerful chemical and physical exfoliant that works to dissolve and dislodge hair follicle blockage. Its formula contains 14% AHAs — the highest percentage of AHAs in its category.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "0fc7cbba-faf5-4ca0-a2c2-4a5c053c8c33",
+        "cb76adab-72e1-4a7d-8b27-a1f6e9f41fd1"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/DSC_8575_6.png",
+        "mobile_image": "shopify:\/\/shop_images\/DSC_1230_1.png",
+        "bg_color": "#d6c827"
+      }
+    },
+    "1659010003345ddf65": {
+      "type": "thumbs-carousel",
+      "blocks": {
+        "846b2d41-e9d5-4656-851a-3078b105adf0": {
+          "type": "image",
+          "settings": {
+            "title": "PERLITE",
+            "text": "<p>A mineral derived from naturally occurring volcanic rock, that acts as a powerful physical exfoliant to buff away roughness and bumps for a microdermabrasion effect. <\/p>"
+          }
+        },
+        "3461fe3f-145a-47dd-a91b-a1e0b1da421f": {
+          "type": "image",
+          "settings": {
+            "title": "LACTIC ACID",
+            "text": "<p>Making up our 14% active alpha-hydroxy acids (AHAs), this chemical exfoliant dissolves excess keratin build up in the pores that causes the appearance of KP.<\/p>"
+          }
+        },
+        "d869111d-5eac-4aa5-b195-47b8950d48a0": {
+          "type": "image",
+          "settings": {
+            "title": "LICORICE ROOT EXTRACT",
+            "text": "<p>Derived from the licorice plant, it brightens skin discoloration and soothes redness, puffiness, and itchiness.<\/p>"
+          }
+        },
+        "9c87f65b-7a79-45ec-8c0e-2721d1ec3d12": {
+          "type": "image",
+          "settings": {
+            "title": "SUNFLOWER SEED OIL",
+            "text": "<p>A non-comedogenic oil derived from sunflower seeds, that is rich in vitamin E, vitamin A, and vitamin C, and deeply hydrates and protects the skin’s moisture barrier. <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "846b2d41-e9d5-4656-851a-3078b105adf0",
+        "3461fe3f-145a-47dd-a91b-a1e0b1da421f",
+        "d869111d-5eac-4aa5-b195-47b8950d48a0",
+        "9c87f65b-7a79-45ec-8c0e-2721d1ec3d12"
+      ],
+      "settings": {
+        "title": "KP Body Scrub <br>\nFormulation"
+      }
+    },
+    "1659030773c05bc724": {
+      "type": "richtext",
+      "settings": {
+        "full_width": false,
+        "title": "Suggested Use",
+        "text": "<p>For all over the body below the neck. In the shower, apply in a gentle, circular motion onto damp skin where keratosis pilaris, bumps, and rough patches occur. Rinse and pat dry. Use 2-3 times a week to combat existing skin concerns and to maintain smoother skin over time. For best results, follow with your favorite Fur moisturizer. <\/p>",
+        "text_align": "center",
+        "layout": "medium-up--hide",
+        "bg_color": ""
+      }
+    },
+    "1659025661aaa0d9fb": {
+      "type": "image-popup",
+      "blocks": {
+        "e79c1982-bda0-4e10-8d4f-13eedca09505": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC_1230_2.png",
+            "heading": "Suggested\nUse",
+            "title": "Suggested Use",
+            "text": "<p>For all over the body. In the shower, apply in a gentle, circular motion onto damp skin where keratosis pilaris, bumps, and rough patches occur. Rinse and pat dry. Use 2-3 times a week to combat existing skin concerns and to maintain smoother skin over time. For best results, follow with your favorite Fur moisturizer.<\/p>"
+          }
+        },
+        "185177a5-d9db-4fec-aa54-a9aa3d9419ff": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC_1230_3.png",
+            "heading": "KP Body Scrub RoutinE",
+            "title": "KP Body Scrub RoutinE",
+            "text": "<p>In the shower, use All Body Wash to cleanse the skin all over. Next, apply KP Body Scrub to rough areas of the skin in a gentle, circular motion. Rinse and pat dry. Once out of the shower, apply Fur Oil and Stubble Cream to the whole body to moisturize and soothe. <br\/><\/p>"
+          }
+        },
+        "7410b4e5-c022-4b8a-92f5-ac9e7d558163": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC_1230_4.png",
+            "heading": "Silk Scrub vs. KP Body Scrub",
+            "title": "Silk Scrub vs. \nKP Body Scrub",
+            "text": "<p>KP Body Scrub has a more abrasive physical exfoliant and a higher percentage of AHAs, resulting in a stronger exfoliation that is only meant for use on the body. Our first exfoliant, Silk Scrub, offers a lighter exfoliating experience for use on the body and face. <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "e79c1982-bda0-4e10-8d4f-13eedca09505",
+        "185177a5-d9db-4fec-aa54-a9aa3d9419ff",
+        "7410b4e5-c022-4b8a-92f5-ac9e7d558163"
+      ],
+      "settings": {
+        "bg_color": ""
+      }
+    },
+    "1659030982599fc8e4": {
+      "type": "image-text-grid",
+      "blocks": {
+        "7fba05ec-e368-428f-bedb-b5a6dbbb4531": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC_0041_1.png",
+            "round_image": false,
+            "title": "KP Body Scrub Routine",
+            "enlarge_text": false,
+            "text": "<p>In the shower, use All Body Wash to cleanse the skin all over. Next, apply KP Body Scrub to rough areas of the skin in a gentle, circular motion. Rinse and pat dry. Once out of the shower, apply Fur Oil and Stubble Cream to the whole body to moisturize and soothe. <br\/><\/p>",
+            "image_status": "half",
+            "mobile_text_left": false
+          }
+        },
+        "9450cae2-2224-4d3b-94fa-7a736a55b12e": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/DSC_9792-2_1.png",
+            "round_image": false,
+            "title": "Silk Scrub vs. KP Body Scrub",
+            "enlarge_text": false,
+            "text": "<p>KP Body Scrub has a more abrasive physical exfoliant and a higher percentage of AHAs, resulting in a stronger exfoliation that is only meant for use on the body. Our first exfoliant, Silk Scrub, offers a lighter exfoliating experience for use on the body and face. <br\/><\/p>",
+            "image_status": "half",
+            "mobile_text_left": false
+          }
+        }
+      },
+      "block_order": [
+        "7fba05ec-e368-428f-bedb-b5a6dbbb4531",
+        "9450cae2-2224-4d3b-94fa-7a736a55b12e"
+      ],
+      "settings": {
+        "image_align": "left",
+        "image_bg_color": "#d6c827",
+        "bg_color": "#e7e3d9",
+        "layout": "medium-up--hide"
+      }
+    },
+    "16590282691218c594": {
+      "type": "richtext",
+      "settings": {
+        "full_width": false,
+        "title": "Should I use Silk Scrub or KP Body Scrub?",
+        "text": "<p>If you are looking for a gentle exfoliation from head to toe, we recommend using Silk Scrub. If you are looking for a total skin reset or for targeted KP treatment, we recommend using KP Body Scrub.<\/p>",
+        "text_align": "center",
+        "layout": "small--hide",
+        "bg_color": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "165899747864f80782",
+    "1659001874254232e4",
+    "1659010003345ddf65",
+    "1659030773c05bc724",
+    "1659025661aaa0d9fb",
+    "1659030982599fc8e4",
+    "16590282691218c594"
+  ]
+}

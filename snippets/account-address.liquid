@@ -1,0 +1,33 @@
+<div class='address rel {{ className }}'>
+
+  {% if address == customer.default_address %}
+    <div class="mb1">
+      <span class="small ttu boxed">Default Address</span>
+    </div>
+  {% endif %}
+
+  <div class="account__address-info f fdr jcb">
+    <p class='account__address-name block m0'>{{ address.name }} <br>
+    {{ customer.email }} <br>
+    {% if address.phone != '' %}{{ address.phone }}{% endif %}
+    
+    </p>
+
+    <div class='account__address-address mb3'>
+      <p>
+        {% if address.company %}{{ address.company }}<br />{% endif %}
+        {{ address.street }}<br />
+        {{ address.city | capitalize }}{% if address.province %}, {{ address.province | upcase }} {% endif %} {{ address.zip | upcase }}<br />
+        {{ address.country }}<br />
+ 
+      </p>
+    </div>
+
+    {% if edit %}
+      <div class='account-address__footer mt05 f fdr small'>
+        <button class='button--reset underline' onclick='slater.toggleForm({{address.id}})'>Edit</button>
+        <button class='button--reset underline' onclick='slater.removeAddress({{address.id}})'>Delete</button>
+      </div>
+    {% endif %}
+  </div>
+</div>

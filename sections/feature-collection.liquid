@@ -1,0 +1,37 @@
+{% assign collection = collections[section.settings.collection] %}
+
+<div class='collection mt2 pb2 x y tac section-{{ section_number }} js-home-fade'>
+  <h3 class='serif px05 pl2 pr2'>{{section.settings.title}}</h3>
+  <div class="collection__wrapper container--l x mxa y f fw fdr jcc">     
+    {% for product in collection.products %}
+        {% include 'collection-item' %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Featured collection",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured collection",
+        "category": "homepage"
+      }
+    ]
+  }
+
+{% endschema %}
+

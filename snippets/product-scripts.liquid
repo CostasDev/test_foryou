@@ -1,0 +1,40 @@
+<script class='js-inventory' type='application/json'>
+    {
+    "variants": [
+        {% unless product.has_only_default_variant %}
+        {% for variant in product.variants %}
+            {
+            "id": {{ variant.id | json }},
+            "inventory_quantity": {{ variant.inventory_quantity | json }},
+            "inventory_policy": {{ variant.inventory_policy | json }},
+            "incoming": {{ variant.incoming | json }},
+            "next_incoming_date": {{ variant.next_incoming_date | date: '%B %-d' | json }}
+            }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+        {% endunless %}
+    ]
+    }
+</script>
+
+<script class='js-meta' type='application/json'>
+    {
+    "variants": [
+        {% unless product.has_only_default_variant %}
+        {% for variant in product.variants %}
+            {
+                "id": {{ variant.id | json }},
+                "title": "{{ variant.option1 }}"
+            }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+        {% endunless %}
+        ]
+    }
+</script>
+
+<script class='js-product-json' type='text/template'>
+    {
+    "selectedOrFirstAvailableVariant": {{ current_variant.id | json }},
+    "product": {{ product | json }},
+    "variants": {{ product.variants | json }}
+    }
+</script>

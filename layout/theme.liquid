@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang='{{ shop.locale }}'>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <link rel='canonical' href='{{ canonical_url }}'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <meta name="google-site-verification" content="KlEJvPmismKAws4TXKtvKjKPMWCgJl6etIyJdR1mQZk" />
+    <meta name="p:domain_verify" content="99d2194cea6357b7e567ec8d01edd309"/>
+    <meta http-equiv="Content-Security-Policy" content="default-src *.crazyegg.com; font-src *; media-src * data:; worker-src blob:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline'; img-src * data: 'unsafe-inline'; connect-src * 'unsafe-inline'; frame-src *;">
+    
+    {% if template contains 'search' %}
+    <meta name="robots" content="noindex">
+    {% endif %}
+
+    {% if handle contains 'redemption' %}
+    <meta name="robots" content="noindex">
+    {% endif %}
+    
+    {% if settings.favicon != blank %}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
+    {% endif %}
+
+    {% capture seo_title %}
+      {{ page_title }}
+      {% if current_tags %}
+        {%- assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags -}}
+      {% endif %}
+      {% if current_page != 1 %}
+        &ndash; {{ 'general.meta.page' | t: page: current_page }}
+      {% endif %}
+      {% unless page_title contains shop.name %}
+        &ndash; {{ shop.name }}
+      {% endunless %}
+    {% endcapture %}
+    <title>{{ seo_title }}</title>
+
+    {% include 'head-meta' %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.js"></script>
+    {{ 'fonts.css' | asset_url | stylesheet_tag }}
+    {{ 'index.css' | asset_url | stylesheet_tag }}
+
+    {% if template.directory == 'customers' %}
+      <script src="{{ 'shopify_common.js' | shopify_asset_url }}" defer='defer'></script>
+    {% endif %}
+
+    <script>
+      window.theme = {
+        strings: {
+          addToCart: "{{ 'products.product.add_to_cart' | t }}",
+          soldOut: "{{ 'products.product.sold_out' | t }}",
+          unavailable: "{{ 'products.product.unavailable' | t }}"
+        },
+        moneyFormat: "{{ shop.money_format }}"
+      }
+    </script>
+
+    {{ content_for_header }}
+    <script src="https://cdn-widgetsrepository.yotpo.com/v1/loader/lmKTv4brjzvrXL7sovn6Ug" async></script>
+</head>
+
+  <body class="rel using-mouse" id="{{ page_title | handle }}" class="template-{{ page.template_suffix }} template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }}">
+    {% comment %} <a class="header__skip-content abs" href="#main__content">Skip to Main Content</a> {% endcomment %}
+   {% include 'slide-cart' %}
+   {% section 'header' %}
+    <main role='main' id='root'>
+      <div class="header__spacer x rel"></div>
+      <div class="main__wrapper" id="main__content" name="main__content" tabindex="-1">
+      {{ content_for_layout }}
+      {% section 'footer' %} 
+      </div>
+    </main>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ 'index.js' | asset_url }}" defer='defer'></script>
+    {% include 'footer-javascript' %}
+
+    {{ 'subscriptions-style-overrides.css' | asset_url | stylesheet_tag }}
+  </body>
+</html>

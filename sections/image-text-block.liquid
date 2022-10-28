@@ -1,0 +1,70 @@
+<div data-section-type="grid-text-block">
+  <div class="grid-text-container">
+    <div class="grid-media">
+      <img class="lazyload small--hide" data-src="{{ section.settings.image | img_url: '2048x' | crop: 'center' }}" alt="{{ section.settings.title }}"/>
+      <img class="lazyload medium-up--hide" data-src="{{ section.settings.mobile_image | img_url: '2048x' | crop: 'center' }}" alt="{{ section.settings.title }}"/>
+    </div>
+    {% for block in section.blocks %}
+      <div class="grid-text-item">
+        <div class="info">
+          {% if forloop.index == 1 %}
+            <div class="contnent">
+              <h2>{{block.settings.title}}</h2>
+              {{block.settings.text}}
+            </div>
+          {% else %}
+            <h2>{{block.settings.title}}</h2>
+            {{block.settings.text}}
+          {% endif %}
+          
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Grid text block",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "text",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name":"Grid text block"
+    }
+  ]
+}
+{% endschema %}

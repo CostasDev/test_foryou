@@ -1,0 +1,37 @@
+{% assign collection = collections[section.settings.collection] %}
+
+<div class='collection pt2 pb2 x y tac section-{{ section_number }}'>
+  <h2 class='serif px05'>{{section.settings.title}}</h2>
+  <div class="collection__wrapper container--l x mxa y f fw fdr jcc">     
+    {% for product in collection.products %}
+        {% include 'collection-item' %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Marketing Page",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured collection",
+        "category": "homepage"
+      }
+    ]
+  }
+
+{% endschema %}
+

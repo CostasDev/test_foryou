@@ -1,0 +1,50 @@
+<div class='container--xl mha px2 js-home-fade'>
+  <div class='home__about  f jcb aic'>
+    <div class='home__about-block'>
+      <img class='fill-h px2 lazyload' data-src="{{ section.settings.image | img_url: '800x' }}" alt="{{ section.settings.image.alt | escape }}" />
+    </div>
+    <div class='home__about-block container--a mha line-break'>
+      <h3 class='serif'>{{section.settings.title}}</h3>
+      <p class='sans pr1'>{{section.settings.description}}</p>
+      <a href="/pages/about" class='f jcs aic bold inline-block link__arrow'>
+        {{section.settings.ctaCopy}}
+        {% include 'icon' with 'arrow-right' %}
+      </a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Our Story",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "It started as a conversation"
+      },
+      {
+        "id": "description",
+        "type": "text",
+        "label": "Description",
+        "default": "How a topic once only whispered about became a company dedicated to comfort and care for all."
+      },
+      {
+        "id": "ctaCopy",
+        "type": "text",
+        "label": "CTA Copy",
+        "default": "Our Story"
+      }
+    ],
+    "presets": [{
+      "name": "Our Story",
+      "category": "homepage"
+    }]
+  }
+{% endschema %}

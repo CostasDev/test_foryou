@@ -1,0 +1,53 @@
+<div class='product__options rel f fdr' {% if variants_count > 1 %} {% else %} style="display:none" {% endif %} >
+  {% for option in product.options_with_values %}
+        <div class='product__radio'>
+          <div class='product__radio-wrapper'>
+            {% comment %} <label class="product__radio-title p-category uppercase">{{ option.name }}</label> {% endcomment %}
+            <div class='radio-group f aic' data-option-radio data-index={{ forloop.index0 }}>
+              {% for value in option.values %}
+                {% if option.selected_value == value %}
+                {% assign checked = true %}
+                {% else %}
+                {% assign checked = false %}
+                {% endif %}
+
+               {%
+                  include 'product-radio-options' with
+                  label: value,
+                  value: value,
+                  name: option.name,
+                  checked: checked,
+                %} 
+
+              {% endfor %}
+            </div>
+          </div>
+     
+        </div> 
+  {% endfor %}
+</div>
+
+
+
+  <!-- Variant -->
+
+{%- capture options_variants -%}
+  {% for variant in product.variants %}
+    <option value='{{ variant.id }}'
+      {% if variant == product.selected_or_first_available_variant %}selected{% endif %}
+      {% unless variant.available %}disabled{% endunless %}>{{ variant.title }}</option>
+  {% endfor %}
+{%- endcapture -%}
+
+<div style="display: none">
+  {%
+    include 'component-select' with
+    name: 'id',
+    options: options_variants,
+    attributes: 'data-option-main',
+    className: 'none',
+    selectorClass: 'h6 caps semi'
+  %}
+</div>
+
+

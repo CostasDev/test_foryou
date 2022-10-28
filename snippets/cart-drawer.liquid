@@ -1,0 +1,39 @@
+<section class='cart-drawer-outer fix x y z10' data-component='cartDrawer'>
+  <div class='cart-drawer-overlay abs x y js-overlay'></div>
+  <div class='cart-drawer fill-x abs top right bottom bg-w js-drawer f'>
+    <header class='cart-drawer__header x abs z2 top left f aic fdc pt05 pb05'>
+        <button class='cart-drawer__close abs left button--reset js-close pl1 mt05'>
+          {% include 'icon' with 'chevron-left' %}
+        </button>
+        <p class='cart-drawer__title serif mv0 tac x'>Your Bag</p>
+        <p class="cart-drawer__shipping px1 tac bg-lightbeige x mb0">Free shipping on all domestic orders!</p>
+    </header>
+    <div class='cart-drawer__items x fill-y pl15 pr15 mt1'>
+      <div class='js-shipping rel x'></div>
+      <div class='js-items rel x'>
+        <div class='abs fill'>
+          <svg viewBox="0 0 100 86" class='loader abs fill mxa cg'>
+            <use xlink:href="#logo"></use>
+          </svg>
+        </div>
+      </div>
+      <footer class='cart-drawer__footer abs bottom left px15 x active'>
+      <div class="cart-drawer__checkout-wrapper">
+        <div class='x'>
+          <div class='js-sub x'></div>
+        </div>
+
+        <div style="margin: 0 0 5px 0; min-height: 20px; color:#000000;">	
+          <quadpay-widget size="85%"logoSize="75%"	min="25" 	logoColor="#000" logoTextColor="#fff" amountSelector=".js-sub" amount={{ cart.total_price | divided_by: 100.00 }}></quadpay-widget>	
+        </div>      
+
+        <div class='mt1 x'>
+          <a class="x btn btn__checkout btn_black bold tac ttu js-prefill-url" href="/checkout">Checkout</a>
+        </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</section>
+
+

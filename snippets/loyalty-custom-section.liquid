@@ -1,0 +1,32 @@
+{% comment %} <section class="loyalty-custom-section">
+	<div class="custom-section-bg"></div>
+
+	<div></div>
+	<div class="loyalty-main-cont">
+		<h1>Fur Rewards</h1>
+
+		<h5>As a rewards member, you’ll get closer to earning exclusive rewards every time you shop.</h5>
+
+		<div class="sign-btn-container">
+			<a class="sign-btn-up" href="https://furyou.com/account/register">Sign Up</a>
+			<a class="sign-btn-in" href="https://furyou.com/account/login">Sign In</a>
+		</div>
+	</div>
+	<div></div>
+	<div></div>
+</section> {% endcomment %}
+
+
+    <div class='rewards__hero rel' style="background-image: url({{ 'loyalty-custom-section-bg.jpg' | asset_url }})" alt="Image of Fur gifts">
+     <div class="rewards__hero-overlay fill"></div>
+
+      <div class='z2 tac'>
+        <h1 class='serif cw tac container--l mha'>Fur Rewards</h1>
+        <p class='h5 m0 cw tac container--i mha mt05 pl2 pr2  pb1'>As a rewards member, you’ll get closer to earning exclusive rewards every time you shop.</p>
+
+		<div class="sign-btn-container">
+        <a class='btn mt1 mx05' role='button' href="/account/register" itemprop="url" aria-label="{{ hero.cta }}">SIGN UP</a>
+		<a class='btn mt1 mx05' role='button' href="/account/login" itemprop="url" aria-label="{{ hero.cta }}">SIGN IN</a>
+		</div>
+      </div>
+    </div>

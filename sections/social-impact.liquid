@@ -1,0 +1,66 @@
+<div class="hero--new t f fw jcb hero__small tac" style="background-image: url('{{ section.settings.bg_image | img_url: '2000x' }}')" alt="{{ section.settings.bg_image.alt | escape }}">
+  <div class="hero__image-overlay"></div>
+  <h1 class='cw serif container--m mha rel z1'>{{ section.settings.impact_title }}</h1>
+</div>
+
+<div class="impact outer--v bg-lightbeige px2 tac">
+    <div class='impact-intro cb container--mm mha pt2 pb2 line-break'>
+        <h2 class='container--m mha mb05'>Fur stands for <span class="italic-serif">everybody</span><br> and every body.</h2>
+        <p>Fur believes in freedom. Whether that’s freedom of choice, or freedom from systematic oppression, we believe it’s our responsibility to advocate for our communities. We will always stand for inclusivity & body positivity, and we will continue to put our money where our mouth is. Find our past initiatives below:</p>
+    </div>
+    <div class='impact-content cb f jcc ais'>
+        <div class="impact-column impact-column-l line-break">
+            <h3 class='impact-title serif mb05 demi'>Reproductive<br>Rights For All</h2>
+            <p>In May of 2019, Alabama sought to pass one of the most restrictive abortion laws in the nation.  At Fur, we’re proud to support everyone’s right to make their own choices about their bodies. Whether that’s pubic hair or reproductive rights, no one should be able to diminish your choice in any way. We <a class="c-gold bold" href="https://thehill.com/homenews/state-watch/444739-female-ceos-place-full-page-nyt-ad-in-support-of-abortion-rights" target="_blank">joined forces</a> with other female-owned brands to take out a spread in the New York Times condemning the move, as well as asking other corporations to join us in the fight.</p>
+            <p>In addition, we donated $1 for every like and comment on <a class="c-gold bold" target="_blank" href="https://www.instagram.com/p/BxujxbdnVxI/">our post</a> about the spread to the <a class="c-gold bold" target="_blank" href="https://yellowhammerfund.org/">Yellowhammer Fund</a>, a nonprofit organization aiding pro-choice activists and those seeking safe abortions in Alabama.</p>
+        </div>
+        <div class="impact-column impact-column-r line-break">
+            <h3 class='impact-title mb05 demi'>Black Lives<br> Matter</h2>
+            <p>In June of 2020, spurred by the murder of George Floyd by police brutality, we stood alongside Black members of our community and condemned systematic racism and oppression in America. We initially donated a lump sum to the <a class="c-gold bold" target="_blank" href="https://www.naacpldf.org/">NAACP Legal Defense Fund</a> and <a class="c-gold bold" target="_blank" href="https://bailproject.org/">The Bail Project</a>, and used our Instagram to amplify Black-owned businesses and Black artists.</p>
+            
+            <p>However, we knew that we needed to go further, and set long-term goals as a company. With that in mind, we will be donating 10% of our 2020 profits up to $50,000 to the NAACP Legal Defense Fund and started an employee match program up to $500 per employee annually.</p>
+            <p>Beyond donations, we will continue to prioritize diverse representation at Fur, whether that be in our affiliates, brand partnerships, creative shoots, or vendors. And to pay it forward, our founders Laura Schubert and Lillian Tung will be dedicating time each Friday to assist and advise BIPOC with their business ventures.</p>
+        </div>
+      </div>
+
+        <div class='impact-content cb f jcc ais'>
+        <div class="impact-column impact-column-l line-break">
+            <h3 class='impact-title serif mb05 demi'>COVID-19</h2>
+            <p class='sans'>As we continue to navigate the COVID-19 pandemic both as people and as a business, we will continue to focus on how we can help. A week into the pandemic’s beginnings in the US, we gave away over 500 Fur Oils to front line healthcare workers, who are fighting to keep us all safe and healthy.We are planning to release more as soon as supplies become available. </p>
+            <p>We also partnered with <a class="c-gold bold" href="https://www.thebeautyunited.org/">BeautyUnited</a>, a campaign of solidarity and shared humanity alongside  Violet Grey, BEAUTYCON, BeautyCounter, GOOP, Anastasia Beverly Hills, Beauty Blender and more, to create care packages for frontline workers at the Javits Center— which, starting on March 30th, 2020, was operating as a 3,500 bed hospital for coronavirus patients. </p>
+        </div>
+        <div class="impact-column impact-column-r line-break">
+            <h3 class='impact-title mb05 demi'>Stop AAPI Hate</h2>
+            <p class='sans'>On March 1, our co-founder and CMO Lillian Tung shared her thoughts on the rising violence towards AAPI people in the US and why we as a brand condemn the hate. Then, just two weeks later on March 16, eight people were killed in Atlanta—six of whom were Asian—in a racially-motivated mass shooting.</p>
+
+            <p>In light of that, we felt it was crucial to show our support. Every week in the month of April 2021, we donated to a different charity or organization that is working to advance the rights and safety of AAPI people. Here is the full list of charities and organizations we supported:</p>
+
+            <p>
+            <a class="c-gold bold" href="https://stopaapihate.org/">#StopAsianHate AAPI Community Fund</a> <br>
+            <a class="c-gold bold" href="https://www.advancingjustice-aajc.org/">Asian Americans Advancing Justice</a><br>
+            <a class="c-gold bold" href="https://www.napawf.org/">National Asian Pacific American Women’s Forum</a><br>
+            <a class="c-gold bold" href="https://www.heartofdinner.org/">Heart of Dinner</a>
+            </p>
+        </div>
+    </div>
+    <div class='impact-footer container--i mha ac pb2 mt2 line-break'>
+        <p class='sans'>Have an additional initiative in mind that you don’t see here? Please reach out to us at <a class="c-gold bold" href="mailto:hello@furyou.com">hello@furyou.com.</a></p>
+    </div>
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "Social Impact",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "bg_image",
+        "label": "Impact Hero Background Image"
+      }
+    ]
+  }
+{% endschema %}
+
+
